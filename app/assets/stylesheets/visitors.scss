@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+.vitrina {
+  background-image: image-url("frentevitrina2.jpg");
+  background-size: cover;
+  height: 500px;
+  @extend .jumbotron;
+  @extend .mb-0;
+ }
+
+.financiacion {
+  background-image: image-url("sellingcar.jpg");
+  background-size: cover;
+  height: 450px;
+  @extend .jumbotron;
+  @extend .mb-0;
+}
