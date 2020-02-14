@@ -1,1 +1,98 @@
-<h1>Esto es sobre nosotros</h1>
+<h1>Sobre Nosotros</h1>
+<!--Foto de la feria con una descripcion de quienes somos-->
+
+<!--Visitanos-->
+<div class="bg-light pb-4">
+  <div class="pt-5 pb-4">
+    <h2 class="text-center font-weight-bold">Visítanos</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!--Column 1-->
+      <div class="col-sm">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Retomautos Selection</h5>
+            <address class="card-text">Carrera 15 # 103-24<br>
+              Chicó, Bogotá<br>
+              Colombia
+            </address>
+            <div id="map-selection" style="height: 400px; width: 100%"></div>
+            <div class="container">
+              <div class="row pt-3 text-center">
+                <div class="col-sm pb-3 pb-md-0">
+                  <a href="https://goo.gl/maps/BT3TerDdVfRPZEPA7" title="Google Maps">
+                    <%= image_tag 'google_maps.png', alt: 'Logo Google Maps', style: 'height: 30px;' %>
+                    &nbsp;
+                    <span>Llévame con Maps</span>
+                  </a>
+                </div>
+                <div class="col-sm">
+                  <a href="https://www.waze.com/ul?place=ChIJIckC18ubP44RM6cCBsRE_0w&ll=4.68803390%2C-74.04714040&navigate=yes" title="Waze">
+                    <%= image_tag 'waze_logo.png', alt: 'Logo Waze', style: 'height: 30px;' %>
+                    &nbsp;
+                    <span>Llévame con Waze</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END Column 1-->
+
+      <!--Column 2 -->
+      <div class="col-sm">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Retomautos AyG S.A.S.</h5>
+            <address class="card-text">Calle 105A # 14-41<br>
+              Chicó, Bogotá<br>
+              Colombia
+            </address>
+            <div id="map-house" style="height: 400px; width: 100%"></div>
+            <div class="container">
+              <div class="row pt-3 text-center">
+                <div class="col-sm pb-3 pb-md-0">
+                  <a href="https://goo.gl/maps/tEzmYZvcS1TvSBMs9" title="Google Maps">
+                    <%= image_tag 'google_maps.png', alt: 'Logo Google Maps', style: 'height: 30px;' %>
+                    &nbsp;
+                    <span>Llévame con Maps</span>
+                  </a>
+                </div>
+                <div class="col-sm">
+                  <a href="https://www.waze.com/ul?place=ChIJrcH5T7yaP44RvuMWpK5hajk&ll=4.68906690%2C-74.04547560&navigate=yes" title="Waze">
+                    <%= image_tag 'waze_logo.png', alt: 'Logo Waze', style: 'height: 30px;' %>
+                    &nbsp;
+                    <span>Llévame con Waze</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END Column 2 -->
+    </div>
+  </div>
+</div>
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // Retomautos Selection
+        var retomautos_selection = {lat: 4.688071, lng: -74.047168};
+        var map_selection = new google.maps.Map(
+            document.getElementById('map-selection'), {zoom: 17, center: retomautos_selection});
+        var marker = new google.maps.Marker({position: retomautos_selection, map: map_selection});
+
+        // Retomautos Casa
+        var retomautos_house = {lat: 4.689062, lng: -74.045493};
+        var map_house = new google.maps.Map(
+            document.getElementById('map-house'), {zoom: 17, center: retomautos_house});
+        var marker = new google.maps.Marker({position: retomautos_house, map: map_house});
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD7KUaG-hvw1jIpCx12Wp4M4y7Vw1oTdI&callback=initMap">
+</script>

@@ -16,9 +16,9 @@
     </head>
 
     <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-gray-100 pt-0 pb-0 navbar-shadow">
         <a class="navbar-brand" href="/">
-          <%= image_tag 'logoretomautos.JPG', alt: 'Logo Retomautos', width: '200px', height: '80px'%>
+          <%= image_tag 'logo_retomautos_sin_bg.png', alt: 'Logo Retomautos', height: '70px'%>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -49,10 +49,40 @@
       <%= yield %>
 
       <!-- Footer -->
-      <footer class="bg-primary">
+      <footer class="bg-dark">
         <!-- Copyright -->
-        <div class="text-white-50 text-center py-3">© Retomautos 2020</div>
-        <!-- Copyright -->
+        <div class="container">
+          <div class="row">
+            <div class="col-sm pt-3">
+              <%= image_tag 'logo_bnw.png', alt: 'Logo Retomautos', height: '70px' %>
+            </div>
+            <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
+              <p>retomautos@retomautos.com</p>
+              <p>+57(1) 6211802 - 5215383</p>
+              <address>Carrera 15 # 103-24<br>
+              Calle 105A # 14-41<br>
+              Chicó, Bogotá, Colombia</address>
+            </div>
+            <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
+              <div class="business-hours">
+                <p class="title">Horarios de atención</p>
+                <div class="day-hour-pair">
+                  <div class="day">Lunes - Viernes</div>
+                  <div class="hour">9am-5:30pm</div>
+                </div>
+                <div class="day-hour-pair">
+                  <div class="day">Sábados</div>
+                  <div class="hour">9am-5pm</div>
+                </div>
+                <div class="day-hour-pair">
+                  <div class="day">Domingos y festivos</div>
+                  <div class="hour">9am-5pm</div>
+                </div>
+              </div>
+              <p class="text-white-50 pt-2">© Retomautos 2020</p>
+            </div>
+          </div>
+        </div>
       </footer>
       <!-- Footer -->
     </body>
