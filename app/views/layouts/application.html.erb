@@ -37,6 +37,14 @@
                 <%= link_to 'Sobre Nosotros', sobre_nosotros_path, class: 'nav-link'  %>
               </li>
             </ul>
+
+            <div class="form-inline text-muted">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+573108564515">(+57) 310-856-4515</a>
+              <span>&nbsp;|&nbsp;</span>
+              <a href="tel:+5716211802">(+571) 621-1802</a>
+            </div>
+
           </div>
         </div>
       </nav>
@@ -50,24 +58,30 @@
           <div class="row">
             <div class="col-sm pt-3">
               <%= image_tag 'logo_bnw.png', alt: 'Logo Retomautos', height: '70px' %>
-              <div class="row pt-3">
-                <a href="https://www.instagram.com/retomautos/?hl=en" title="Instagram">
-                  <%= image_tag 'instagram3.png', alt: 'Logo Instagram', height: '35px'%>
+              <div class="pt-3">
+                <a href="mailto:retomautos@retomautos.com" class="text-light">retomautos@retomautos.com</a>
+              </div>
+
+              <div class="pt-3 social-icons">
+                <a href="https://www.instagram.com/retomautos/?hl=en" title="Instagram" class="text-light">
+                  <i class="fab fa-instagram"></i>
                 </a>
                 &nbsp;
-                <a href="https://www.facebook.com/retomautos/" title="Facebook">
-                  <%= image_tag 'facebook2.png', alt: 'Logo Facebook', height: '35px'%>
+                <a href="https://www.facebook.com/retomautos/" title="Facebook" class="text-light">
+                  <i class="fab fa-facebook-square"></i>
                 </a>
               </div>
             </div>
-            <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
-              <p>retomautos@retomautos.com</p>
-              <p>+57(1) 6211802 - 5215383</p>
+            <div class="col-sm text-light pl-2 pb-0 pt-3">
+              <div><a href="tel:+573108564515" class="text-light">(+57) 310-856-4515</a></div>
+              <div><a href="tel:+573102067221" class="text-light">(+57) 310-206-7221</a></div>
+              <div><a href="tel:+5716211802" class="text-light">(+571) 621-1802</a></div>
+              <br>
               <address class="mb-0"><strong>Selection: </strong>Carrera 15 # 103-24</address>
               <address class="mb-0"><strong>Retomautos: </strong> Calle 105A # 14-41</address>
               <address class="mb-0">Chicó, Bogotá, Colombia</address>
             </div>
-            <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
+            <div class="col-sm text-light pl-2 pb-0 pt-3">
               <div class="business-hours">
                 <p class="title">Horarios de atención</p>
                 <div class="day-hour-pair">
@@ -83,7 +97,7 @@
                   <div class="hour">9am-5pm</div>
                 </div>
               </div>
-              <p class="text-white-50 pt-3">© Retomautos 2020</p>
+              <p class="pt-4">© Retomautos 2020</p>
             </div>
           </div>
         </div>
