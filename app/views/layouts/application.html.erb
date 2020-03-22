@@ -17,32 +17,27 @@
 
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-gray-100 pt-0 pb-0 navbar-shadow">
-        <a class="navbar-brand" href="/">
-          <%= image_tag 'logo_retomautos_sin_bg.png', alt: 'Logo Retomautos', height: '70px'%>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <%= image_tag 'logo_retomautos_sin_bg.png', alt: 'Logo Retomautos', height: '70px'%>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contáctanos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sobre Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Galería</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Financiación</a>
-            </li>
-
-          </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to 'Inicio', root_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Financiación', financiacion_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sobre Nosotros', sobre_nosotros_path, class: 'nav-link'  %>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
 
@@ -55,13 +50,22 @@
           <div class="row">
             <div class="col-sm pt-3">
               <%= image_tag 'logo_bnw.png', alt: 'Logo Retomautos', height: '70px' %>
+              <div class="row pt-3">
+                <a href="https://www.instagram.com/retomautos/?hl=en" title="Instagram">
+                  <%= image_tag 'instagram3.png', alt: 'Logo Instagram', height: '35px'%>
+                </a>
+                &nbsp;
+                <a href="https://www.facebook.com/retomautos/" title="Facebook">
+                  <%= image_tag 'facebook2.png', alt: 'Logo Facebook', height: '35px'%>
+                </a>
+              </div>
             </div>
             <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
               <p>retomautos@retomautos.com</p>
               <p>+57(1) 6211802 - 5215383</p>
-              <address>Carrera 15 # 103-24<br>
-              Calle 105A # 14-41<br>
-              Chicó, Bogotá, Colombia</address>
+              <address class="mb-0"><strong>Selection: </strong>Carrera 15 # 103-24</address>
+              <address class="mb-0"><strong>Retomautos: </strong> Calle 105A # 14-41</address>
+              <address class="mb-0">Chicó, Bogotá, Colombia</address>
             </div>
             <div class="col-sm text-white-50 pl-2 pb-0 pt-3">
               <div class="business-hours">
@@ -79,7 +83,7 @@
                   <div class="hour">9am-5pm</div>
                 </div>
               </div>
-              <p class="text-white-50 pt-2">© Retomautos 2020</p>
+              <p class="text-white-50 pt-3">© Retomautos 2020</p>
             </div>
           </div>
         </div>

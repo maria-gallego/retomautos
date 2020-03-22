@@ -1,99 +1,181 @@
 <!-- Fold -->
 <div class="vitrina">
-  <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <div class="jumbotron container">
+    <h1 class="display-4">Bienvenido a Retomautos</h1>
+    <p class="lead">Tenemos los mejores usados del mercado, con precios muy competitivos, <br>facilidades para financiación, y agilidad en los trámites.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-vitrina btn-lg danger" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"
-       target="_blank">Contáctanos</a>
+    <a class="btn btn-vitrina btn-lg" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"
+       target="_blank">Quiero comprar</a>
   </div>
 </div>
 <!-- END Fold -->
 
 <!-- Nuestros Carros -->
 <div class="bg-light">
-  <div class="pt-5 pb-4">
-    <h2 class="text-center font-weight-bold"> Nuestros Carros</h2>
-  </div>
-
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <!--Slide 1-->
-      <div class="carousel-item active">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0535.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0606.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0714.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0861.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--End Slide 1-->
-
-      <!--Slide 2-->
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0904.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_0960.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1016.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1276.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--End Slide 2-->
-
-      <!--Slide 3-->
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1353.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1376.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1441.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-            <div class="col-sm">
-              <%= image_tag 'fotos_tu_carro/IMG_1779.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--End Slide 3-->
-
+  <div class="container">
+    <div class="pt-5">
+      <h2 class="text-center font-weight-bold text-dark"> Nuestros Carros</h2>
+      <h5 class="pl-4 pt-3 text-muted">Encuentra aquí los mejores vehículos usados multimarca del mercado. Nos especializamos en vehículos gama alta y gama media.</h5>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
+
+  <div class="container">
+    <div id="carouselExampleControls" class="carousel slide text-muted" data-ride="carousel">
+      <div class="carousel-inner">
+
+        <!--Slide 1-->
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row pb-4 pt-4">
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_0535.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW M4</h5>
+                    <p>2018 | Coupé</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_0606.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW 120i</h5>
+                    <p>2019 | Tp Comfort</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_0714.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW X3
+                      <span class="sold-badge">Vendido</span>
+                    </h5>
+                    <p>2017 | 35i Xdrive Tp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_0861.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW 530i</h5>
+                    <p>2018 | Tp</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Slide 1-->
+
+        <!--Slide 2-->
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row pb-4 pt-4">
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1874.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Mercedes Benz CLA</h5>
+                    <p>2019 | 180 Tp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_0960.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Audi Q5</h5>
+                    <p>2019 | 45 Tfsi</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1016.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Mini Cooper S</h5>
+                    <p>2018 | 5p</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1276.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Peugeot 308</h5>
+                    <p>2010 | Automático</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Slide 2-->
+
+        <!--Slide 3-->
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row pb-4 pt-4">
+
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1353.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW 420</h5>
+                    <p>2018 | Gran Coupé Sport</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1376.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">BMW M240
+                      <span class="sold-badge">Vendido</span></h5>
+                    <p>2019 | Convertible Tp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/tucson.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Hyundai Tucson
+                      <span class="sold-badge">Vendido</span></h5>
+                    <p>2011 | Ix 35 4x4</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="card sombra_cuadros">
+                  <%= image_tag 'fotos_tu_carro/IMG_1779.jpg', alt: 'DTP988', class: 'd-block w-100 img-fluid' %>
+                  <div class="card-body pb-0">
+                    <h5 class="card-title">Audi A6
+                      <span class="sold-badge">Vendido</span></h5>
+                    <p>2012 | 2.8 Tp</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Slide 3-->
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
 
   <div class="text-center pt-4 pb-4">
     <a class="btn btn-primary btn-lg" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"
@@ -153,13 +235,12 @@
 <!-- END Nuestras Marcas -->
 
 <!--Financiacion-->
-<div>
-  <div class="jumbotron financiacion">
+<div class="financiacion">
+  <div class="jumbotron container">
     <h1 class="display-4 pb-2">Financiación</h1>
-    <p class="lead">Analiza las opciones para comprar el carro de tus sueños</p>
+    <p class="lead">Tenemos las mejores opciones de financiación. Analiza las opciones y calcula tu cuota.</p>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"
-       target="_blank">Más información</a>
+    <%= link_to 'Más información', financiacion_path, class: 'btn btn-primary btn-lg'  %>
   </div>
 </div>
 <!--END Financiacion-->
@@ -167,28 +248,34 @@
 <!--Visitanos-->
 <div class="bg-light pb-4">
   <div class="pt-5 pb-4">
-    <h2 class="text-center font-weight-bold">Visítanos</h2>
+    <h2 class="text-center text-dark font-weight-bold">Visítanos</h2>
   </div>
+
+  <div class="container">
+    <h5 class="class= text-secondary pb-4">Tenemos dos salas de ventas ubicadas a dos cuadras entre sí. Estamos ubicados en el corazón de Bogotá, a pocas cuadras de la glorieta de la Calle 100 con Carrera 15.</h5>
+  </div>
+
   <div class="container">
     <div class="row">
       <!--Column 1-->
       <div class="col-sm">
-        <div class="card">
+        <div class="card sombra_cuadros">
           <div class="card-body">
             <h5 class="card-title text-center">Retomautos Selection</h5>
-            <address class="card-text">Carrera 15 # 103-24, Chicó, Bogotá, Colombia, 110111</address>
+            <p class="text-muted mb-0">La mejor selección de gama alta.</p>
+            <address class="card-text text-muted">Carrera 15 # 103-24, Chicó, Bogotá, Colombia</address>
             <div id="map-selection" style="height: 400px; width: 100%"></div>
             <div class="container">
               <div class="row pt-3 text-center">
                 <div class="col-sm pb-3 pb-md-0">
-                  <a href="https://goo.gl/maps/BT3TerDdVfRPZEPA7" title="Google Maps">
+                  <a href="https://goo.gl/maps/BT3TerDdVfRPZEPA7" title="Google Maps" target="_blank">
                     <%= image_tag 'google_maps.png', alt: 'Logo Google Maps', style: 'height: 30px;' %>
                     &nbsp;
                     <span>Llévame con Maps</span>
                   </a>
                 </div>
                 <div class="col-sm">
-                  <a href="https://www.waze.com/ul?place=ChIJIckC18ubP44RM6cCBsRE_0w&ll=4.68803390%2C-74.04714040&navigate=yes" title="Waze">
+                  <a href="https://www.waze.com/ul?place=ChIJIckC18ubP44RM6cCBsRE_0w&ll=4.68803390%2C-74.04714040&navigate=yes" title="Waze" target="_blank">
                     <%= image_tag 'waze_logo.png', alt: 'Logo Waze', style: 'height: 30px;' %>
                     &nbsp;
                     <span>Llévame con Waze</span>
@@ -203,22 +290,23 @@
 
       <!--Column 2 -->
       <div class="col-sm">
-        <div class="card">
+        <div class="card sombra_cuadros">
           <div class="card-body">
-            <h5 class="card-title">Retomautos AyG S.A.S.</h5>
-            <address class="card-text">Calle 105A # 14-41, Chicó, Bogotá, Colombia, 110111</address>
+            <h5 class="card-title text-center">Retomautos AyG S.A.S.</h5>
+            <p class="text-muted mb-0">Una amplia selección de gama media y alta.</p>
+            <address class="card-text text-muted">Calle 105A # 14-41, Chicó, Bogotá, Colombia</address>
             <div id="map-house" style="height: 400px; width: 100%"></div>
             <div class="container">
               <div class="row pt-3 text-center">
                 <div class="col-sm pb-3 pb-md-0">
-                  <a href="https://goo.gl/maps/tEzmYZvcS1TvSBMs9" title="Google Maps">
+                  <a href="https://goo.gl/maps/tEzmYZvcS1TvSBMs9" title="Google Maps" target="_blank">
                     <%= image_tag 'google_maps.png', alt: 'Logo Google Maps', style: 'height: 30px;' %>
                     &nbsp;
                     <span>Llévame con Maps</span>
                   </a>
                 </div>
                 <div class="col-sm">
-                  <a href="https://www.waze.com/ul?place=ChIJrcH5T7yaP44RvuMWpK5hajk&ll=4.68906690%2C-74.04547560&navigate=yes" title="Waze">
+                  <a href="https://www.waze.com/ul?place=ChIJrcH5T7yaP44RvuMWpK5hajk&ll=4.68906690%2C-74.04547560&navigate=yes" title="Waze" target="_blank">
                     <%= image_tag 'waze_logo.png', alt: 'Logo Waze', style: 'height: 30px;' %>
                     &nbsp;
                     <span>Llévame con Waze</span>
