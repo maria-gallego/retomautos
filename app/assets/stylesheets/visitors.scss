@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "color-variables";
 
 .navbar-shadow {
   box-shadow: 0px 9px 20px 0px rgba(0,0,0,0.75);
@@ -12,26 +13,28 @@
 .vitrina {
 
   background-image: image-url("carros_xs.jpg");
-  @media (min-width: 576px) {
-    background-image: image-url("carros.jpg");
-    height: 75vh;
-  }
-
   background-size: cover;
+  height: 75vh;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.25);
   color: $gray-100;
 
-
-  .jumbotron-transparent {
-    @extend .jumbotron;
-    background-color: transparent;
-    margin-bottom: 0px; // WTF?
+  .container  {
+    position: relative;
+    top: 70%;
   }
 
-  .btn-vitrina {
-    color: $white;
-    background-color: #6896c7;
-    border-color: #6896c7;;
+  h1 {
+    font-family: "Oswald";
+  }
+
+  a {
+    color: $contrast-orange;
+  }
+
+
+  @media (min-width: 992px) {
+    background-image: image-url("carros.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35);
   }
  }
 
@@ -61,6 +64,30 @@
 }
 
 
+.why-icons {
+  font-size: xx-large;
+  padding-bottom: 25px;
+}
+
+.why-retomautos {
+  background-color: #070707;
+  background-image: image-url("carro_negro.jpg");
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.50);
+  color: white;
+  .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  @media (min-width: 576px) {
+
+    .container {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+}
+
 // Footer
 .business-hours {
   .title {
@@ -79,3 +106,14 @@
 .social-icons {
   font-size: $h3-font-size;
 }
+
+.brands-logo {
+  filter: grayscale(100%);
+  max-width: 70%;
+}
+
+.blue-background {
+  background-color: #6aa0cfc2
+;
+}
+
