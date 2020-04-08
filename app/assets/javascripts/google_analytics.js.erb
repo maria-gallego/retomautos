@@ -1,9 +1,11 @@
-// https://github.com/turbolinks/turbolinks/issues/73#issuecomment-460028854
+// https://medium.com/@phillipkessels/setting-up-google-analytics-with-rails-5-and-turbolinks-19033b8ba904
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {dataLayer.push(arguments)};
+window.gtag('js', new Date());
 document.addEventListener("turbolinks:load", function(event) {
-    if(typeof(gtag) == "function") {
-        gtag("config", "<%= Rails.application.credentials.google_analytics_id %>", {
-            "page_title": event.target.title,
-            'page_path': event.data.url.replace(window.location.protocol + "//" + window.location.hostname, "")
+    if(typeof(window.gtag) == "function") {
+        window.gtag("config", "<%= GoogleAnalytics::TRACKING_ID %>", {
+            "page_location": event.data.url
         });
     }
 });
