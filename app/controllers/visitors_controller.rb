@@ -16,5 +16,4 @@ class VisitorsController < ApplicationController
                   description: 'Somos una empresa con más de 18 años de experiencia en el mercado de carros usados. Ofrecemos una amplia selección de carros de gama media y alta.',
                   keywords: 'sobre'
   end
-
 end
