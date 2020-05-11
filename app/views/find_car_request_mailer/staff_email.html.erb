@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Solicitud de contacto</h1>
+<p>
+  Este cliente está buscando lo siguiente:
+</p>
+<p>
+  <%= @find_car_request.name %><br/>
+  <%= @find_car_request.email %><br/>
+</p>
+<p>
+  The visitor said:
+</p>
+<p>
+  "<%= @find_car_request.content %>"
+</p>
+</body>
+</html>

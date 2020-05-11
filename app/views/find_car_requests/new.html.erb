@@ -1,2 +1,19 @@
 <h1>FindCarRequests#new</h1>
 <p>Find me in app/views/find_car_requests/new.html.erb</p>
+<div class="form">
+  <%= form_with(model: @find_car_request) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true %>
+    <br/>
+    <br/>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <br/>
+    <br/>
+    <%= form.label 'message' %>
+    <%= form.text_area :content, size: '40x5' %>
+    <br/>
+    <br/>
+    <%= form.submit 'Submit', class: 'submit' %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div class="card sombra_cuadros">
+  <%= link_to car.showcase_video_url, title: "#{car.make} #{car.model} video", target: '_blank' do %>
+    <%= image_tag car.image_url,  alt: "#{car.make} #{car.model}", class: 'd-block w-100 img-fluid' %>
+  <% end %>
+  <div class="card-body pb-0">
+    <h6 class="card-title"><%= "#{car.make} #{car.model}" %>
+      <%= link_to car.showcase_video_url, title: "#{car.make} #{car.model} video", target: '_blank' do %>
+        <i class="fab fa-youtube"></i>
+      <% end %>
+    </h6>
+    <p class="mb-1"><%= "#{car.year} | #{car.additional_information}" %></p>
+    <p><%= link_to 'Más información', car.tu_carro_url, target: '_blank' %></p>
+  </div>
+</div>
