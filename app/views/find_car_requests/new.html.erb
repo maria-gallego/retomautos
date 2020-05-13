@@ -1,19 +1,46 @@
-<h1>FindCarRequests#new</h1>
-<p>Find me in app/views/find_car_requests/new.html.erb</p>
-<div class="form">
-  <%= form_with(model: @find_car_request) do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name, autofocus: true %>
-    <br/>
-    <br/>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-    <br/>
-    <br/>
-    <%= form.label 'message' %>
-    <%= form.text_area :content, size: '40x5' %>
-    <br/>
-    <br/>
-    <%= form.submit 'Submit', class: 'submit' %>
-  <% end %>
+<div class="container mt-4">
+  <h1>Encuentra mi próximo carro</h1>
+  <div class="py-3">
+    <p>Este formulario está creado para ayudarte a encontrar tu próximo carro.</p>
+    <p>La información solo la usaremos para contacterte en caso de que encontremos lo que buscas.</p>
+    <p>Puedes dejarnos tu teléfono si desear se contactado por este medio.</p>
+  </div>
+
+  <div class="form form-group">
+    <%= form_with(model: @find_car_request) do |form| %>
+      <%= form.label :name, 'Nombre' %>
+      <%= form.text_field :name, autofocus: true %>
+      <br/>
+      <br/>
+      <%= form.label :email %>
+      <%= form.email_field :email, placeholder: 'nombre@ejemplo.com' %>
+      <br/>
+      <br/>
+      <%= form.label :phone,'Teléfono' %>
+      <%= form.phone_field :phone %>
+      <br/>
+      <br/>
+      <%= form.label :make,'Marca' %>
+      <%= form.text_field :make %>
+      <br/>
+      <br/>
+      <%= form.label :year_from, 'Modelo entre' %>
+      <%= form.select(:year_from, (1980..1.year.from_now.year), selected: 1.year.ago.year) %>
+      <%= form.label :year_to, ' y ' %>
+      <%= form.select(:year_to, (1980..1.year.from_now.year), selected: Time.now.year) %>
+      <br/>
+      <br/>
+
+      <%= form.label :budget, 'Presupuesto' %> entre
+      <%= form.number_field :budget %> millones y
+      <%= form.number_field :budget %> millones
+      <br/>
+      <br/>
+      <%= form.label :content, 'Mensaje' %>
+      <%= form.text_area :content, size: '40x5' %>
+      <br/>
+      <br/>
+      <%= form.submit 'Enviar', class: 'btn-success' %>
+    <% end %>
+  </div>
 </div>
