@@ -60,23 +60,20 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "retomautos_production"
 
-  config.action_mailer.perform_caching = false
-
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  ActionMailer::Base.smtp_settings = {
-      :user_name => ENV['SENDGRID_USERNAME'],
-      :password => ENV['SENDGRID_PASSWORD'],
-      :domain => 'retomautos.com',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-  }
   # ActionMailer Config
+  config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+      address: "smtp.sendgrid.net",
+      port: 587,
+      domain: Rails.application.credentials.domain_name,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: Rails.application.credentials.sendgrid_account_username,
+      password: Rails.application.credentials.sendgrid_account_password
+  }
   config.action_mailer.default_url_options = { :host => 'retomautos.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
 
 

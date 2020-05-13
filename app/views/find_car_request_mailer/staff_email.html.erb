@@ -6,17 +6,23 @@
 <body>
 <h1>Solicitud de contacto</h1>
 <p>
-  Este cliente está buscando lo siguiente:
+  Datos del cliente:
 </p>
 <p>
   <%= @find_car_request.name %><br/>
   <%= @find_car_request.email %><br/>
+  <%= @find_car_request.phone %><br/>
 </p>
 <p>
-  The visitor said:
+  Carro que busca:
 </p>
 <p>
-  "<%= @find_car_request.content %>"
+  <%= @find_car_request.make %><br/>
+  <%= @find_car_request.year_from %><br/>
+  <%= @find_car_request.year_to %><br/>
+  <%= @find_car_request.budget %><br/>
+  Mensaje
+  "<%= @find_car_request.content %><br/>"
 </p>
 </body>
 </html>

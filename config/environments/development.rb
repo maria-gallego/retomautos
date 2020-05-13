@@ -31,14 +31,8 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.perform_caching = false
 
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = true
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -53,6 +47,23 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # ActionMailer Config
+  config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+      address: "smtp.sendgrid.net",
+      port: 587,
+      domain: Rails.application.credentials.domain_name,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: Rails.application.credentials.sendgrid_account_username,
+      password: Rails.application.credentials.sendgrid_account_password
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  # Send email in development mode?
+  config.action_mailer.perform_deliveries = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
