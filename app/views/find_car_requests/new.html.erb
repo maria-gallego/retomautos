@@ -1,54 +1,85 @@
-<div class="container mt-4">
-  <h2>Encuentra mi próximo carro</h2>
-  <div class="py-3">
-    <p>Este formulario está creado para ayudarte a encontrar tu próximo carro.</p>
-    <p>La información solo la usaremos para contacterte en caso de que encontremos lo que buscas.</p>
-    <p>Puedes dejarnos tu teléfono si desear se contactado por este medio.</p>
-  </div>
+<div class="find_car_style">
+  <div class="container pt-4">
+    <h1>Encuentra mi próximo carro</h1>
+    <div class="py-3">
+      <p class="mb-0">Este formulario está creado para ayudarte a encontrar tu próximo carro.</p>
+      <p class="mb-0">La información solo la usaremos para contacterte en caso de que encontremos lo que buscas.</p>
+      <p>Puedes dejarnos tu teléfono si desear se contactado por este medio.</p>
+    </div>
 
-  <div class="form form-group">
     <%= form_with(model: @find_car_request) do |form| %>
-      <%= form.label :name, 'Nombre' %>
-      <%= form.text_field :name, autofocus: true %>
-      <br/>
-      <br/>
-      <%= form.label :email %>
-      <%= form.email_field :email, placeholder: 'nombre@ejemplo.com' %>
-      <br/>
-      <br/>
-      <%= form.label :phone,'Teléfono' %>
-      <%= form.phone_field :phone %>
-      <br/>
-      <br/>
-      <%= form.label :make,'Marca' %>
-      <%= form.text_field :make, placeholder: 'Audi, BMW...' %>
-      <br/>
-      <br/>
-      <%= form.label :reference,'Referencia' %>
-      <%= form.text_field :reference, placeholder: 'A1, X3...' %>
-      <br/>
-      <br/>
-      <%= form.label :year_from, 'Modelo entre' %>
-      <%= form.select(:year_from, (1980..1.year.from_now.year), selected: 1.year.ago.year) %>
-      <%= form.label :year_to, ' y ' %>
-      <%= form.select(:year_to, (1980..1.year.from_now.year), selected: Time.now.year) %>
-      <br/>
-      <br/>
-      <%= form.label :budget_from, 'Presupuesto  entre' %>
-      <%= form.number_field :budget_from %> millones
-      <%= form.label :budget_to, 'y' %>
-      <%= form.number_field :budget_to %> millones
-      <br/>
-      <br/>
-      <%= form.label :plate, 'Placa' %>
-      <%= form.select(:plate, [('par'), ('impar'), ('cualquiera')]) %>
-      <br/>
-      <br/>
-      <%= form.label :content, 'Mensaje' %>
-      <%= form.text_area :content, size: '40x5' %>
-      <br/>
-      <br/>
-      <%= form.submit 'Enviar', class: 'btn-success' %>
+
+      <div class="row">
+        <div class="form-group col-md-4">
+          <strong>
+            <%= form.label :name, 'Nombre *' %>
+          </strong>
+          <%= form.text_field :name, autofocus: true, class: 'form-control', required: true %>
+        </div>
+        <div class="form-group col-6 col-md-4">
+          <strong>
+            <%= form.label :email %>
+          </strong>
+          <%= form.email_field :email, placeholder: 'nombre@ejemplo.com', class: 'form-control' %>
+        </div>
+        <div class="form-group col-6 col-md-4">
+          <strong>
+            <%= form.label :phone,'Teléfono' %>
+          </strong>
+          <%= form.phone_field :phone, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-6 col-md-4">
+          <strong>
+            <%= form.label :make,'Marca(s) *', required: true %>
+          </strong>
+          <%= form.text_field :make, placeholder: 'Audi', class: 'form-control' %>
+        </div>
+        <div class="form-group col-6 col-md-4">
+          <strong>
+            <%= form.label :reference,'Referencia(s)', required: true %>
+          </strong>
+          <%= form.text_field :reference, placeholder: 'A1', class: 'form-control' %>
+        </div>
+        <div class="form-group col-md-4">
+          <strong>
+            <%= form.label :plate, 'Placa *', required: true %>
+          </strong>
+          <%= form.select(:plate, %w(Par Impar Cualquiera), {}, {class: 'form-control'} ) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <strong><label>Busco un modelo *</label></strong>
+
+          <div class="row">
+            <%= form.label :year_from, 'entre', class: 'col-2 col-form-label', required: true %>
+            <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center' }) %>
+            <%= form.label :year_to, ' y ', class: 'col-1 col-form-label text-center', required: true %>
+            <%= form.select(:year_to, (1980..1.year.from_now.year), {}, { selected: Time.now.year, class: 'col-3 form-control text-center' }) %>
+          </div>
+        </div>
+        <div class="col-md-4 form-group">
+          <label><strong>Mi presupuesto en millones es *</strong></label>
+          <div class="row">
+            <%= form.label :budget_from, 'entre', class: 'col-2 col-form-label', required: true %>
+            <%= form.number_field :budget_from, class: 'col-3 form-control text-center', min: 5, max: 300 %>
+            <%= form.label :budget_to, 'y', class: 'col-1 col-form-label text-center', required: true %>
+            <%= form.number_field :budget_to, class: 'col-3 form-control text-center' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <strong>
+        <%= form.label :content, 'Mensaje' %>
+        </strong>
+        <%= form.text_area :content, class: 'form-control' %>
+      </div>
+      <%= form.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
     <% end %>
   </div>
 </div>
