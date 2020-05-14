@@ -22,7 +22,7 @@ class FindCarRequestsController < ApplicationController
   private
 
   def secure_params
-    params.require(:find_car_request).permit(:name, :email, :content, :phone, :make, :year_from, :year_to, :budget)
+    params.require(:find_car_request).permit(:name, :email, :content, :phone, :make, :reference, :year_from, :year_to, :budget_from, :budget_to, :plate)
   end
 
 end

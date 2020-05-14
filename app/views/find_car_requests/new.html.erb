@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h1>Encuentra mi próximo carro</h1>
+  <h2>Encuentra mi próximo carro</h2>
   <div class="py-3">
     <p>Este formulario está creado para ayudarte a encontrar tu próximo carro.</p>
     <p>La información solo la usaremos para contacterte en caso de que encontremos lo que buscas.</p>
@@ -21,7 +21,11 @@
       <br/>
       <br/>
       <%= form.label :make,'Marca' %>
-      <%= form.text_field :make %>
+      <%= form.text_field :make, placeholder: 'Audi, BMW...' %>
+      <br/>
+      <br/>
+      <%= form.label :reference,'Referencia' %>
+      <%= form.text_field :reference, placeholder: 'A1, X3...' %>
       <br/>
       <br/>
       <%= form.label :year_from, 'Modelo entre' %>
@@ -30,10 +34,14 @@
       <%= form.select(:year_to, (1980..1.year.from_now.year), selected: Time.now.year) %>
       <br/>
       <br/>
-
-      <%= form.label :budget, 'Presupuesto' %> entre
-      <%= form.number_field :budget %> millones y
-      <%= form.number_field :budget %> millones
+      <%= form.label :budget_from, 'Presupuesto  entre' %>
+      <%= form.number_field :budget_from %> millones
+      <%= form.label :budget_to, 'y' %>
+      <%= form.number_field :budget_to %> millones
+      <br/>
+      <br/>
+      <%= form.label :plate, 'Placa' %>
+      <%= form.select(:plate, [('par'), ('impar'), ('cualquiera')]) %>
       <br/>
       <br/>
       <%= form.label :content, 'Mensaje' %>

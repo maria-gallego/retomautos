@@ -9,20 +9,23 @@
   Datos del cliente:
 </p>
 <p>
-  <%= @find_car_request.name %><br/>
-  <%= @find_car_request.email %><br/>
-  <%= @find_car_request.phone %><br/>
+  Nombre: <%= @find_car_request.name %><br/>
+  Email: <%= @find_car_request.email %><br/>
+  Teléfono: <%= @find_car_request.phone %><br/>
 </p>
 <p>
   Carro que busca:
 </p>
 <p>
-  <%= @find_car_request.make %><br/>
-  <%= @find_car_request.year_from %><br/>
-  <%= @find_car_request.year_to %><br/>
-  <%= @find_car_request.budget %><br/>
-  Mensaje
-  "<%= @find_car_request.content %><br/>"
+  Marca: <%= @find_car_request.make %><br/>
+  Referencia:  <%= @find_car_request.reference%><br/>
+  Modelo desde: <%= @find_car_request.year_from %><br/>
+  Modelo hasta: <%= @find_car_request.year_to %><br/>
+  Presupuesto desde: <%= @find_car_request.budget_from %><br/>
+  Presupuesto hasta: <%= @find_car_request.budget_to %><br/>
+  Placa: <%= @find_car_request.plate %><br/>
+  Mensaje:
+  "<%= @find_car_request.content %>"
 </p>
 </body>
 </html>
