@@ -47,7 +47,7 @@
           <strong>
             <%= form.label :plate, 'Placa *' %>
           </strong>
-          <%= form.select(:plate, %w(Par Impar Cualquiera), {}, { class: 'form-control', required: true } ) %>
+          <%= form.select(:plate, %w(Par Impar Cualquiera), {}, { class: 'form-control' } ) %>
         </div>
       </div>
 
@@ -57,9 +57,9 @@
 
           <div class="form-row">
             <%= form.label :year_from, 'entre', class: 'col-2 col-form-label' %>
-            <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center', required: true }) %>
+            <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center' }) %>
             <%= form.label :year_to, ' y ', class: 'col-1 col-form-label text-center' %>
-            <%= form.select(:year_to, (1980..1.year.from_now.year), {}, { selected: Time.now.year, class: 'col-3 form-control text-center', required: true }) %>
+            <%= form.select(:year_to, (1980..1.year.from_now.year), {}, { selected: Time.now.year, class: 'col-3 form-control text-center' }) %>
           </div>
         </div>
         <div class="col-md-4 form-group">
