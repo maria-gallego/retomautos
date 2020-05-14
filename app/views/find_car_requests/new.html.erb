@@ -33,21 +33,21 @@
       <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <strong>
-            <%= form.label :make,'Marca(s) *', required: true %>
+            <%= form.label :make,'Marca(s) *' %>
           </strong>
-          <%= form.text_field :make, placeholder: 'Audi', class: 'form-control' %>
+          <%= form.text_field :make, placeholder: 'Audi', class: 'form-control', required: true %>
         </div>
         <div class="form-group col-6 col-md-4">
           <strong>
-            <%= form.label :reference,'Referencia(s)', required: true %>
+            <%= form.label :reference,'Referencia(s) *' %>
           </strong>
-          <%= form.text_field :reference, placeholder: 'A1', class: 'form-control' %>
+          <%= form.text_field :reference, placeholder: 'A1', class: 'form-control', required: true %>
         </div>
         <div class="form-group col-md-4">
           <strong>
-            <%= form.label :plate, 'Placa *', required: true %>
+            <%= form.label :plate, 'Placa *' %>
           </strong>
-          <%= form.select(:plate, %w(Par Impar Cualquiera), {}, {class: 'form-control'} ) %>
+          <%= form.select(:plate, %w(Par Impar Cualquiera), {}, { class: 'form-control', required: true } ) %>
         </div>
       </div>
 
@@ -56,26 +56,26 @@
           <strong><label>Busco un modelo *</label></strong>
 
           <div class="form-row">
-            <%= form.label :year_from, 'entre', class: 'col-2 col-form-label', required: true %>
-            <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center' }) %>
-            <%= form.label :year_to, ' y ', class: 'col-1 col-form-label text-center', required: true %>
-            <%= form.select(:year_to, (1980..1.year.from_now.year), {}, { selected: Time.now.year, class: 'col-3 form-control text-center' }) %>
+            <%= form.label :year_from, 'entre', class: 'col-2 col-form-label' %>
+            <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center', required: true }) %>
+            <%= form.label :year_to, ' y ', class: 'col-1 col-form-label text-center' %>
+            <%= form.select(:year_to, (1980..1.year.from_now.year), {}, { selected: Time.now.year, class: 'col-3 form-control text-center', required: true }) %>
           </div>
         </div>
         <div class="col-md-4 form-group">
           <label><strong>Mi presupuesto en millones es *</strong></label>
           <div class="form-row">
-            <%= form.label :budget_from, 'entre', class: 'col-2 col-form-label', required: true %>
-            <%= form.number_field :budget_from, class: 'col-3 form-control text-center', min: 5, max: 300 %>
-            <%= form.label :budget_to, 'y', class: 'col-1 col-form-label text-center', required: true %>
-            <%= form.number_field :budget_to, class: 'col-3 form-control text-center' %>
+            <%= form.label :budget_from, 'entre', class: 'col-2 col-form-label'  %>
+            <%= form.number_field :budget_from, class: 'col-3 form-control text-center', min: 5, max: 300, required: true %>
+            <%= form.label :budget_to, 'y', class: 'col-1 col-form-label text-center' %>
+            <%= form.number_field :budget_to, class: 'col-3 form-control text-center',  min: 5, max: 300, required: true %>
           </div>
         </div>
       </div>
 
       <div class="form-group">
         <strong>
-        <%= form.label :content, 'Mensaje' %>
+          <%= form.label :content, '¿Hay algo más que nos quieras decir?' %>
         </strong>
         <%= form.text_area :content, class: 'form-control' %>
       </div>
