@@ -9,7 +9,7 @@
 
     <%= form_with(model: @find_car_request) do |form| %>
 
-      <div class="row">
+      <div class="form-row">
         <div class="form-group col-md-4">
           <strong>
             <%= form.label :name, 'Nombre *' %>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="form-row">
         <div class="form-group col-6 col-md-4">
           <strong>
             <%= form.label :make,'Marca(s) *', required: true %>
@@ -51,11 +51,11 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="form-row">
         <div class="col-md-4 form-group">
           <strong><label>Busco un modelo *</label></strong>
 
-          <div class="row">
+          <div class="form-row">
             <%= form.label :year_from, 'entre', class: 'col-2 col-form-label', required: true %>
             <%= form.select(:year_from, (1980..1.year.from_now.year), {}, { selected: 1.year.ago.year, class: 'col-3 form-control text-center' }) %>
             <%= form.label :year_to, ' y ', class: 'col-1 col-form-label text-center', required: true %>
@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-4 form-group">
           <label><strong>Mi presupuesto en millones es *</strong></label>
-          <div class="row">
+          <div class="form-row">
             <%= form.label :budget_from, 'entre', class: 'col-2 col-form-label', required: true %>
             <%= form.number_field :budget_from, class: 'col-3 form-control text-center', min: 5, max: 300 %>
             <%= form.label :budget_to, 'y', class: 'col-1 col-form-label text-center', required: true %>
