@@ -55,13 +55,13 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-556780452-mercedez-benz-gle-500-4matic-2019-_JM#position=4&type=item&tracking_id=be2e143c-311b-4311-853b-83b959595e4b'
         ),
         Car.new(
-            make: 'Audi',
-            model: 'Q5',
-            year: '2019',
-            additional_information: '45 Tfsi',
-            image_url: 'fotos_tu_carro/audi_q5.jpg',
-            showcase_video_url: 'https://youtu.be/l-ISCiwjgys',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-549232608-audi-q5-45-tsfi-quattro-20-tp-2019-_JM#position=2&type=item&tracking_id=e95154c3-9de6-42fb-b67e-1f109d270ad0'
+            make: 'Chevrolet',
+            model: 'Camaro',
+            year: '2017',
+            additional_information: 'SS 6.2',
+            image_url: 'fotos_tu_carro/camaro.jpg',
+            showcase_video_url: 'https://youtu.be/3V22pfjFX7c',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-562622229-chevrolet-camaro-ss-62-_JM#position=19&type=item&tracking_id=15ebec6c-38cb-4d22-ba20-16b178483a09'
         ),
         Car.new(
             make: 'Mini Cooper',
