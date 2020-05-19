@@ -2,9 +2,9 @@
   <div class="container pt-4">
     <h1>Encuentra mi próximo carro</h1>
     <div class="py-3">
-      <p class="mb-0">Este formulario está creado para ayudarte a encontrar tu próximo carro.</p>
-      <p class="mb-0">La información solo la usaremos para contacterte en caso de que encontremos lo que buscas.</p>
-      <p>Puedes dejarnos tu teléfono si desear se contactado por este medio.</p>
+      <p class="mb-0">Nuestro inventario rota constantemente. Si no encontraste lo que buscabas, puedes llenar este formulario para que te ayudemos a encontrar tu próximo carro.</p>
+      <p class="mb-0">La información será usada únicamente para contacterte en caso de que encontremos lo que buscas.</p>
+      <p>Puedes dejar tu teléfono si deseas ser contactado por este medio.</p>
     </div>
 
     <%= form_with(model: @find_car_request) do |form| %>
@@ -18,9 +18,9 @@
         </div>
         <div class="form-group col-6 col-md-4">
           <strong>
-            <%= form.label :email %>
+            <%= form.label :email, 'Email *' %>
           </strong>
-          <%= form.email_field :email, placeholder: 'nombre@ejemplo.com', class: 'form-control' %>
+          <%= form.email_field :email, placeholder: 'nombre@ejemplo.com', class: 'form-control', required: true %>
         </div>
         <div class="form-group col-6 col-md-4">
           <strong>

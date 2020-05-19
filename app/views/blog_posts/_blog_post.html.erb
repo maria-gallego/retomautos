@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <%= image_tag blog_post.blog_image, alt: "#{blog_post.blog_title}", class: "card-img-top img-fluid"%>
+      <div class="card-body">
+        <h5 class="card-title"><%=  "#{blog_post.blog_title}" %></h5>
+        <p class="card-text"><%= "#{blog_post.card_text}" %></p>
+        <p><%= link_to 'Seguir leyendo', blog_post.card_link, target: '_blank' %></p>
+      </div>
+    </div>
+  </div>
+</div>
