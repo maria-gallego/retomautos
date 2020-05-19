@@ -88,6 +88,7 @@
   }
 }
 
+// Find car form
 .find_car_style {
   background-image: image_url("find_car_background_2.jpg");
   background-size: cover;
@@ -125,3 +126,12 @@
 ;
 }
 
+// Blog
+.blog_style {
+
+  background-image: image-url("blog_background.jpg");
+  background-size: cover;
+  height: 60vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .15);
+  color: $gray-100;
+}
