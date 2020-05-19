@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :blog_posts, only: [:index]
 
   get '/blog_posts/bienvenido_al_mundo_de_bmw', to: 'blog_posts#bienvenido_al_mundo_de_bmw'
+  get '/blog_posts/las_series_de_bmw', to: 'blog_posts#las_series_de_bmw'
 end

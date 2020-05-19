@@ -10,7 +10,7 @@ class BlogPostsController < ApplicationController
       BlogPost.new(
           blog_title: 'Las Series de BMW',
           card_text: 'Desde el Serie 1 al Serie 8, BMW usa esta nomenclatura para identificar la carrocería de cada uno de sus automóviles.',
-          card_link: '',
+          card_link: blog_posts_las_series_de_bmw_path,
           blog_image: 'fotos_tu_carro/bmw_420gc.jpg'
       ),
       BlogPost.new(
@@ -42,6 +42,10 @@ class BlogPostsController < ApplicationController
   end
 
   def bienvenido_al_mundo_de_bmw
+    # TODO: SEO meta tags
+  end
+
+  def las_series_de_bmw
     # TODO: SEO meta tags
   end
 end
