@@ -1,1 +1,41 @@
-<p>Tu mensaje ha sido enviado</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Recibimos tu solicitud</h1>
+<p>
+  Estaremos en contacto apenas llegue el carro que estás buscando.<br/>
+  Esta fue la información que nos dejaste:
+</p>
+<h3>Datos:</h3>
+<p>
+  Nombre: <%= @find_car_request.name %><br/>
+  Email: <%= @find_car_request.email %><br/>
+  Teléfono: <%= @find_car_request.phone %><br/>
+</p>
+<h3>Carro que busca:</h3>
+<p>
+  Marca: <%= @find_car_request.make %><br/>
+  Referencia:  <%= @find_car_request.reference %><br/>
+  Modelo entre <%= @find_car_request.year_from %> y <%= @find_car_request.year_to %><br/>
+  Presupuesto (en millones) entre<%= @find_car_request.budget_from %> y <%= @find_car_request.budget_to %><br/>
+  Placa: <%= @find_car_request.plate %><br/>
+  Mensaje: "<%= @find_car_request.content %>"
+</p>
+<%#= link_to 'www.retomautos.com', 'visitors#home' %>
+<!--<div class="pt-3 social-icons">-->
+<!--  <a href="https://www.instagram.com/retomautos/?hl=en" title="Instagram" class="text-light" target="_blank">-->
+<!--    <i class="fab fa-instagram"></i>-->
+<!--  </a>-->
+<!--  &nbsp;-->
+<!--  <a href="https://www.facebook.com/retomautos/" title="Facebook" class="text-light" target="_blank">-->
+<!--    <i class="fab fa-facebook-square"></i>-->
+<!--  </a>-->
+<!--  &nbsp;-->
+<!--  <a href="https://www.youtube.com/channel/UCKj_l9xags5fB_onz2zAIOw/videos" title="Youtube" class="text-light" target="_blank">-->
+<!--    <i class="fab fa-youtube"></i>-->
+<!--  </a>-->
+</div>
+</body>
