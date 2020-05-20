@@ -141,7 +141,7 @@
   background-image: image-url("blog_photos/bmw_blog.jpg");
   background-size: cover;
   height: 65vh;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .50);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .35);
   color: $gray-100;
   filter: grayscale(100%);
 }
