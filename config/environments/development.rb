@@ -48,22 +48,28 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # ActionMailer Config
+  # ActionMailer Config General Configuration
   config.action_mailer.perform_caching = false
-  config.action_mailer.smtp_settings = {
-      address: "smtp.sendgrid.net",
-      port: 587,
-      domain: Rails.application.credentials.domain_name,
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: Rails.application.credentials.sendgrid_account_username,
-      password: Rails.application.credentials.sendgrid_account_password
-  }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
-  # Send email in development mode?
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true  # Send email in development mode?
+  config.action_mailer.asset_host = 'http://localhost:3000'
+
+  # Action Mailer Sendgrid Configuration
+  # Uncomment to send emails via sendgrid in development (and comment letter opener)
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+  #    address: "smtp.sendgrid.net",
+  #    port: 587,
+  #    domain: Rails.application.credentials.domain_name,
+  #    authentication: "plain",
+  #    enable_starttls_auto: true,
+  #    user_name: Rails.application.credentials.sendgrid_account_username,
+  #    password: Rails.application.credentials.sendgrid_account_password
+  #}
+
+  # Action Mailer Letter Opener Configuration
+  config.action_mailer.delivery_method = :letter_opener
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true

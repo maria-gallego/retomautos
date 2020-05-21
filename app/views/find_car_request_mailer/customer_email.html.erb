@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<br>
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
-<body>
 <h1>Recibimos tu solicitud</h1>
 <p>
   Estaremos en contacto apenas llegue el carro que estás buscando.<br/>
@@ -15,27 +14,28 @@
   Email: <%= @find_car_request.email %><br/>
   Teléfono: <%= @find_car_request.phone %><br/>
 </p>
-<h3>Carro que busca:</h3>
+<h3>Carro que buscas:</h3>
 <p>
   Marca: <%= @find_car_request.make %><br/>
   Referencia:  <%= @find_car_request.reference %><br/>
   Modelo entre <%= @find_car_request.year_from %> y <%= @find_car_request.year_to %><br/>
-  Presupuesto (en millones) entre<%= @find_car_request.budget_from %> y <%= @find_car_request.budget_to %><br/>
+  Presupuesto (en millones) entre <%= @find_car_request.budget_from %> y <%= @find_car_request.budget_to %><br/>
   Placa: <%= @find_car_request.plate %><br/>
   Mensaje: "<%= @find_car_request.content %>"
 </p>
-<%#= link_to 'www.retomautos.com', 'visitors#home' %>
-<!--<div class="pt-3 social-icons">-->
-<!--  <a href="https://www.instagram.com/retomautos/?hl=en" title="Instagram" class="text-light" target="_blank">-->
-<!--    <i class="fab fa-instagram"></i>-->
-<!--  </a>-->
-<!--  &nbsp;-->
-<!--  <a href="https://www.facebook.com/retomautos/" title="Facebook" class="text-light" target="_blank">-->
-<!--    <i class="fab fa-facebook-square"></i>-->
-<!--  </a>-->
-<!--  &nbsp;-->
-<!--  <a href="https://www.youtube.com/channel/UCKj_l9xags5fB_onz2zAIOw/videos" title="Youtube" class="text-light" target="_blank">-->
-<!--    <i class="fab fa-youtube"></i>-->
-<!--  </a>-->
-</div>
+
+<div><%= image_tag 'logo_retomautos.jpeg', alt: 'Logo Retomautos', height: '70px' %></div>
+</br>
+<div><%= link_to 'www.retomautos.com', root_url %></div>
+</br>
+<div><a href="tel:+5716211802">(+571) 621-1802</a></div>
+<div><a href="tel:+573108564515">(+57) 310-856-4515</a></div>
+<div><a href="tel:+573102067221">(+57) 310-206-7221</a></div>
+<br>
+<address><strong>Retomautos Selection: </strong>Carrera 15 # 103-24</address>
+<address><strong>Retomautos: </strong> Calle 105A # 14-41</address>
+<address>Chicó, Bogotá, Colombia</address>
+</br>
+<p>© Retomautos 2020</p>
+
 </body>

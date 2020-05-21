@@ -4,6 +4,12 @@ class VisitorsController < ApplicationController
                   description: 'Encuentra una amplia selección de carros usados a precios muy competitivos, con facilidad de financiación, agilidad en los trámites y compra segura.',
                   keywords: 'Carros usados'
 
+    set_meta_tags og: {
+        title:    'Retomautos | Carros usados Bogotá',
+        url:      'www.retomautos.com',
+        image:    'app/assets/images/logo_retomautos.jpeg',
+    }
+
     # Slides 'Nuestros Carros' - Home
     @slide1_cars = [
         Car.new(
