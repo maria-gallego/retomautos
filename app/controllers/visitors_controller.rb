@@ -14,12 +14,12 @@ class VisitorsController < ApplicationController
     @slide1_cars = [
         Car.new(
             make: 'BMW',
-            model: 'M4',
-            year: '2018',
-            additional_information: 'Coupé',
-            image_url: 'fotos_tu_carro/bmw_m4.jpg',
-            showcase_video_url: 'https://youtu.be/HsbGWNgqYyU',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-548164801-bmw-m4-coupe-_JM#position=4&type=item&tracking_id=e7f80674-6164-4539-b635-8dda9f7d4938'
+            model: 'i3',
+            year: '2020',
+            additional_information: 'i3S 181 cc',
+            image_url: 'fotos_tu_carro/bmw_i3.jpg',
+            showcase_video_url: 'https://youtu.be/EKyFdyOHw9w',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-567975385-bmw-i3s-_JM#position=16&type=item&tracking_id=2ec92fff-5e7d-49e4-b26f-513d4fa73dd2'
         ),
         Car.new(
             make: 'BMW',
@@ -61,13 +61,13 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-556780452-mercedez-benz-gle-500-4matic-2019-_JM#position=4&type=item&tracking_id=be2e143c-311b-4311-853b-83b959595e4b'
         ),
         Car.new(
-            make: 'Audi',
-            model: 'A3',
-            year: '2017',
-            additional_information: 'Ambition 1.2 Tp',
-            image_url: 'fotos_tu_carro/audi_a3_2017.jpg',
-            showcase_video_url: 'https://youtu.be/39gqb-hl1Rk',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-566912920-audi-a3-12-ambittion-tp-_JM#position=2&type=item&tracking_id=c15cd097-989e-48d5-8b6b-74665f0d5413'
+            make: 'Mercedes Benz',
+            model: 'C 180',
+            year: '2018',
+            additional_information: 'Tp',
+            image_url: 'fotos_tu_carro/mercedes_c180_2018.jpg',
+            showcase_video_url: 'https://youtu.be/cirpdZirAmU',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-568301063-mercedes-benz-c-180-tp-_JM#position=7&type=item&tracking_id=7fb15419-960c-478b-8a44-efa5a56c31db'
         ),
         Car.new(
             make: 'Ford',
@@ -99,13 +99,13 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-554725392-kia-new-sportage-revolution-lx-20-2017-_JM#position=23&type=item&tracking_id=359e6f5d-cd22-42ef-b34f-fce5fc972914'
         ),
         Car.new(
-            make: 'Citroën',
-            model: 'Ds3',
-            year: '2012',
-            additional_information: 'N3 1.6ti',
-            image_url: 'fotos_tu_carro/citroen.jpg',
-            showcase_video_url: 'https://youtu.be/4B5yyjFOZvE',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-566919181-citroen-ds3-16-t-mt-_JM#position=1&type=item&tracking_id=c59957b2-906f-4805-8d21-7157890f6d58'
+            make: 'Jeep',
+            model: 'Renegade Limited',
+            year: '2017',
+            additional_information: '2.4 4x4 Tp',
+            image_url: 'fotos_tu_carro/jeep_2017.jpg',
+            showcase_video_url: 'https://youtu.be/R4QJBnH-VYQ',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-567106874-jeep-renegade-limited-24-4x4-tp-_JM#position=1&type=item&tracking_id=a8d19dbc-3fa3-4a98-bd47-e5ddb75c8727'
         ),
         Car.new(
             make: 'Toyota',
