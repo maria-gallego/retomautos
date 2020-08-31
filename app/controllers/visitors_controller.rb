@@ -23,12 +23,12 @@ class VisitorsController < ApplicationController
         ),
         Car.new(
             make: 'BMW',
-            model: '320i',
-            year: '2018',
-            additional_information: 'Serie 3 Tp',
-            image_url: 'fotos_tu_carro/bmw_320.jpg',
-            showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-555407286-bmw-serie-3-320i-tp-2018-_JM#position=17&type=item&tracking_id=8e94058b-2807-49d3-a4ac-f345d3245c10'
+            model: 'M240i',
+            year: '2017',
+            additional_information: '3.0 Tp',
+            image_url: 'fotos_tu_carro/bmw_m240_2017.jpg',
+            #showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-575826659-bmw-m240i-30-tp-_JM#position=6&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
         Car.new(
             make: 'Volkswagen',
@@ -52,13 +52,13 @@ class VisitorsController < ApplicationController
 
     @slide2_cars = [
         Car.new(
-            make: 'Mercedes Benz',
-            model: 'GLE 500',
-            year: '2019',
-            additional_information: '4 Matic',
-            image_url: 'fotos_tu_carro/mercedes_gle.jpg',
-            showcase_video_url: 'https://youtu.be/UWwPdaiXWq4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-556780452-mercedez-benz-gle-500-4matic-2019-_JM#position=4&type=item&tracking_id=be2e143c-311b-4311-853b-83b959595e4b'
+            make: 'Renault',
+            model: 'Twizy',
+            year: '2016',
+            additional_information: 'Urban',
+            image_url: 'fotos_tu_carro/renault_twizy.jpg',
+            #showcase_video_url: 'https://youtu.be/UWwPdaiXWq4',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-570313399-renault-twizy-urban-_JM#position=2&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
         Car.new(
             make: 'Mercedes Benz',
@@ -79,24 +79,24 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-556781264-ford-mustang-gt-50-_JM#position=28&type=item&tracking_id=a0acb57d-ca94-405a-b2f0-7f645259eb05'
         ),
         Car.new(
-            make: 'Mercedes Benz',
-            model: 'B 180',
-            year: '2018',
-            additional_information: '1.6 Tp',
-            image_url: 'fotos_tu_carro/mercedes_b180.jpg',
-            showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-555089637-mercedez-benz-b180-16-tp-2018-_JM#position=2&type=item&tracking_id=be2e143c-311b-4311-853b-83b959595e4b'
+            make: 'BMW',
+            model: 'M4',
+            year: '2019',
+            additional_information: 'Premium',
+            image_url: 'fotos_tu_carro/bmw_m4_2019.jpg',
+            #showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-576725716-bmw-m4-premiun-_JM#position=22&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
     ]
     @slide3_cars = [
         Car.new(
-            make: 'Kia',
-            model: 'New Sportage',
+            make: 'Ford',
+            model: 'Fiesta',
             year: '2017',
-            additional_information: 'Revolution Lx 2.0',
-            image_url: 'fotos_tu_carro/kia_ns.jpg',
-            showcase_video_url: 'https://youtu.be/3SX8oy82mYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-554725392-kia-new-sportage-revolution-lx-20-2017-_JM#position=23&type=item&tracking_id=359e6f5d-cd22-42ef-b34f-fce5fc972914'
+            additional_information: 'Titanium Sedan 1.6 Tp',
+            image_url: 'fotos_tu_carro/ford_fiesta_2017.jpg',
+            #showcase_video_url: 'https://youtu.be/3SX8oy82mYQ',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-576734347-ford-fiesta-titanium-sedan-16-tp-_JM#position=3&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
         Car.new(
             make: 'Jeep',
@@ -108,34 +108,34 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-567106874-jeep-renegade-limited-24-4x4-tp-_JM#position=1&type=item&tracking_id=a8d19dbc-3fa3-4a98-bd47-e5ddb75c8727'
         ),
         Car.new(
-            make: 'Toyota',
-            model: 'Fortuner',
-            year: '2019',
-            additional_information: 'SW4 4x2 2.4 Diesel',
-            image_url: 'fotos_tu_carro/toyota_fortuner.jpg',
-            showcase_video_url: 'https://youtu.be/3FF7d1cXlu4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-566913785-toyota-fortuner-sw4-street-24-tp-_JM#position=1&type=item&tracking_id=30bb7bfc-61e9-498c-80f0-ff8841335d23'
+            make: 'Audi',
+            model: 'Q5',
+            year: '2014',
+            additional_information: 'Luxury 2.0 Tp',
+            image_url: 'fotos_tu_carro/audi_q5_2014.jpg',
+            #showcase_video_url: 'https://youtu.be/3FF7d1cXlu4',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-573291106-audi-q5-luxury-20-tp-_JM#position=7&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
         Car.new(
-            make: 'Mazda',
-            model: '6',
+            make: 'Hyundai',
+            model: 'Tucson',
             year: '2015',
-            additional_information: 'Grand Touring LX TP',
-            image_url: 'fotos_tu_carro/mazda6_2015.jpg',
-            showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-552224198-mazda-6-grand-touring-lx-tp-_JM#position=7&type=item&tracking_id=359e6f5d-cd22-42ef-b34f-fce5fc972914'
+            additional_information: 'Ix 35 2.0 Mt',
+            image_url: 'fotos_tu_carro/hyundai_tucson_2015.jpg',
+            #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-573286989-hyundai-tucson-ix-35-20-mt-_JM#position=14&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
     ]
 
     @slide4_cars = [
         Car.new(
-            make: 'BMW',
-            model: '218i',
-            year: '2019',
-            additional_information: 'Active Tourer Sport',
-            image_url: 'fotos_tu_carro/bmw_218.jpg',
-            showcase_video_url: 'https://youtu.be/et57692P4NE',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-554889832-bmw-serie-2-218i-active-tourer-sport-2019-_JM#position=8&type=item&tracking_id=a05fd153-e203-4d47-9193-836431d7c84e'
+            make: 'Mini',
+            model: 'Cooper',
+            year: '2015',
+            additional_information: '1.5 Tp',
+            image_url: 'fotos_tu_carro/mini_cooper_2015.jpg',
+            #showcase_video_url: 'https://youtu.be/et57692P4NE',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-573285551-mini-cooper-15-tp-_JM#position=23&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
         Car.new(
             make: 'Mercedes Benz',
@@ -156,13 +156,13 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-550470239-bmw-330-luxuri-_JM#position=5&type=item&tracking_id=a05fd153-e203-4d47-9193-836431d7c84e'
         ),
         Car.new(
-            make: 'BMW',
-            model: 'X3',
-            year: '2015',
-            additional_information: 'Xdrive 28i Tp',
-            image_url: 'fotos_tu_carro/bmw_x3_2015.jpg',
-            showcase_video_url: 'https://youtu.be/zN40lU_rI_U',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-555408559-bmw-x3-xdrive-28i-tp-_JM#position=10&type=item&tracking_id=a05fd153-e203-4d47-9193-836431d7c84e'
+            make: 'Mercedes Benz',
+            model: 'Clase A',
+            year: '2020',
+            additional_information: 'A 200 Sedan',
+            image_url: 'fotos_tu_carro/mercedes_benz_a200.jpg',
+            #showcase_video_url: 'https://youtu.be/zN40lU_rI_U',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-575380361-mercedes-benz-clase-a-a-200-sedan-_JM#position=43&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
     ]
   end
