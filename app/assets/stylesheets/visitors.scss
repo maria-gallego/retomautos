@@ -167,7 +167,7 @@
 }
 
 // Financiacion
-.financiacion {
+.financiacion-page {
 
   background-image: image-url("blue_bmw.jpg");
   background-size: cover;
@@ -204,3 +204,17 @@
   filter: grayscale(100%);
 }
 
+// Pagos
+.payments {
+  background-image: image-url("find_car_background_2.jpg");
+  background-size: cover;
+  height: 180vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
+}
+
+.bmw_bg {
+  background-image: image-url("bmw_bg.jpg");
+  background-size: cover;
+  height: 80vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
+}
