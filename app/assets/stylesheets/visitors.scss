@@ -167,39 +167,34 @@
 }
 
 // Financiacion
-.financiacion-page {
+.financiacion_page {
 
-  background-image: image-url("blue_bmw.jpg");
+  background-image: image-url("blue_bmw_small.jpg");
   background-size: cover;
-  height: 80vh;
+  height: 75vh;
   box-shadow: inset 0 0 0 1000px
   rgba(0, 0, 0, .15);
   h5 {
     font-family: "Baloo_Thambi_2";
   }
-  .container  {
-    position: relative;
-    top: 65%;
+
+
+  @media (min-width: 992px) {
+    background-image: image-url("blue_bmw.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.10);
   }
 }
+
 .info_financiacion {
   background-image: image-url("info_financing_car.jpg");
   background-size: cover;
-  height: 85vh;
+  height: 80vh;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
   p {
   font-size:18px;
   }
 }
-.documents_financiacion {
-  background-image: image-url("find_car_background_2.jpg");
-  background-size: cover;
-  height: 180vh;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .15);
-  p {
-    font-size:18px;
-  }
-}
+
 .brands-financiacion-logo {
   filter: grayscale(100%);
 }
@@ -213,8 +208,13 @@
 }
 
 .bmw_bg {
-  background-image: image-url("bmw_bg.jpg");
+  background-image: image-url("bmw_bg_sm.jpg");
   background-size: cover;
   height: 80vh;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
+  //box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
+
+  @media (min-width: 992px) {
+    background-image: image-url("bmw_bg.jpg");
+    //box-shadow: inset 0 0 0 1000px rgba(0,0,0,.10);
+  }
 }
