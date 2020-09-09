@@ -186,17 +186,27 @@
 }
 
 .info_financiacion {
-  background-image: image-url("info_financing_car.jpg");
+  background-image: image-url("info_financing_car_sm.jpg");
   background-size: cover;
   height: 80vh;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
+  //box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .20);
   p {
   font-size:18px;
+  }
+  @media (min-width: 992px) {
+    background-image: image-url("info_financing_car.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.20);
   }
 }
 
 .brands-financiacion-logo {
   filter: grayscale(100%);
+}
+
+.documents_finance {
+h5 {
+  font-family: "Oswald";
+  }
 }
 
 // Pagos
