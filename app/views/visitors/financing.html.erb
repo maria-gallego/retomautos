@@ -2,70 +2,128 @@
 <div class="financiacion_page">
   <div class="container py-5 text-light">
     <h1>¿Estás buscando financiación para comprar tu próximo vehículo?</h1>
-    <h4 class="text-white-50">En Retomautos tenemos múltiples alternativas para que logres alcanzar tus sueños</h4>
+    <h4 class="text-white-50">En Retomautos tenemos múltiples alternativas para que alcances tus sueños</h4>
   </div>
 </div>
 <!--End Inicio financiacion-->
 
 <!--Logos aliados financieros-->
-<div class="container py-5">
+<div class="container py-5 text-center">
+  <h2>Nuestros aliados financieros te ayudarán a solicitar la financiación que necesitas para tu próximo vehículo<sup>*</sup></h2>
   <%= render 'visitors/aliados_financieros' %>
 </div>
 <!--End Logos aliados financieros-->
 
 <!--Info financiacion-->
-<div class="info_financiacion text-light">
-  <div class="container pt-5">
-    <h2>Nuestros aliados financieros te ayudarán a solicitar la financiación que necesitas para tu próximo vehículo</h2>
-    <div class="pt-5 mt-3">
-      <p><i class="fas fa-check"></i> Financia hasta el 100% del valor de tu vehículo </p>
-      <p><i class="fas fa-check"></i> Define el plazo de tu deuda hasta 72 meses </p>
-      <p><i class="fas fa-check"></i> Encuentra las mejores tasas de interés </p>
-      <p><i class="fas fa-check"></i> Establece diferentes formas de pago </p>
+<div class="row no-gutters">
+  <div class="col-md-6">
+    <%= image_tag 'documents_finance.jpg', alt: 'Audi', class: "img-fluid" %>
+  </div>
+  <div class="col-md-6  bg-light">
+    <div class="container">
+      <div class="p-5">
+        <h2>¿Por qué financiar con nosotros?</h2>
+        <br>
+        <ul class="tick">
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Financia hasta el 100% del valor de tu vehículo</span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Define el plazo de tu deuda hasta 72 meses</span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Encuentra las mejores tasas de interés</span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Establece diferentes formas de pago</span>
+          </li>
+        </ul>
+
+        <p>Comunícate con nosotros para iniciar la solicitud. Puedes hacerlo en
+          nuestras instalaciones o de manera virtual</p>
+
+        <p>Podrás tener respuesta de tu solicitud presentada ante uno de nuestros asesores entre 2 y
+          7 días hábiles<sup>**</sup></p>
+      </div>
     </div>
-    <p class="pt-3">Comunícate con nosotros para iniciar la solicitud. Puedes hacerlo en nuestras instalaciones o de
-      manera virtual<sup>*</sup></p>
-    <p>Podrás tener respuesta de tu solicitud presentada ante uno de nuestros asesores entre 2 y 7 días hábiles<sup>**</sup></p>
   </div>
 </div>
 <!--End Info financiacion-->
 
 <!--Documents financiacion-->
-<div class="documents_finance bg-light">
-  <div class="container py-5">
-    <h2>¿Qué documentos necesitas presentar?<sup>***</sup></h2>
-    <div class="row pt-3">
-      <div class="col-md">
-        <h5 class="text-center">Si eres empleado</h5>
-        <p><i class="fas fa-car"></i> Una carta laboral de la empresa donde actualmente trabajas </p>
-        <p><i class="fas fa-car"></i> Desprendibles de pago y/o extractos de tu cuenta donde se evidencie el pago de tu nómina de los últimos tres meses </p>
-        <p><i class="fas fa-car"></i> Declaración de renta del último año presentado </p>
+<div class="row no-gutters documents_finance">
+  <div class="col-md-6 order-md-2">
+    <%= image_tag 'audi_bg.jpg', alt: 'Audi', class:"img-fluid" %>
+  </div>
+  <div class="col-md-6 order-md-1  bg-light">
+    <div class="container p-5" style="height: 100%">
+      <h2>¿Qué documentos necesitas presentar?<sup><small>***</small></sup></h2>
+      <br>
+      <div>
+        <h5 class="pt-3">Si eres empleado</h5>
+        <ul class="tick">
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Una carta laboral</span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>
+              Desprendibles de pago de nómina y/o extractos de los últimos tres meses
+            </span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>
+              Declaración de renta del último año presentado
+            </span>
+          </li>
+        </ul>
       </div>
-      <div class="col-md">
-        <h5 class="text-center">Si eres trabajador independiente</h5>
-        <p><i class="fas fa-car"></i> declaración de renta del último año presentado </p>
-        <p><i class="fas fa-car"></i> RUT </p>
-        <p><i class="fas fa-car"></i> Extractos bancarios de los últimos tres meses </p>
+
+      <div>
+        <h5 class="pt-3">Si eres trabajador independiente</h5>
+        <ul class="tick">
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Declaración de renta del último año presentado y RUT</span>
+          </li>
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Extractos bancarios de los últimos tres meses</span>
+          </li>
+        </ul>
       </div>
-      <div class="col-md">
-        <h5 class="text-center">Si eres pensionado</h5>
-        <p><i class="fas fa-car"></i> Las últimas 2 colillas de pago de tu pensión </p>
+
+      <div>
+        <h5 class="pt-3">Si eres pensionado</h5>
+        <ul class="tick">
+          <li>
+            <i class="far fa-check-circle"></i>&nbsp;
+            <span>Las últimas 2 colillas de pago de tu pensión</span>
+          </li>
+        </ul>
       </div>
     </div>
-
-    <small><sup>*</sup>Las características de los créditos ofrecidos dependerán de cada Entidad Financiera.
-      La aprobación y condiciones aprobadas de cada crédito dependen del perfil de riesgo del cliente evaluado por cada
-      Entidad Financiera.
-      El proceso de evaluación de crédito es una actividad realizada por cada Entidad Financiera, por lo que Retomautos
-      no se compromete con resultado o con las condiciones resultantes del estudio.</small></br>
-    <small><sup>**</sup>Cada solicitud de crédito es tramitada ante un funcionario de alguna de las Entidades Financieras aliadas de
-      Retomautos, por lo tanto, esta solicitud se hace frente a la Entidad Financiera y no frente a Retomautos.
-      Cada solicitud de crédito requiere una autorización para consultar en Centrales de Riesgo.
-      Es posible que la Entidad Financiera requiera realizar actividades adicionales a las aquí descritas, por lo tanto no
-      puede entenderse lo anterior como una descripción total de los procesos llevados a cabo por las Entidades Financieras.</small></br>
-      <small><sup>***</sup>La solicitud de documentos puede variar entre cada Entidad Financiera, por lo que esta es una aproximación a
-        la generalidad de documentos solicitados.</small>
   </div>
+
 </div>
-<div class="bmw_bg"></div>
 <!--End documents financiacion-->
+
+<div class="container text-muted py-5">
+  <small><sup>*</sup>Las características de los créditos ofrecidos dependerán de cada Entidad Financiera.
+    La aprobación y las condiciones de cada crédito dependen del perfil de riesgo del cliente evaluado por cada
+    Entidad Financiera.
+    El proceso de evaluación de crédito es una actividad realizada por cada Entidad Financiera. Retomautos
+    no se compromete con el resultado o con las condiciones.</small></br>
+  <small><sup>**</sup>Cada solicitud de crédito es tramitada por funcionarios de las Entidades Financieras, por lo
+    tanto, esta solicitud se hace frente a la Entidad Financiera y no frente a Retomautos.
+    Cada solicitud requiere una autorización para consultar en Centrales de Riesgo.
+    Es posible que la Entidad Financiera requiera realizar actividades adicionales a las aquí descritas.</small></br>
+  <small><sup>***</sup>La solicitud de documentos puede variar entre cada Entidad Financiera,
+    por lo que esta es una aproximación a la generalidad de documentos solicitados.</small>
+</div>
