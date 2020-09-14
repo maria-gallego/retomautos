@@ -50,6 +50,8 @@
   box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
 }
 
+
+
 // Financiacion
 .financiacion {
   background-image: image-url("bmw_bnw_sm.jpg");
@@ -147,9 +149,17 @@
   font-size: $h3-font-size;
 }
 
+//Nuestras marcas
 .brands-logo {
   filter: grayscale(100%);
   max-width: 70%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: 992px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    }
 }
 
 .blue-background {
