@@ -71,14 +71,8 @@
       top: 45%;
     }
   }
-
-
-  .jumbotron-transparent {
-    @extend .jumbotron;
-    background-color: transparent;
-  }
-  @extend .mb-0;
 }
+
 
 .sold-badge {
   @extend .badge;
@@ -205,7 +199,7 @@
 
   background-image: image-url("blue_bmw_small.jpg");
   background-size: cover;
-  height: 75vh;
+  height: 95vh;
   box-shadow: inset 0 0 0 1000px
   rgba(0, 0, 0, .15);
   h5 {
@@ -214,7 +208,7 @@
 
 
   @media (min-width: 992px) {
-    background-image: image-url("blue_bmw.jpg");
+    background-image: image-url("bmw_financiacion.jpg");
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.10);
   }
 }
@@ -231,6 +225,11 @@
     background-image: image-url("info_financing_car.jpg");
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.20);
   }
+}
+
+.financing-form {
+  position: relative;
+  top: 40%;
 }
 
 .brands-financiacion-logo {

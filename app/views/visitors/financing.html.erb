@@ -4,6 +4,34 @@
     <h1>¿Estás buscando financiación para comprar tu próximo vehículo?</h1>
     <h4 class="text-white-50">En Retomautos tenemos múltiples alternativas para que alcances tus sueños</h4>
   </div>
+
+  <!--Financing Form-->
+  <%#= form_with(model: @find_car_request) do |form| %>
+<!--  <div class="container financing-form">-->
+<!--    <h2 class="text-white-50">Inicia el proceso de financiación</h2>-->
+<!--    <form>-->
+<!--      <div class="form-row">-->
+<!--        <div class="col">-->
+          <%#= form.text_field :name, autofocus: true, class: 'form-control', required: true, placeholder: "Nombre" %>
+<!--        </div>-->
+<!--        <div class="col">-->
+          <%#= form.email_field :email, placeholder: 'nombre@ejemplo.com', class: 'form-control', required: true %>
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="form-row pt-3">-->
+<!--        <div class="col-11">-->
+          <%#= form.text_area :content, class: 'form-control', placeholder: "Información o preguntas adicionales" %>
+<!--        </div>-->
+<!--        <div class="col-1">-->
+          <%#= form.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+<!--        </div>-->
+        <%# end %>
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+  <!--End Financing Form-->
+
 </div>
 <!--End Inicio financiacion-->
 
@@ -118,6 +146,8 @@
 </div>
 <!--End documents financiacion-->
 
+
+<!--Disclaimer-->
 <div class="container text-muted py-5">
   <small><sup>*</sup>Las características de los créditos ofrecidos dependerán de cada Entidad Financiera.
     La aprobación y las condiciones de cada crédito dependen del perfil de riesgo del cliente evaluado por cada
@@ -131,3 +161,4 @@
   <small><sup>***</sup>La solicitud de documentos puede variar entre cada Entidad Financiera,
     por lo que esta es una aproximación a la generalidad de documentos solicitados.</small>
 </div>
+<!--End Disclaimer-->
