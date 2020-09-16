@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'sendgrid-ruby'
 gem 'browser'
+gem 'devise'
 
 
 group :development, :test do
@@ -48,6 +49,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "letter_opener"
+  gem "faker"
 end
 
 group :test do

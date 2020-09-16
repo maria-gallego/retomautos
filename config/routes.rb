@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'visitors#home'
   get '/financiacion', to: 'visitors#financing'
   get '/sobre-nosotros', to: 'visitors#about_us'
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   get '/blog_posts/los_roadster_de_bmw', to: 'blog_posts#los_roadster_de_bmw'
   get '/blog_posts/los_motores_de_bmw', to: 'blog_posts#los_motores_de_bmw'
   get '/blog_posts/los_deportivos_de_bmw', to: 'blog_posts#los_deportivos_de_bmw'
+
+  resources :client_with_inquiries, only: [:create]
 end

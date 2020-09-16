@@ -1,4 +1,6 @@
 class FindCarRequestsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def new
     @find_car_request = FindCarRequest.new
 
@@ -12,7 +14,7 @@ class FindCarRequestsController < ApplicationController
     if @find_car_request.valid?
       FindCarRequestMailer.staff_email(@find_car_request).deliver_now
       FindCarRequestMailer.customer_email(@find_car_request).deliver_now
-      flash[:notice] = "#{@find_car_request.name} tu solicitud ha sido enviada."
+      flash[:success] = "#{@find_car_request.name} tu solicitud ha sido enviada."
       redirect_to root_path
     else
       render :new

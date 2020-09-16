@@ -1,4 +1,6 @@
 class VisitorsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def home
     set_meta_tags title: 'Carros usados Bogotá',
                   description: 'Encuentra una amplia selección de carros usados a precios muy competitivos, con facilidad de financiación, agilidad en los trámites y compra segura.',
@@ -172,6 +174,7 @@ class VisitorsController < ApplicationController
     set_meta_tags title: 'Financiación',
                   description: 'Ofrecemos facilidad de financiacion. Contacta a nuestros aliados para evaluar las mejores opciones de financiacion.',
                   keywords: 'Financiación, crédito'
+    @client_with_inquiry = ClientWithInquiry.new
   end
 
   def about_us
