@@ -23,5 +23,4 @@ class User < ApplicationRecord
   # Class Methods
   # ========================
 
-
 end

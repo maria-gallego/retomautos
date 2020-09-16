@@ -11,12 +11,14 @@ class ClientWithInquiry
 
   def save
     if valid?
-      ActiveRecord::Base.transaction do
-        client = create_or_update_client(client_name: client_name, client_phone: client_phone, client_email: client_email)
-        assign_salesperson!(client)
-        Inquiry.create!(body: inquiry_body, client: client)
-        # send email
-      end
+      client, inquiry =
+          ActiveRecord::Base.transaction do
+            client = create_or_update_client(client_name: client_name, client_phone: client_phone, client_email: client_email)
+            assign_salesperson!(client)
+            inquiry = Inquiry.create!(body: inquiry_body, client: client)
+            [client, inquiry]
+          end
+      ClientWithInquiryMailer.staff_email(user: client.user, client: client, inquiry: inquiry).deliver_now
       return true
     else
       return false
