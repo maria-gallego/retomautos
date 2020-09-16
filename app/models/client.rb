@@ -36,8 +36,9 @@ class Client < ApplicationRecord
     last_salesperson_id = Client.with_salesperson.last.user_id
 
     if active_salespeople_ids.include?(last_salesperson_id)
-      position_of_current_salesperson = active_salespeople_ids.cycle(2).to_a.index(last_salesperson_id)
-      id_of_next_salesperson =  active_salespeople_ids.cycle(2).to_a[position_of_current_salesperson + 1]
+      active_salespeople_cycle = active_salespeople_ids.cycle(2).to_a  # => [1, 3, 4, 1, 3, 4]
+      position_of_current_salesperson = active_salespeople_cycle.index(last_salesperson_id)
+      id_of_next_salesperson =  active_salespeople_cycle[position_of_current_salesperson + 1]
     else
       id_of_next_salesperson = active_salespeople_ids.sample
     end
