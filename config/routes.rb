@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/sobre-nosotros', to: 'visitors#about_us'
   get '/encontramos-tu-carro', to: 'find_car_requests#new'
   get '/pagos', to: 'visitors#payments'
+  get '/gracias', to: 'visitors#after_form_view'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
 
@@ -15,5 +16,10 @@ Rails.application.routes.draw do
   get '/blog_posts/los_motores_de_bmw', to: 'blog_posts#los_motores_de_bmw'
   get '/blog_posts/los_deportivos_de_bmw', to: 'blog_posts#los_deportivos_de_bmw'
 
-  resources :client_with_inquiries, only: [:create]
+  resources :client_with_inquiries, only: [] do
+    collection do
+      post :create_from_financing
+      post :create_from_home
+    end
+  end
 end

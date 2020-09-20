@@ -1,29 +1,33 @@
 <!--Inicio financiacion-->
 <div class="financiacion_page">
-  <div class="container py-5 text-light">
+  <div class="financiacion_title container text-light">
     <h1>¿Estás buscando financiación para comprar tu próximo vehículo?</h1>
     <h4 class="text-white-50">En Retomautos tenemos múltiples alternativas para que alcances tus sueños</h4>
   </div>
 
   <!--Financing Form-->
-  <div class="container financing-form">
+  <div class="container py-5">
     <h2 class="text-white-50">Inicia el proceso de financiación</h2>
-    <%= form_with(model: @client_with_inquiry, local: true) do |form| %>
+    <%= form_with(model: @client_with_inquiry, url: create_from_financing_client_with_inquiries_path, local: true) do |form| %>
+      <%= render 'layouts/error_messages', object: @client_with_inquiry %>
       <div class="form-row">
         <div class="col">
           <%= form.text_field  :client_name, autofocus: true, class: 'form-control', required: true, placeholder: "Nombre" %>
         </div>
         <div class="col">
-          <%= form.email_field :client_email, placeholder: 'nombre@ejemplo.com', class: 'form-control', required: true %>
+          <%= form.email_field :client_email, placeholder: 'Email', class: 'form-control', required: true %>
+        </div>
+        <div class="col">
+          <%= form.phone_field :client_phone, placeholder: 'Teléfono (opcional)', class: 'form-control' %>
         </div>
       </div>
 
       <div class="form-row pt-3">
-        <div class="col-11">
-          <%= form.text_area :inquiry_body, class: 'form-control', placeholder: "Información o preguntas adicionales", required: true %>
+        <div class="col-md-11 col-9">
+          <%= form.text_area :inquiry_body, class: 'form-control', placeholder: "Información o preguntas adicionales", rows:"1", required: true %>
         </div>
-        <div class="col-1">
-          <%= form.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+        <div class="col-md-1 col-3">
+          <%= form.submit 'Enviar', class: 'btn-full-width btn-primary btn-md' %>
         </div>
       </div>
     <% end %>

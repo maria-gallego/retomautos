@@ -1,0 +1,8 @@
+@import "bootstrap_customization/variables";
+@import "bootstrap";
+@import "bootstrap_customization/overrides";
+
+.btn-full-width {
+  @extend .btn;
+  width: 100%;
+}

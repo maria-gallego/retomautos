@@ -167,6 +167,7 @@ class VisitorsController < ApplicationController
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-575380361-mercedes-benz-clase-a-a-200-sedan-_JM#position=43&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
         ),
     ]
+    @client_with_inquiry = ClientWithInquiry.new
   end
   # End Slides 'Nuestros Carros' - Home
 

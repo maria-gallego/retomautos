@@ -22,5 +22,8 @@ class User < ApplicationRecord
 
   # Class Methods
   # ========================
+  def self.get_random_salesperson
+    active_salespeople.order("RANDOM()").first
+  end
 
 end
