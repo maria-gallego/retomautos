@@ -69,3 +69,6 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'meta-tags'
 
 gem 'mercadolibre'
+
+gem 'delayed_job_active_record'
+

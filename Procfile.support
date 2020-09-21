@@ -1,1 +1,2 @@
 postgres: postgres
+worker: rake jobs:work
