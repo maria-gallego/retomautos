@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/blog_posts/los_roadster_de_bmw', to: 'blog_posts#los_roadster_de_bmw'
   get '/blog_posts/los_motores_de_bmw', to: 'blog_posts#los_motores_de_bmw'
   get '/blog_posts/los_deportivos_de_bmw', to: 'blog_posts#los_deportivos_de_bmw'
+  post '/mercadolibre-callback', to: 'mercadolibre_callbacks#notify'
 
   resources :client_with_inquiries, only: [] do
     collection do
