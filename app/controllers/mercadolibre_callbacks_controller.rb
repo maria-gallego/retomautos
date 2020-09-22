@@ -1,17 +1,26 @@
-require 'tu_carro_question_responder/use_cases/process_question_notification'
-
 class MercadolibreCallbacksController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def notify
-    # TODO: make processing async
-    TuCarroQuestionResponder::UseCases::ProcessQuestionNotification.new.call(remote_question_id)
+    notification_topic = notification_params[:topic]
+    case notification_topic
+    when "questions"
+      schedule_question_notification_processing
+    else
+      # No op. It is safe to ignore other notifications.
+    end
     head :ok
   end
 
   private
 
-  def remote_question_id
-    params.permit(:resource).fetch(:resource).split("/questions/").last.to_i
+  def schedule_question_notification_processing
+    # TODO: make processing async
+    remote_question_id = notification_params.fetch(:resource).split("/questions/").last.to_i
+    AskQuestionTuCarro::UseCases::ProcessQuestionNotification.new.call(remote_question_id)
+  end
+
+  def notification_params
+    params.permit(:resource, :topic)
   end
 end
