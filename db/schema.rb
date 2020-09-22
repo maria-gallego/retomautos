@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_101638) do
+ActiveRecord::Schema.define(version: 2020_09_21_121744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2020_09_21_101638) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_inquiries_on_client_id"
     t.index ["created_at"], name: "index_inquiries_on_created_at"
+  end
+
+  create_table "mercadolibre_api_access_tokens", force: :cascade do |t|
+    t.text "access_token_ciphertext"
+    t.text "refresh_token_ciphertext"
+    t.datetime "expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
