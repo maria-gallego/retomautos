@@ -1,4 +1,4 @@
-module  TuCarroQuestionResponder
+module  AskQuestionTuCarro
   module UseCases
     class InquiringClient
       attr_reader :remote_id, :name, :phone, :email

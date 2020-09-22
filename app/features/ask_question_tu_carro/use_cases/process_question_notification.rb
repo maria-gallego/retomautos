@@ -1,11 +1,9 @@
-require 'tu_carro_question_responder/remote_repositories/tu_carro_questions_repo'
-
-module TuCarroQuestionResponder
+module AskQuestionTuCarro
   module UseCases
     class ProcessQuestionNotification
 
       def initialize(
-        remote_questions_repo: TuCarroQuestionResponder::RemoteRepositories::TuCarroQuestionsRepo.new
+        remote_questions_repo: AskQuestionTuCarro::RemoteRepositories::TuCarroQuestionsRepo.new
       )
         @remote_questions_repo = remote_questions_repo
       end
@@ -23,7 +21,7 @@ module TuCarroQuestionResponder
 
 
         # TODO: remove crutch
-        # question_notification = TuCarroQuestionResponder::UseCases::QuestionNotification.from_mercadolibre_question_callback(nil)
+        # question_notification = AskQuestionTuCarro::UseCases::QuestionNotification.from_mercadolibre_question_callback(nil)
 
         # notified_question = questions_repo.fetch_by_id(question_notification.remote_question_id)
         # notified_question_client = notified_question.client
