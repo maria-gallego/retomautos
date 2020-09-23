@@ -29,6 +29,11 @@ module MercadolibreApi
       JSON
       JSON.parse(sample_question_json, object_class: OpenStruct)
     end
+
+    def refresh_and_persist_token!(token_repo: nil)
+      # No Op. Dummy clients do not need to update tokens
+      true
+    end
   end
 end
 

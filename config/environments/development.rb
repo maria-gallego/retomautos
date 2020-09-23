@@ -31,7 +31,13 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-
+  # Logging Configuration
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
+  config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
+  config.log_level = :debug
+  config.colorize_logging = true
 
 
   # Print deprecation notices to the Rails logger.
@@ -42,6 +48,7 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
+
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

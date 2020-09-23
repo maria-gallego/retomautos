@@ -4,8 +4,9 @@
 # - Add here any additional behaviour that is specific to how we want the client to behave in our app
 module MercadolibreApi
   class LiveClient
-    def initialize(access_token:, app_id:, app_secret:, base_client_class: Mercadolibre::Api)
+    def initialize(access_token:, refresh_token:, app_id:, app_secret:, base_client_class: Mercadolibre::Api)
       @access_token = access_token
+      @refresh_token = refresh_token
       @app_id = app_id
       @app_secret = app_secret
       @base_client = base_client_class.new(access_token: access_token, app_key: app_id, app_secret: app_secret)
@@ -47,11 +48,27 @@ module MercadolibreApi
       response
     end
 
+    # def get_car!(car_id)
+    #   base_client.get_item(car_id)
+    # end
+
+    def refresh_and_persist_token!(token_repo: MercadolibreApiAccessToken)
+      refresh_result = base_client.update_token(refresh_token)
+      assert_successful_response!(refresh_result)
+
+      token_repo.persist_new_credentials!(
+        access_token: refresh_result.access_token,
+        refresh_token: refresh_result.refresh_token,
+        expires_at: refresh_result.expiration_time
+      )
+      true
+    end
+
 
     class UnsuccessfulRequest < StandardError; end
     private
 
-    attr_reader :base_client, :access_token, :app_id, :app_secret
+    attr_reader :base_client, :access_token, :refresh_token, :app_id, :app_secret
 
     # The Mercadolibre::Api base_client always returns open structs and the shape of the open
     # struct changes completely depending on whether the request was successful or not
@@ -59,7 +76,7 @@ module MercadolibreApi
     # For example, the following is returned when the access_token has expired
     # => <OpenStruct message="invalid_token", error="not_found", status=401, cause=[]>
     def assert_successful_response!(response)
-      return if response.respond_to?(:status) && response.status == 200
+      return if !(response.respond_to?(:error) && response.status != 200)
       raise UnsuccessfulRequest, response
     end
   end

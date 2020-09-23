@@ -8,11 +8,15 @@ class MercadolibreApiAccessToken < ApplicationRecord
 
   validates :access_token, :refresh_token, :expires_at, presence: true
 
-  def self.get_latest_unexpired_access_token!
+  def self.get_latest_unexpired_access_and_refresh_tokens!
     latest_token = order(expires_at: :desc).first
     raise AllTokensExpired unless latest_token.expires_at > Time.now
 
-    latest_token.access_token
+    [latest_token.access_token, latest_token.refresh_token]
+  end
+
+  def self.persist_new_credentials!(access_token:, refresh_token:, expires_at:)
+    create!(access_token: access_token, refresh_token: refresh_token, expires_at: expires_at)
   end
 
   class AllTokensExpired < StandardError; end

@@ -9,6 +9,4 @@ Delayed::Worker.default_queue_name = 'default'
 Delayed::Worker.read_ahead = 10
 Delayed::Worker.raise_signal_exceptions = :term
 Delayed::Worker.delay_jobs != Rails.env.test?
-logger = ActiveSupport::Logger.new(STDOUT)
-Delayed::Worker.logger = ActiveSupport::TaggedLogging.new(logger)
-
+Delayed::Worker.logger = Rails.logger
