@@ -15,7 +15,7 @@ class ClientWithInquiriesController < ApplicationController
   def create_from_home
     @client_with_inquiry = ClientWithInquiry.new(client_with_inquiry_params)
     if @client_with_inquiry.save
-      flash[:success] = "Gracias #{@client_with_inquiry.client_name}! Un asesor se va a comunicar contigo muy pronto"
+      #flash[:success] = "Gracias #{@client_with_inquiry.client_name}! Un asesor se va a comunicar contigo muy pronto"
       redirect_to gracias_path
     else
       render "visitors/home"
