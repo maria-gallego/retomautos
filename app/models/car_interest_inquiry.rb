@@ -1,8 +1,9 @@
-class Inquiry < ApplicationRecord
+class CarInterestInquiry < ApplicationRecord
 
   # Associations
   # ========================
-  belongs_to :client
+  belongs_to :car_interest
+
 
   # Validations
   # ========================

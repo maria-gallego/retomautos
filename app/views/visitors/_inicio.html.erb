@@ -1,52 +1,55 @@
-<!--<div class="vitrina">-->
-<!--  <div class="container financing-form">-->
-<!--    <h1>Encuentra tu próximo carro</h1>-->
-    <%#= form_with(model: @client_with_inquiry, url: create_from_home_client_with_inquiries_path, local: true) do |form| %>
-      <%#= render 'layouts/error_messages', object: form.object %>
-<!--      <div class="form-row">-->
-<!--        <div class="col">-->
-          <%#= form.text_field  :client_name, autofocus: true, class: 'form-control', required: true, placeholder: "Nombre" %>
-<!--        </div>-->
-<!--        <div class="col">-->
-          <%#= form.email_field :client_email, placeholder: 'Email', class: 'form-control', required: true %>
-<!--        </div>-->
-<!--        <div class="col">-->
-          <%#= form.phone_field :client_phone, placeholder: 'Teléfono (opcional)', class: 'form-control' %>
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="form-row pt-3">-->
-<!--        <div class="col-md-10 col-9">-->
-          <%#= form.text_area :inquiry_body, class: 'form-control', placeholder: "Escribe tu pregunta y nosotros te contactamos", rows:"1", required: true %>
-<!--        </div>-->
-<!--        <div class="col-md-2 col-3">-->
-          <%#= form.submit 'Preguntar', class: 'btn-full-width btn-primary btn-md' %>
-<!--        </div>-->
-<!--      </div>-->
-    <%# end %>
-<!--  </div>-->
-<!--</div>-->
-
 <div class="vitrina">
-  <div class="container pb-5">
-    <h1>ENCUENTRA TU PRÓXIMO CARRO</h1>
-    <div>
-      <a class="" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"
-         target="_blank">
-        <h3>
-          DESCUBRE MÁS
-          <i class="fas fa-angle-double-right"></i>
-        </h3>
-      </a>
-    </div>
-    <div>
-      <a class="" href="https://youtu.be/SRp2rz0GgnA" role="button"
-         target="_blank">
-        <h4>
-          CONÓCENOS
-          <i class="fab fa-youtube"></i>
-        </h4>
-      </a>
-    </div>
+<!--  <div class="container pt-5">-->
+<!--    <h1>Encuentra tu próximo carro</h1>-->
+<!--  </div>-->
+  <div class="container container-form financing-form">
+    <h2>Contáctanos</h2>
+    <%= form_with(model: @client_with_inquiry, url: create_from_home_client_with_inquiries_path, local: true) do |form| %>
+      <%= render 'layouts/error_messages', object: @client_with_inquiry %>
+      <div class="form-row">
+        <div class="col">
+          <%= form.text_field  :client_name, autofocus: true, class: 'form-control', required: true, placeholder: "Nombre" %>
+        </div>
+        <div class="col">
+          <%= form.email_field :client_email, placeholder: 'Email', class: 'form-control', required: true %>
+        </div>
+        <div class="col">
+          <%= form.phone_field :client_phone, placeholder: 'Teléfono (opcional)', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-row pt-3">
+        <div class="col-md-10 col-9">
+          <%= form.text_area :buy_process_inquiry_body, class: 'form-control', placeholder: "Escribe tu pregunta y nosotros te contactamos", rows:"1", required: true %>
+        </div>
+        <div class="col-md-2 col-3">
+          <%= form.submit 'Preguntar', class: 'btn-full-width btn-primary btn-md' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+<!--<div class="vitrina">-->
+<!--  <div class="container pb-5">-->
+<!--    <h1>ENCUENTRA TU PRÓXIMO CARRO</h1>-->
+<!--    <div>-->
+<!--      <a class="" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"-->
+<!--         target="_blank">-->
+<!--        <h3>-->
+<!--          DESCUBRE MÁS-->
+<!--          <i class="fas fa-angle-double-right"></i>-->
+<!--        </h3>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <a class="" href="https://youtu.be/SRp2rz0GgnA" role="button"-->
+<!--         target="_blank">-->
+<!--        <h4>-->
+<!--          CONÓCENOS-->
+<!--          <i class="fab fa-youtube"></i>-->
+<!--        </h4>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

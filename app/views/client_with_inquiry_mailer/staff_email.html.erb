@@ -5,7 +5,9 @@
 </head>
 <body>
 <h1>Pregunta de Cliente</h1>
-<h5>Un cliente hizo uana pregunta desde la página web. Por favor contactarlo.</h5>
+<h5>Un cliente hizo una pregunta desde la sección de <%= @buy_process.source %> de la página web. Por favor contactarlo.</h5>
+<h5>El número que le quedó asignado al proceso es: <%= @buy_process.id %></h5>
+
 <p>
   Datos del cliente:
 </p>
@@ -15,7 +17,7 @@
   Teléfono: <%= @client.phone || "N/A" %><br/>
 </p>
 <p>
-  Pregunta: <%= @inquiry.body %>
+  Pregunta: <%= @buy_process_inquiry.body %>
 </p>
 </body>
 </html>

@@ -1,46 +1,52 @@
 class ClientWithInquiry
   include ActiveModel::Model
-  attr_accessor :client_name, :client_email, :client_phone, :inquiry_body
+  include ActiveModel::Validations::Callbacks
+
+  attr_accessor :client_name, :client_email, :client_phone, :buy_process_inquiry_body, :source
 
   validates :client_name, presence: true
   validates :client_email,
             format: { with: Devise.email_regexp, message: "email inválido" },
             presence: true
-  validates :inquiry_body, presence: true
+  validates :buy_process_inquiry_body, presence: true
+  validates :source, presence: true
 
+  # Callback
+  # ========================
+  before_validation :normalize_client_email
 
   def save
     if valid?
-      client, inquiry =
-          ActiveRecord::Base.transaction do
-            client = create_or_update_client(client_name: client_name, client_phone: client_phone, client_email: client_email)
-            assign_salesperson!(client)
-            inquiry = Inquiry.create!(body: inquiry_body, client: client)
-            [client, inquiry]
-          end
-      ClientWithInquiryMailer.staff_email(user: client.user, client: client, inquiry: inquiry).deliver_now
+      client, assigned_salesperson, buy_process, buy_process_inquiry =
+        ActiveRecord::Base.transaction do
+          client = Client.create_or_update_by_email!(name: client_name, phone: client_phone, email: client_email)
+
+          assigned_salesperson = BuyProcess.determine_salesperson(client)
+          buy_process = BuyProcess.create!(source: source, client: client, user: assigned_salesperson)
+
+          buy_process_inquiry = BuyProcessInquiry.create!(body: buy_process_inquiry_body, buy_process: buy_process)
+          [client, assigned_salesperson, buy_process, buy_process_inquiry]
+        end
+
+      ClientWithInquiryMailer.staff_email(
+          salesperson: assigned_salesperson,
+          client: client,
+          buy_process: buy_process,
+          buy_process_inquiry: buy_process_inquiry,
+      ).deliver_now
+
       return true
     else
       return false
     end
   end
 
+
+
+
   private
 
-  def create_or_update_client(client_name:, client_phone:, client_email:)
-    client = Client.find_by(email: client_email)
-    if client.present?
-      client.update!(name: client_name, phone: client_phone)
-    else
-      client = Client.create!(name: client_name, phone: client_phone, email: client_email)
-    end
-    client
-  end
-
-  def assign_salesperson!(client)
-    if !client.has_salesperson?
-      next_salesperson = Client.next_salesperson
-      client.update!(user: next_salesperson)
-    end
+  def normalize_client_email
+    self.client_email = self.client_email.downcase.strip unless self.client_email.nil?
   end
 end

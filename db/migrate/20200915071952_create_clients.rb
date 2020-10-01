@@ -4,7 +4,6 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :phone
-      t.references :user,  foreign_key: true
 
       t.timestamps
     end

@@ -9,48 +9,31 @@ class Client < ApplicationRecord
 
   # Associations
   # ========================
-  belongs_to :user, optional: true
-  has_many :inquiries
+  has_many :buy_processes
+  has_many :car_interests, through: :buy_processes
+  has_many :buy_process_inquiries, through: :buy_processes
 
   # Callback
   # ========================
   before_validation :normalize_email
 
-  # Scope
-  # ========================
-  scope :with_salesperson, -> { where.not(user_id: nil) }
-
-  # Class Methods
-  # ========================
-  # Returns the user of the next active salesperson
-  # For example,
-  #   if active_salespeople_ids = [1,2,4]
-  #   and last_salesperson_id = 4
-  #   it returns 1
   #
-  #   if active_salespeople_ids = [1,2,4]
-  #   and last_salesperson_id = 3
-  #   it returns a random id from the active_salespeople_ids
-  def self.next_salesperson
-    active_salespeople_ids = User.active_salespeople.pluck(:id)
-    last_salesperson_id = Client.with_salesperson.last.user_id
+  # Scope
+  ## ========================
 
-    if active_salespeople_ids.include?(last_salesperson_id)
-      active_salespeople_cycle = active_salespeople_ids.cycle(2).to_a  # => [1, 3, 4, 1, 3, 4]
-      position_of_current_salesperson = active_salespeople_cycle.index(last_salesperson_id)
-      id_of_next_salesperson =  active_salespeople_cycle[position_of_current_salesperson + 1]
+  ## Class Methods
+  ## ========================
+  def self.create_or_update_by_email!(client_attributes)
+    email = client_attributes.fetch(:email)
+    client = Client.find_by(email: email)
+    if client.present?
+      client.update!(**client_attributes)
     else
-      id_of_next_salesperson = active_salespeople_ids.sample
+      client = Client.create!(**client_attributes)
     end
-
-    User.find(id_of_next_salesperson)
+    client
   end
 
-  # Instance methods
-  # ========================
-  def has_salesperson?
-    user_id.present?
-  end
 
   private
 
