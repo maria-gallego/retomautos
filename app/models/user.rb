@@ -10,7 +10,9 @@ class User < ApplicationRecord
 
   # Associations
   # ========================
-  has_many :clients
+  has_many :buy_processes
+  has_many :clients, through: :buy_processes
+  has_many :notes, through: :buy_processes
 
   # Scope
   # ========================

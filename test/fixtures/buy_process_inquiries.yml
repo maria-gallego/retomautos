@@ -2,10 +2,8 @@
 
 one:
   body: MyText
-  car: MyString
-  client: one
+  buy_process: one
 
 two:
   body: MyText
-  car: MyString
-  client: two
+  buy_process: two
