@@ -45,9 +45,8 @@ class BuyProcess < ApplicationRecord
   def self.determine_salesperson(client)
     # si el cliente ya tiene un buy process pasado con un vendedor activo? => asigne el mismo vendedor a un nuevo buy process
     last_previous_buy_process_for_client = BuyProcess.client_id_is(client.id).joins(:user).merge(User.active_salespeople).last
-    if last_previous_buy_process_for_client.present?
-      return last_previous_buy_process_for_client.user
-    end
+    return last_previous_buy_process_for_client.user if last_previous_buy_process_for_client.present?
+
     # Si no => Asigne el siguiente vendedor en la cola a un nuevo buy process
     next_salesperson
   end
