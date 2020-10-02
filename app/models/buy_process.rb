@@ -26,17 +26,18 @@ class BuyProcess < ApplicationRecord
   #   it returns a random id from the active_salespeople_ids
 
   def self.next_salesperson
+    last_assigned_buy_process = BuyProcess.with_salesperson.last
+    # Edge case: no previous buy processes
+    return User.first if !last_assigned_buy_process.present?
+
     active_salespeople_ids = User.active_salespeople.pluck(:id)
-    last_salesperson_id = BuyProcess.with_salesperson.last.user_id
+    last_salesperson_id = last_assigned_buy_process.user_id
+    # Edge case: previous buy process with deactivated salesperson
+    return User.find(active_salespeople_ids.sample) unless active_salespeople_ids.include?(last_salesperson_id)
 
-    if active_salespeople_ids.include?(last_salesperson_id)
-      active_salespeople_cycle = active_salespeople_ids.cycle(2).to_a # => [1, 3, 4, 1, 3, 4]
-      position_of_current_salesperson = active_salespeople_cycle.index(last_salesperson_id)
-      id_of_next_salesperson = active_salespeople_cycle[position_of_current_salesperson + 1]
-    else
-      id_of_next_salesperson = active_salespeople_ids.sample
-    end
-
+    active_salespeople_cycle = active_salespeople_ids.cycle(2).to_a # => [1, 3, 4, 1, 3, 4]
+    position_of_current_salesperson = active_salespeople_cycle.index(last_salesperson_id)
+    id_of_next_salesperson = active_salespeople_cycle[position_of_current_salesperson + 1]
     User.find(id_of_next_salesperson)
   end
   private_class_method :next_salesperson
