@@ -13,7 +13,10 @@ module AskQuestionTuCarro
       def call(remote_question_id)
         # If this remote question id has already been processed, do nothing.
         # This was added because mercadolibre sometimes notifies about the same question more than once
-        return if CarInterest.inquiry_with_tu_carro_question_id_exists?(remote_question_id)
+        if CarInterest.inquiry_with_tu_carro_question_id_exists?(remote_question_id)
+          Rails.logger.warn "Remote question #{remote_question_id} has already been processed. Ignoring."
+          return
+        end
 
         notified_question = remote_questions_repo.find_by_id!(remote_question_id)
         inquiring_client = notified_question.remote_client
@@ -37,7 +40,11 @@ module AskQuestionTuCarro
             buy_process.assign_sales_person_if_non_existent!
 
             car_interest = CarInterest.find_or_create_for!(buy_process: buy_process, car: car)
-            car_interest_inquiry = CarInterestInquiry.create!(car_interest: car_interest, body: notified_question.body)
+            car_interest_inquiry = CarInterestInquiry.create!(
+              car_interest: car_interest,
+              body: notified_question.body,
+              tu_carro_question_id: remote_question_id
+            )
 
             [client, buy_process, car, car_interest_inquiry]
           end
