@@ -13,7 +13,7 @@ class BuyProcess < ApplicationRecord
   # ========================
   scope :with_salesperson, -> { where.not(user_id: nil) }
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
-  scope :open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
+  scope :currently_open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
 
   # Class Methods
   # ========================
@@ -54,7 +54,7 @@ class BuyProcess < ApplicationRecord
   end
 
   def self.find_open_or_create_for_client!(client, source)
-    last_previous_open_buy_process_for_client = BuyProcess.open.client_id_is(client.id).last
+    last_previous_open_buy_process_for_client = BuyProcess.currently_open.client_id_is(client.id).last
     return last_previous_open_buy_process_for_client if last_previous_open_buy_process_for_client.present?
 
     create!(source: source, client: client)
