@@ -15,9 +15,8 @@ class MercadolibreCallbacksController < ApplicationController
   private
 
   def schedule_question_notification_processing
-    # TODO: make processing async
     remote_question_id = notification_params.fetch(:resource).split("/questions/").last.to_i
-    AskQuestionTuCarro::UseCases::ProcessQuestionNotification.new.call(remote_question_id)
+    AskQuestionTuCarro::Jobs::ProcessQuestionNotificationJob.perform_later(remote_question_id)
   end
 
   def notification_params

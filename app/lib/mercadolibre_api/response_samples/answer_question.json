@@ -1,0 +1,23 @@
+{
+  "id":11526207211,
+  "seller_id":28140600,
+  "text":"MR BAWWWSSSOOOO",
+  "status":"ANSWERED",
+  "item_id":"MCO575380830",
+  "date_created":"2020-10-05T01:05:13.455-04:00",
+  "hold":false,
+  "deleted_from_listing":false,
+  "answer": {
+    "table": {
+      "text":"esto es una prueba",
+      "status":"ACTIVE",
+      "date_created":"2020-10-05T01:06:50.929-04:00"
+    },
+    "modifiable":true
+  },
+  "from": {
+    "table": {
+      "id":639753750
+    },
+    "modifiable":true}
+}

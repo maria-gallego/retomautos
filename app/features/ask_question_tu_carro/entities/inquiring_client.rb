@@ -1,5 +1,5 @@
 module  AskQuestionTuCarro
-  module UseCases
+  module Entities
     class InquiringClient
       attr_reader :remote_id, :name, :phone, :email
 

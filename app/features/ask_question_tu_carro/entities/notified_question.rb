@@ -1,5 +1,5 @@
 module  AskQuestionTuCarro
-  module UseCases
+  module Entities
     class NotifiedQuestion
       attr_reader :remote_id, :remote_created_at, :remote_car_id, :body, :remote_client
 

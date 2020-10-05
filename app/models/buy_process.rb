@@ -7,11 +7,13 @@ class BuyProcess < ApplicationRecord
   has_many :car_interests
   has_many :notes
   has_many :car_interest_inquiries, through: :car_interests
+  has_many :cars, through: :car_interests
 
   # Scope
   # ========================
   scope :with_salesperson, -> { where.not(user_id: nil) }
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
+  scope :open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
 
   # Class Methods
   # ========================
@@ -51,6 +53,13 @@ class BuyProcess < ApplicationRecord
     next_salesperson
   end
 
+  def self.find_open_or_create_for_client!(client, source)
+    last_previous_open_buy_process_for_client = BuyProcess.open.client_id_is(client.id).last
+    return last_previous_open_buy_process_for_client if last_previous_open_buy_process_for_client.present?
+
+    create!(source: source, client: client)
+  end
+
 
   # Instance methods
   # ========================
@@ -58,4 +67,11 @@ class BuyProcess < ApplicationRecord
     user_id.present?
   end
 
+  def assign_sales_person_if_non_existent!
+    assigned_salesperson = BuyProcess.determine_salesperson(client)
+    # Covers 2 cases:
+    # - buy_process does not have a sales person assigned
+    # - the sales person has to assign has change according to determine_salesperson (e.g. resigned salesperson)
+    update!(user: assigned_salesperson) if self.user_id != assigned_salesperson.id
+  end
 end

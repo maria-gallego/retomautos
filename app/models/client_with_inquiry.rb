@@ -17,19 +17,19 @@ class ClientWithInquiry
 
   def save
     if valid?
-      client, assigned_salesperson, buy_process, buy_process_inquiry =
+      client, buy_process, buy_process_inquiry =
         ActiveRecord::Base.transaction do
           client = Client.create_or_update_by_email!(name: client_name, phone: client_phone, email: client_email)
 
-          assigned_salesperson = BuyProcess.determine_salesperson(client)
-          buy_process = BuyProcess.create!(source: source, client: client, user: assigned_salesperson)
+          buy_process = BuyProcess.find_open_or_create_for_client!(client, source)
+          buy_process.assign_sales_person_if_non_existent!
 
           buy_process_inquiry = BuyProcessInquiry.create!(body: buy_process_inquiry_body, buy_process: buy_process)
-          [client, assigned_salesperson, buy_process, buy_process_inquiry]
+          [client, buy_process, buy_process_inquiry]
         end
 
       ClientWithInquiryMailer.staff_email(
-          salesperson: assigned_salesperson,
+          salesperson: buy_process.user,
           client: client,
           buy_process: buy_process,
           buy_process_inquiry: buy_process_inquiry,

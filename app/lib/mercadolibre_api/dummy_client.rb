@@ -2,32 +2,21 @@
 # as the live client
 module MercadolibreApi
   class DummyClient
+    # @see ./response_samples/get_question.json
     def get_question!(question_id)
-      sample_question_json = <<~JSON
-        {
-          "id": 11497699553,
-          "seller_id": 28140600,
-          "text": "hola le escribi que cual era su minimo y me opidio que le ofreciera",
-          "status": "UNANSWERED",
-          "item_id": "MCO583043192",
-          "date_created": "2020-09-19T23:22:32.734-04:00",
-          "hold": false,
-          "deleted_from_listing": false,
-          "answer": null,
-          "from": {
-            "id": 163115900,
-            "answered_questions": 0,
-            "first_name": "Alfredo Enrique",
-            "last_name": "Campo Ortiz",
-            "phone": {
-              "number": "3003133396",
-              "area_code": " "
-            },
-            "email": "revisoriaac@hotmail.com"
-          }
-        }
-      JSON
+      sample_question_json = File.read("app/lib/mercadolibre_api/response_samples/get_question.json")
       JSON.parse(sample_question_json, object_class: OpenStruct)
+    end
+
+    # @see https://github.com/lhconfort/mercadolibre#questions
+    def answer_question!(question_id, text)
+      sample_answer_question_json = File.read("app/lib/mercadolibre_api/response_samples/answer_question.json")
+      JSON.parse(sample_answer_question_json, object_class: OpenStruct)
+    end
+
+    def get_car!(car_id)
+      sample_car_json = File.read("app/lib/mercadolibre_api/response_samples/get_car.json")
+      JSON.parse(sample_car_json, object_class: OpenStruct)
     end
 
     def refresh_and_persist_token!(token_repo: nil)

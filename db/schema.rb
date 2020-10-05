@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_074343) do
+ActiveRecord::Schema.define(version: 2020_10_05_054832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_074343) do
     t.datetime "successfully_closed_at"
     t.datetime "unsuccessfully_closed_at"
     t.string "source"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -70,24 +70,6 @@ ActiveRecord::Schema.define(version: 2020_09_22_074343) do
     t.index ["created_at"], name: "index_clients_on_created_at"
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.text "body"
-    t.bigint "buy_process_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["buy_process_id"], name: "index_notes_on_buy_process_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
-  end
-
-  create_table "mercadolibre_api_access_tokens", force: :cascade do |t|
-    t.text "access_token_ciphertext"
-    t.text "refresh_token_ciphertext"
-    t.datetime "expires_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -101,6 +83,24 @@ ActiveRecord::Schema.define(version: 2020_09_22_074343) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "mercadolibre_api_access_tokens", force: :cascade do |t|
+    t.text "access_token_ciphertext"
+    t.text "refresh_token_ciphertext"
+    t.datetime "expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "body"
+    t.bigint "buy_process_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buy_process_id"], name: "index_notes_on_buy_process_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Pregunta de Cliente desde Tu Carro</h1>
+<h5>El número que le quedó asignado al proceso es: <%= @buy_process.id %></h5>
+
+<p>
+  Datos del cliente:
+</p>
+<p>
+  Nombre: <%= @client.name %><br/>
+  Email: <%= @client.email %><br/>
+  Teléfono: <%= @client.phone || "N/A" %><br/>
+</p>
+<p>
+  Carro en el que está interesado: <%= "#{@car.description} | #{@car.year}" %>
+</p>
+<p>
+  Pregunta: <%= @car_interest_inquiry.body %>
+</p>
+</body>
+</html>
