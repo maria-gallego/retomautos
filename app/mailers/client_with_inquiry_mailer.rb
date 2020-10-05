@@ -7,6 +7,6 @@ class ClientWithInquiryMailer < ApplicationMailer
     @client = client
     @buy_process = buy_process
     @buy_process_inquiry = buy_process_inquiry
-    mail(to: [SENDGRID_VERIFIED_SENDER, "se.rodriguez68@gmail.com", salesperson.email], subject: "Pregunta de Cliente")
+    mail(to: [SENDGRID_VERIFIED_SENDER, "se.rodriguez68@gmail.com", "mariapaulagallegoc@gmail.com", salesperson.email], subject: "Pregunta de Cliente")
   end
 end
