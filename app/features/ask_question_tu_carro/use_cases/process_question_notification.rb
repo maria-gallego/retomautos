@@ -11,6 +11,10 @@ module AskQuestionTuCarro
       end
 
       def call(remote_question_id)
+        # If this remote question id has already been processed, do nothing.
+        # This was added because mercadolibre sometimes notifies about the same question more than once
+        return if CarInterest.inquiry_with_tu_carro_question_id_exists?(remote_question_id)
+
         notified_question = remote_questions_repo.find_by_id!(remote_question_id)
         inquiring_client = notified_question.remote_client
         remote_car = remote_cars_repo.find_by_id!(notified_question.remote_car_id)
