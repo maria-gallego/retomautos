@@ -8,6 +8,6 @@ class AskQuestionTuCarroMailer < ApplicationMailer
     @buy_process = buy_process
     @car_interest_inquiry = car_interest_inquiry
     @car = car
-    mail(to: [SENDGRID_VERIFIED_SENDER, "se.rodriguez68@gmail.com", salesperson.email], subject: "Pregunta de Cliente desde Tu Carro")
+    mail(to: [SENDGRID_VERIFIED_SENDER, "se.rodriguez68@gmail.com", "mariapaulagallegoc@gmail.com", salesperson.email], subject: "Pregunta de Cliente desde Tu Carro")
   end
 end
