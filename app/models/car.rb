@@ -8,8 +8,8 @@ class Car < ApplicationRecord
   # ========================
   has_many :car_interests
 
-  ## Class Methods
-  ## ========================
+  # Class Methods
+  # ========================
   def self.create_or_update_by_tu_carro_id!(car_attributes)
     tu_carro_id = car_attributes.fetch(:tu_carro_id)
     car = Car.find_by(tu_carro_id: tu_carro_id)

@@ -32,7 +32,7 @@ module AskQuestionTuCarro
             buy_process = BuyProcess.find_open_or_create_for_client!(client, "Tu Carro")
             buy_process.assign_sales_person_if_non_existent!
 
-            car_interest = CarInterest.create!(buy_process: buy_process, car: car)
+            car_interest = CarInterest.find_or_create_for!(buy_process: buy_process, car: car)
             car_interest_inquiry = CarInterestInquiry.create!(car_interest: car_interest, body: notified_question.body)
 
             [client, buy_process, car, car_interest_inquiry]
