@@ -6,7 +6,7 @@ class CarInterest < ApplicationRecord
 
   # Associations
   # ========================
-  has_many :car_interest_inquiries
+  has_many :car_interest_inquiries, dependent: :destroy
 
   # Class Methods
   # ========================
