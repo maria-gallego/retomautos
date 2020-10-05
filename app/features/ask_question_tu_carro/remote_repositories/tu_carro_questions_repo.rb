@@ -29,8 +29,14 @@ module AskQuestionTuCarro
         notified_question
       end
 
-      def answer_question!(remote_question_id, text)
+      # The rescue was added because mercadolibre sometimes notifies about the same question more than once.
+      # If that happens, re-answering the question will raise an error and it is ok to ignore it.
+      def try_to_answer_question(remote_question_id, text)
         mercadolibre_api.answer_question!(remote_question_id, text)
+        true
+      rescue MercadolibreApi::LiveClient::UnsuccessfulRequest => e
+        Rails.logger.warn "Error answering question #{remote_question_id}. Ignoring the failure. Error: #{e}"
+        false
       end
 
       private
