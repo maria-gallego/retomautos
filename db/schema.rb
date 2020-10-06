@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_074633) do
+ActiveRecord::Schema.define(version: 2020_10_06_075710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,16 @@ ActiveRecord::Schema.define(version: 2020_10_06_074633) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
+  create_table "role_grants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_role_grants_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_role_grants_on_user_id_and_role_id", unique: true
+    t.index ["user_id"], name: "index_role_grants_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "code", null: false
     t.string "display_name", null: false
@@ -134,4 +144,6 @@ ActiveRecord::Schema.define(version: 2020_10_06_074633) do
   add_foreign_key "car_interests", "cars"
   add_foreign_key "notes", "buy_processes"
   add_foreign_key "notes", "users"
+  add_foreign_key "role_grants", "roles"
+  add_foreign_key "role_grants", "users"
 end
