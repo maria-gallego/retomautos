@@ -19,6 +19,16 @@ module AskQuestionTuCarro
         end
 
         notified_question = remote_questions_repo.find_by_id!(remote_question_id)
+        if notified_question.answered?
+          Rails.logger.warn "Remote question #{remote_question_id} has already been answered. Ignoring."
+          return
+        end
+
+        if happened_more_than_24_hours_ago?(notified_question)
+          Rails.logger.warn "Remote question #{remote_question_id} was created more than 24 hours ago. Ignoring."
+          return
+        end
+
         inquiring_client = notified_question.remote_client
         remote_car = remote_cars_repo.find_by_id!(notified_question.remote_car_id)
 
@@ -71,6 +81,9 @@ module AskQuestionTuCarro
         "Hola #{client.name}! Gracias por contactarnos. Uno de nuestro asesores se va a comunicar contigo para responder tus preguntas. Puedes visitarnos en la Carrera 15 #103-24, o en la Calle 105A #14-41 en nuestro nuevos horarios de atención de lunes a viernes de 10 am a 7 pm, sábados de 10 am - 7 pm y domingos de 10 am - 5 pm. Visita nuestra página www.retomautos.com"
       end
 
+      def happened_more_than_24_hours_ago?(notified_question)
+        24.hours.ago > notified_question.remote_created_at
+      end
     end
   end
 end
