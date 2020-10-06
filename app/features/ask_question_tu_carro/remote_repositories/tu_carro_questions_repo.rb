@@ -21,7 +21,7 @@ module AskQuestionTuCarro
         notified_question = AskQuestionTuCarro::Entities::NotifiedQuestion.new(
           remote_id: notified_question_struct.id,
           body: notified_question_struct.text,
-          remote_created_at: DateTime.parse(notified_question_struct.date_created),
+          remote_created_at: Time.parse(notified_question_struct.date_created),
           remote_car_id: notified_question_struct.item_id,
           remote_client: inquirring_client,
           status: notified_question_struct.status
