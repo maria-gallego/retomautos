@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :buy_processes
   has_many :clients, through: :buy_processes
   has_many :notes, through: :buy_processes
+  has_many :role_grants
+  has_many :roles, through: :role_grants
 
   # Scope
   # ========================
@@ -26,6 +28,19 @@ class User < ApplicationRecord
   # ========================
   def self.get_random_salesperson
     active_salespeople.order("RANDOM()").first
+  end
+
+  def is_admin?
+    has_role?('admin')
+  end
+
+  def is_sales?
+    roles.where(code: 'sales').exists?
+  end
+
+
+  def has_role?(role_code)
+    roles.where(code: role_code).exists?
   end
 
 end
