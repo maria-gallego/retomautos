@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
+
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
   root to: 'visitors#home'
   get '/financiacion', to: 'visitors#financing'
   get '/sobre-nosotros', to: 'visitors#about_us'
@@ -22,5 +28,10 @@ Rails.application.routes.draw do
       post :create_from_financing
       post :create_from_home
     end
+  end
+
+  namespace :sales do
+    resources :buy_processes, only: [:index, :show]
+    resources :notes, only: [:create, :destroy]
   end
 end

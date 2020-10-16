@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def after_sign_in_path_for(resource)
+    sales_buy_processes_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
   private
 
   def  set_car_slides

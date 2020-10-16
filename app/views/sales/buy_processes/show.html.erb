@@ -1,0 +1,21 @@
+<div class="container py-5">
+  <h2>Proceso # <%= @buy_process.id %></h2>
+  <%= link_to "Regresar a Procesos", sales_buy_processes_path %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= render 'sales/buy_processes/client_info' %>
+    </div>
+    <div class="col-sm-6">
+      <%= render 'sales/buy_processes/buy_process_info' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= render 'sales/buy_processes/notes' %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= render 'sales/buy_processes/inquiries', car_interests: @car_interests, buy_process_inquiries: @buy_process_inquiries %>
+    </div>
+  </div>
+</div>

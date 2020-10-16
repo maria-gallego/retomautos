@@ -1,0 +1,36 @@
+<div class="card mt-3">
+
+  <div class="card-header font-weight-bold">
+    <div class="container px-0">
+    <%= form_with(model: @note, url: sales_notes_path, local: true) do |f| %>
+      <div class="form-row">
+        <div class="col-sm-2">Notas</div>
+        <div class="col-sm-8">
+          <div class="field">
+            <%= f.text_area :body, class: 'form-control', placeholder: "Nueva nota", rows:"1", required: true %>
+          </div>
+          <%= f.hidden_field :buy_process_id %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.submit "Crear", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% if @notes.size > 0 %>
+      <% @notes.each do |note| %>
+        <li class="list-group-item">
+          <p style="white-space: pre-line" class="mb-0"><%= note.body.strip %></p>
+          <div class="text-right">
+            <span><%= format_datetime(note.created_at) %> | </span>
+            <%= link_to("borrar", sales_note_path(note), method: :delete) %>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="list-group-item">No hay notas</li>
+    <% end %>
+  </ul>
+</div>

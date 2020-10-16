@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'sendgrid-ruby'
 gem 'browser'
 gem 'devise'
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
 
 
 group :development, :test do

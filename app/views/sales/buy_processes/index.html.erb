@@ -1,0 +1,23 @@
+<div class="container pt-5">
+  <h1>Procesos</h1>
+  <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Proceso #</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Fuente</th>
+      <th scope="col">Fecha</th>
+    </tr>
+    </thead>
+    <tbody>
+      <%# render @buy_processes %>
+      <%# equivalent to the code below %>
+      <% @buy_processes.each do |buy_process| %>
+        <%= render buy_process %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

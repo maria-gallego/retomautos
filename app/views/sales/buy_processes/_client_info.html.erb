@@ -1,0 +1,8 @@
+<div class="card mt-3">
+  <div class="card-header font-weight-bold">Datos del Cliente</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @client.name %></li>
+    <li class="list-group-item"><a href="mailto:<%= @client.email %>" target="_blank"><%= @client.email %></a></li>
+    <li class="list-group-item"><a href="tel:<%= @client.phone %>"><%= @client.phone %></a></li>
+  </ul>
+</div>

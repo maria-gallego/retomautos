@@ -1,0 +1,2 @@
+module BuyProcessesHelper
+end

@@ -13,6 +13,7 @@ class BuyProcess < ApplicationRecord
   # ========================
   scope :with_salesperson, -> { where.not(user_id: nil) }
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
+  scope :user_id_is, -> (user_id) { where(user_id: user_id) }
   scope :currently_open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
 
   # Class Methods
@@ -59,6 +60,10 @@ class BuyProcess < ApplicationRecord
 
     create!(source: source, client: client)
   end
+
+  #def self.users_buy_processes(current_user, client)
+  #  user_id_is(current_user.id).includes(client: client)
+  #end
 
 
   # Instance methods

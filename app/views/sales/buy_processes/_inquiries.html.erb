@@ -1,0 +1,19 @@
+<div class="card mt-3">
+  <div class="card-header font-weight-bold">Preguntas de Cliente</div>
+  <ul class="list-group list-group-flush">
+    <% car_interests.each do |car_interest| %>
+      <li class="list-group-item"><%= "#{car_interest.car.description} | #{car_interest.car.year}" %></li>
+      <ul>
+        <% car_interest.car_interest_inquiries.each do |car_interest_inquiry| %>
+          <li class="list-group-item"><%= format_date(car_interest_inquiry.created_at) %>: <%= car_interest_inquiry.body %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% buy_process_inquiries.each do |buy_process_inquiry| %>
+      <li class="list-group-item"><%= format_date(buy_process_inquiry.created_at) %>: <%= buy_process_inquiry.body %></li>
+    <% end %>
+    <% if car_interests.size == 0 && buy_process_inquiries.size == 0 %>
+      <li class="list-group-item">No hay preguntas registradas</li>
+    <% end %>
+  </ul>
+</div>
