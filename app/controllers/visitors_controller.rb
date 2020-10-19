@@ -1,5 +1,7 @@
 class VisitorsController < ApplicationController
+
   skip_before_action :authenticate_user!
+
 
   def home
     set_meta_tags title: 'Carros usados Bogotá',

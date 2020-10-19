@@ -30,14 +30,6 @@ class User < ApplicationRecord
     active_salespeople.order("RANDOM()").first
   end
 
-  def is_admin?
-    has_role?('admin')
-  end
-
-  def is_sales?
-    roles.where(code: 'sales').exists?
-  end
-
 
   def has_role?(role_code)
     roles.where(code: role_code).exists?

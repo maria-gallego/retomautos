@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
+
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
 
   def configure_permitted_parameters
@@ -9,7 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    sales_buy_processes_path
+    if current_user.has_role?('sales')
+      sales_buy_processes_path
+    elsif current_user.has_role?('admin')
+      admin_buy_processes_path
+    else
+      root_path
+    end
   end
 
   def after_sign_out_path_for(resource)
@@ -174,5 +184,10 @@ class ApplicationController < ActionController::Base
         ),
     ]
 
+  end
+
+  def user_not_authorized
+    flash[:alert] = "No Autorizado."
+    redirect_to (request.referrer || root_path)
   end
 end

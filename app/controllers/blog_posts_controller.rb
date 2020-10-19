@@ -1,4 +1,7 @@
 class BlogPostsController < ApplicationController
+
+  skip_before_action :authenticate_user!
+
   def index
 
     set_meta_tags title: 'Blog - Retomautos',

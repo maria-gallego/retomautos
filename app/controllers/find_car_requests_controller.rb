@@ -1,4 +1,5 @@
 class FindCarRequestsController < ApplicationController
+
   skip_before_action :authenticate_user!
 
   def new
