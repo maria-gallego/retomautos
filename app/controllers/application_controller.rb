@@ -41,21 +41,21 @@ class ApplicationController < ActionController::Base
         ),
         CarInformation.new(
             make: 'BMW',
-            model: 'M240i',
+            model: 'X3',
             year: '2017',
-            additional_information: '3.0 Tp',
-            image_url: 'fotos_tu_carro/bmw_m240_2017.jpg',
+            additional_information: 'Xdrive 30d Tp',
+            image_url: 'fotos_tu_carro/bmw_x3_2017_oct.jpg',
             #showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-575826659-bmw-m240i-30-tp-_JM#position=6&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-573286229-bmw-x3-xdrive-30d-tp-_JM#position=1&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
-            make: 'Volkswagen',
-            model: 'Tiguan',
-            year: '2018',
-            additional_information: 'Trendline 1.4 Tp',
-            image_url: 'fotos_tu_carro/tiguan.jpg',
-            showcase_video_url: 'https://youtu.be/7I0BjKG_cCw',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-564053675-volkswagen-tiguan-trendline-14-tp-_JM#position=2&type=item&tracking_id=e83e9826-c437-411c-8ac1-a0ff9a40f441'
+            make: 'Audi',
+            model: 'A5',
+            year: '2016',
+            additional_information: ' Sportback 1.8 Tp',
+            image_url: 'fotos_tu_carro/audi_a5_oct.jpg',
+            #showcase_video_url: 'https://youtu.be/7I0BjKG_cCw',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-570067668-audi-a5-sportback-18-tp-_JM#position=2&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -70,22 +70,22 @@ class ApplicationController < ActionController::Base
 
     @slide2_cars = [
         CarInformation.new(
-            make: 'Volkswagen',
-            model: 'Golf Highline',
-            year: '2018',
-            additional_information: '1.4t Dsg',
-            image_url: 'fotos_tu_carro/vw_golf_2018.jpg',
+            make: 'Nissan',
+            model: 'X Trail',
+            year: '2017',
+            additional_information: 'T32 4x4 7 Puestos',
+            image_url: 'fotos_tu_carro/nissan_oct.jpg',
             #showcase_video_url: 'https://youtu.be/UWwPdaiXWq4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-582413381-volkswagen-golf-highline-14t-dsg-_JM#position=42&type=item&tracking_id=fd633cc5-cde5-48e4-987f-029c55ab4b96'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-586774570-nissan-x-trail-t32-4x4-7-pasajeros-_JM#position=7&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'C 180',
-            year: '2018',
-            additional_information: 'Tp',
-            image_url: 'fotos_tu_carro/mercedes_c180_2018.jpg',
-            showcase_video_url: 'https://youtu.be/cirpdZirAmU',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-568301063-mercedes-benz-c-180-tp-_JM#position=7&type=item&tracking_id=7fb15419-960c-478b-8a44-efa5a56c31db'
+            make: 'Jeep',
+            model: 'Grand Cherokee',
+            year: '2012',
+            additional_information: 'Limited 4x4 3.6 Tp',
+            image_url: 'fotos_tu_carro/jeep_gc_oct.jpg',
+            #showcase_video_url: 'https://youtu.be/cirpdZirAmU',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-588010388-jeep-grand-cherokee-limited-4x4-36-tp-_JM#position=12&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -126,22 +126,22 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-567106874-jeep-renegade-limited-24-4x4-tp-_JM#position=1&type=item&tracking_id=a8d19dbc-3fa3-4a98-bd47-e5ddb75c8727'
         ),
         CarInformation.new(
-            make: 'Audi',
-            model: 'Q5',
-            year: '2014',
-            additional_information: 'Luxury 2.0 Tp',
-            image_url: 'fotos_tu_carro/audi_q5_2014.jpg',
+            make: 'Alfa Romeo',
+            model: 'Giulietta',
+            year: '2012',
+            additional_information: '1.4 Mt',
+            image_url: 'fotos_tu_carro/alfa_romeo_oct.jpg',
             #showcase_video_url: 'https://youtu.be/3FF7d1cXlu4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-580603999-audi-q5-20t-luxury-quattro-s-tronic-_JM#position=17&type=item&tracking_id=fd633cc5-cde5-48e4-987f-029c55ab4b96'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-583536954-alfa-romeo-giulietta-14-mt-_JM#position=17&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
-            make: 'Hyundai',
-            model: 'Tucson',
-            year: '2015',
-            additional_information: 'Ix 35 2.0 Mt',
-            image_url: 'fotos_tu_carro/hyundai_tucson_2015.jpg',
+            make: 'BMW',
+            model: 'X3',
+            year: '2019',
+            additional_information: 'Xdrive 30i Tp',
+            image_url: 'fotos_tu_carro/bmw_x3_oct.jpg',
             #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-573286989-hyundai-tucson-ix-35-20-mt-_JM#position=14&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-587086492-bmw-x3-xdrive-30i-tp-_JM#position=20&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
     ]
 
@@ -149,20 +149,20 @@ class ApplicationController < ActionController::Base
         CarInformation.new(
             make: 'Mazda',
             model: '3',
-            year: '2019',
-            additional_information: 'Touring Tp',
-            image_url: 'fotos_tu_carro/mazda_3_2019.jpg',
+            year: '2018',
+            additional_information: 'Grand Touring Sport Tp',
+            image_url: 'fotos_tu_carro/mazda_3_oct.jpg',
             #showcase_video_url: 'https://youtu.be/et57692P4NE',
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-569175343-mazda-3-touring-tp-_JM#position=18&type=item&tracking_id=fd633cc5-cde5-48e4-987f-029c55ab4b96'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'A 200',
-            year: '2018',
-            additional_information: 'Urban Tp',
-            image_url: 'fotos_tu_carro/mercedes_a200.jpg',
-            showcase_video_url: 'https://youtu.be/HxkPxiIxgso',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-554043664-mercedes-benz-clase-a-a-200-tp-urban-_JM#position=3&type=item&tracking_id=be2e143c-311b-4311-853b-83b959595e4b'
+            make: 'Ford',
+            model: 'Explorer',
+            year: '2016',
+            additional_information: 'Limited 4x4 Tp',
+            image_url: 'fotos_tu_carro/ford_explorer_oct.jpg',
+            #showcase_video_url: 'https://youtu.be/HxkPxiIxgso',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-589706888-ford-explorer-limited-4x4-tp-_JM#position=24&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -174,13 +174,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-550470239-bmw-330-luxuri-_JM#position=5&type=item&tracking_id=a05fd153-e203-4d47-9193-836431d7c84e'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'Clase A',
-            year: '2020',
-            additional_information: 'A 200 Sedan',
-            image_url: 'fotos_tu_carro/mercedes_benz_a200.jpg',
+            make: 'BMW',
+            model: 'Serie 4 420i',
+            year: '2018',
+            additional_information: 'Cabriolet Convertible',
+            image_url: 'fotos_tu_carro/bmw_420_oct.jpg',
             #showcase_video_url: 'https://youtu.be/zN40lU_rI_U',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-575380361-mercedes-benz-clase-a-a-200-sedan-_JM#position=43&type=item&tracking_id=bd8c0f27-5bfe-4b18-b8ee-1f41f2f16992'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-587083281-bmw-serie-4-420i-cabriolet-convertible-_JM#position=34&type=item&tracking_id=4fe527c6-b45b-426e-9b6b-3926057811f5'
         ),
     ]
 
