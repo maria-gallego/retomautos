@@ -23,7 +23,7 @@
         </div>
         <div class="pt-3">
           <% if !user_signed_in? %>
-            <%= link_to 'Iniciar Sesión', user_session_path, method: :post  %>
+            <%= link_to 'Iniciar Sesión', user_session_path  %>
           <% else %>
             <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete  %>
           <% end %>
