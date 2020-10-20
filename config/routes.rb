@@ -34,4 +34,8 @@ Rails.application.routes.draw do
     resources :buy_processes, only: [:index, :show]
     resources :notes, only: [:create, :destroy]
   end
+
+  namespace :admin do
+    resources :buy_processes, only: [:index]
+  end
 end

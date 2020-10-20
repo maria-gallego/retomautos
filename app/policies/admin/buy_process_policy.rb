@@ -11,8 +11,5 @@ module Admin
       @current_user.has_role?('admin')
     end
 
-    def show?
-      @current_user.has_role?('admin')
-    end
   end
 end

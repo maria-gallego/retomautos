@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
   # Scope
   # ========================
-  # TODO: when roles are implemented, update this scope.
-  scope :active_salespeople, -> { active.all }
+  scope :active_salespeople, -> { active.joins(:roles).merge(Role.sales) }
+  scope :active_admins, -> { active.joins(:roles).merge(Role.admin) }
 
   # TODO: when we figure out how to deactivate people, modify this
   scope :active, -> { all }
@@ -33,6 +33,8 @@ class User < ApplicationRecord
 
   def has_role?(role_code)
     roles.where(code: role_code).exists?
+    # a_user.roles
+    # User.joins(:roles)
   end
 
 end

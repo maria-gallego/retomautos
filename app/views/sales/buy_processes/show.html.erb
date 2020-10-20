@@ -1,6 +1,16 @@
 <div class="container py-5">
   <h2>Proceso # <%= @buy_process.id %></h2>
-  <%= link_to "Regresar a Procesos", sales_buy_processes_path %>
+  <% if current_user.has_role?('admin') %>
+    <h4>Vendedor asignado: <%= @user.name %></h4>
+  <% end %>
+
+  <% if policy([:admin, @buy_process]).index? %>
+    <div><%= link_to "Regresar a Todos los Procesos", admin_buy_processes_path %></div>
+  <% end %>
+  <% if policy([:sales, @buy_process]).index? %>
+    <div><%= link_to "Regresar a Mis Procesos", sales_buy_processes_path %></div>
+  <% end %>
+
   <div class="row">
     <div class="col-sm-6">
       <%= render 'sales/buy_processes/client_info' %>

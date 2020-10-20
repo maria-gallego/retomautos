@@ -14,7 +14,7 @@ module Sales
     end
 
     def show?
-      @current_user.has_role?('sales') && @buy_process.user == @current_user
+      (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
     end
 
   end

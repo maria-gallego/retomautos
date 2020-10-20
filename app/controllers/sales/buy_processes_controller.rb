@@ -17,9 +17,11 @@ module Sales
 
     def show
       @buy_process = BuyProcess.find(params[:id])
-      authorize @buy_process,  policy_class: Sales::BuyProcessPolicy
-
+      authorize([:sales, @buy_process])
+        # Is the same as:
+        # authorize @buy_process,  policy_class: Sales::BuyProcessPolicy
       @client = @buy_process.client
+      @user = @buy_process.user
       @buy_process_inquiries = @buy_process.buy_process_inquiries
       @notes = @buy_process.notes
       @car_interests = @buy_process.car_interests.includes(:car, :car_interest_inquiries)
