@@ -5,5 +5,5 @@
   <td><%= buy_process.client.name %></td>
   <td><%= buy_process.client.email %></td>
   <td><%= buy_process.source %></td>
-  <td><%= buy_process.client.created_at.to_date %></td>
+  <td><%= format_date buy_process.client.created_at.to_date %></td>
 </tr>
