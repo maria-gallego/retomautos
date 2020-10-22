@@ -19,6 +19,7 @@ class BuyProcess < ApplicationRecord
   scope :client_email_contains, -> email {joins(:client).merge(Client.client_email_contains(email))}
   scope :created_at_date_from, -> date {where('created_at >= ?', date.to_date.beginning_of_day)}
   scope :created_at_date_to, -> date {where('created_at <= ?', date.to_date.end_of_day)}
+  scope :without_notes, -> { select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id').having('count(notes.id) = 0') }
 
   # Class Methods
   # ========================

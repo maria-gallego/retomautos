@@ -1,9 +1,15 @@
-
 <tr>
-  <th scope="row"><%= link_to buy_process.id, sales_buy_process_path(buy_process) %></th>
+  <th scope="row">
+    <%= link_to buy_process.id, sales_buy_process_path(buy_process) %>
+    <br>
+    <small><%= format_date buy_process.client.created_at.to_date %></small>
+  </th>
   <td><%= buy_process.user.name %></td>
-  <td><%= buy_process.client.name %></td>
-  <td><%= buy_process.client.email %></td>
+  <td>
+    <%= buy_process.client.name %>
+    <br>
+    <%= buy_process.client.email %>
+  </td>
   <td><%= buy_process.source %></td>
-  <td><%= format_date buy_process.client.created_at.to_date %></td>
+  <td><%= buy_process.notes_count %></td>
 </tr>
