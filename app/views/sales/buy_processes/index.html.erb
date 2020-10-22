@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <h1>Procesos</h1>
+  <h1>Mis Procesos</h1>
 
 <!--   Filter form-->
   <%= form_with(url: sales_buy_processes_path, method: :get, local: true) do |f| %>
@@ -23,7 +23,13 @@
       </div>
     </div>
     <div class="row py-3 pb-5">
-      <div class="col-1">
+      <div class="col-6 col-sm-3 form-group">
+        <%= f.label :without_notes, "Comentarios" %>
+        <%= f.select(:without_notes, @without_notes_select_options,
+                     { include_blank: "Todos", selected: params[:without_notes] }, class: 'form-control', ) %>
+      </div>
+      <div class="col-6 col-sm-3 col-form-label">
+        <br>
         <%= f.submit 'Filtrar', class: 'btn btn-primary' %>
       </div>
     </div>
@@ -35,10 +41,9 @@
     <thead>
     <tr>
       <th scope="col">Proceso #</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
+      <th scope="col">Cliente</th>
       <th scope="col">Fuente</th>
-      <th scope="col">Fecha</th>
+      <th scope="col"># Comentarios</th>
     </tr>
     </thead>
     <tbody>

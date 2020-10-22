@@ -7,16 +7,18 @@ module Sales
     has_scope :client_email_contains
     has_scope :created_at_date_from
     has_scope :created_at_date_to
+    has_scope :without_notes, type: :boolean
 
     def index
-
       authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
 
       @buy_processes = apply_scopes(BuyProcess)
                            .user_id_is(current_user.id)
                            .includes(:client)
-                           .paginate(page: params[:page], per_page: 10)
-                           .order 'buy_processes.created_at DESC'
+                           .select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id')
+                           .order('buy_processes.created_at DESC')
+                           .paginate(page: params[:page])
+      @without_notes_select_options = [['Sin comentarios', true]]
     end
 
 
