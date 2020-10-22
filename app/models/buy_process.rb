@@ -15,6 +15,10 @@ class BuyProcess < ApplicationRecord
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
   scope :user_id_is, -> (user_id) { where(user_id: user_id) }
   scope :currently_open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
+  scope :client_name_contains, -> name {joins(:client).merge(Client.client_name_contains(name))}
+  scope :client_email_contains, -> email {joins(:client).merge(Client.client_email_contains(email))}
+  scope :created_at_date_from, -> date {where('created_at >= ?', date.to_date.beginning_of_day)}
+  scope :created_at_date_to, -> date {where('created_at <= ?', date.to_date.end_of_day)}
 
   # Class Methods
   # ========================
@@ -61,9 +65,7 @@ class BuyProcess < ApplicationRecord
     create!(source: source, client: client)
   end
 
-  #def self.users_buy_processes(current_user, client)
-  #  user_id_is(current_user.id).includes(client: client)
-  #end
+
 
 
   # Instance methods

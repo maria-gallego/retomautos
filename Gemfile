@@ -34,6 +34,7 @@ gem 'devise'
 gem 'pundit'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
+gem 'has_scope'
 
 
 group :development, :test do

@@ -3,15 +3,20 @@ module Sales
 
     after_action :verify_authorized
 
+    has_scope :client_name_contains
+    has_scope :client_email_contains
+    has_scope :created_at_date_from
+    has_scope :created_at_date_to
+
     def index
 
       authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
 
-      @buy_processes = BuyProcess
+      @buy_processes = apply_scopes(BuyProcess)
                            .user_id_is(current_user.id)
                            .includes(:client)
                            .paginate(page: params[:page], per_page: 10)
-                           .order! 'created_at DESC'
+                           .order 'buy_processes.created_at DESC'
     end
 
 
