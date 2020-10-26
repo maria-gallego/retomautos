@@ -5,7 +5,7 @@ class FindCarRequestMailer < ApplicationMailer
   def staff_email(find_car_request)
     @find_car_request = find_car_request
     salesperson = find_car_request.salesperson
-    mail(to: [SENDGRID_VERIFIED_SENDER, salesperson.email], subject: "Solicitud de carro")
+    mail(to: [salesperson.email], subject: "Solicitud de carro")
   end
 
   def customer_email(find_car_request)
