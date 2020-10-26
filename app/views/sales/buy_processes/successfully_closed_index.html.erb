@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Carros Vendidos</h1>
+  <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Proceso #</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Fuente</th>
+      <th scope="col"># Comentarios</th>
+      <th scope="col">Vendido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @buy_processes.each do |buy_process| %>
+      <tr>
+        <th scope="row">
+          <%= link_to buy_process.id, sales_buy_process_path(buy_process) %>
+          <br>
+          <small><%= format_date buy_process.client.created_at.to_date %></small>
+        </th>
+        <td>
+          <%= buy_process.client.name %>
+          <br>
+          <%= buy_process.client.email %>
+        </td>
+        <td><%= buy_process.source %></td>
+        <td><%= buy_process.successfully_closed_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

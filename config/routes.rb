@@ -32,7 +32,16 @@ Rails.application.routes.draw do
   end
 
   namespace :sales do
-    resources :buy_processes, only: [:index, :show]
+    resources :buy_processes, only: [:index, :show] do
+      collection do
+        get :successfully_closed_index
+        get :unsuccessfully_closed_index
+      end
+      member do
+        put :mark_as_successfully_closed
+        put :mark_as_unsuccessfully_closed
+      end
+    end
     resources :notes, only: [:create, :destroy]
   end
 

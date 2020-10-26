@@ -17,5 +17,20 @@ module Sales
       (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
     end
 
+    def successfully_closed_index?
+      @current_user.has_role?('sales')
+      end
+
+    def unsuccessfully_closed_index?
+      @current_user.has_role?('sales')
+    end
+
+    def mark_as_successfully_closed?
+      (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
+    end
+
+    def mark_as_unsuccessfully_closed?
+      (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
+    end
   end
 end
