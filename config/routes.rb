@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/encontramos-tu-carro', to: 'find_car_requests#new'
   get '/pagos', to: 'visitors#payments'
   get '/gracias', to: 'visitors#after_form_view'
+  get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
 

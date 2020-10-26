@@ -1,7 +1,4 @@
 <div class="vitrina">
-<!--  <div class="container pt-5">-->
-<!--    <h1>Encuentra tu próximo carro</h1>-->
-<!--  </div>-->
   <div class="container container-form financing-form">
     <h2>Contáctanos</h2>
     <%= form_with(model: @client_with_inquiry, url: create_from_home_client_with_inquiries_path, local: true) do |form| %>
@@ -26,30 +23,9 @@
           <%= form.submit 'Preguntar', class: 'btn-full-width btn-primary btn-md' %>
         </div>
       </div>
+      <div class="form-row">
+        <p>&nbsp; *Al hacer click en "Preguntar" aceptas la <%= link_to 'Política de Tratamiento de Datos Personales', tratamiento_datos_personales_path  %> de Retomautos</p>
+      </div>
     <% end %>
   </div>
 </div>
-
-<!--<div class="vitrina">-->
-<!--  <div class="container pb-5">-->
-<!--    <h1>ENCUENTRA TU PRÓXIMO CARRO</h1>-->
-<!--    <div>-->
-<!--      <a class="" href="https://vehiculos.tucarro.com.co/_CustId_28140600" role="button"-->
-<!--         target="_blank">-->
-<!--        <h3>-->
-<!--          DESCUBRE MÁS-->
-<!--          <i class="fas fa-angle-double-right"></i>-->
-<!--        </h3>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <a class="" href="https://youtu.be/SRp2rz0GgnA" role="button"-->
-<!--         target="_blank">-->
-<!--        <h4>-->
-<!--          CONÓCENOS-->
-<!--          <i class="fab fa-youtube"></i>-->
-<!--        </h4>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
