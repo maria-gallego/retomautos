@@ -12,9 +12,4 @@
   </td>
   <td><%= buy_process.source %></td>
   <td><%= buy_process.notes_count %></td>
-  <td>
-    <%= link_to 'Vendido',  mark_as_successfully_closed_sales_buy_process_path(buy_process), method: :put %>
-    <br>
-    <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_sales_buy_process_path(buy_process), method: :put %>
-  </td>
 </tr>

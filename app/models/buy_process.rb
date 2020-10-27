@@ -84,4 +84,8 @@ class BuyProcess < ApplicationRecord
     # - the sales person has to assign has change according to determine_salesperson (e.g. resigned salesperson)
     update!(user: assigned_salesperson) if self.user_id != assigned_salesperson.id
   end
+
+  def active?
+    successfully_closed_at.blank? && unsuccessfully_closed_at.blank?
+  end
 end

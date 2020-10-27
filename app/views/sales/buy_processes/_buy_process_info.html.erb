@@ -1,10 +1,10 @@
 <div class="card mt-3">
   <div class="card-header font-weight-bold">Información del Proceso</div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Fecha de creación: <%= format_datetime(@buy_process.created_at) %></li>
-    <li class="list-group-item">Iniciado desde: <%= @buy_process.source %></li>
+    <li class="list-group-item"><strong>Fecha de creación:</strong> <%= format_datetime(@buy_process.created_at) %></li>
+    <li class="list-group-item"><strong>Iniciado desde:</strong> <%= @buy_process.source %></li>
 <!--    <li class="list-group-item">Estado: <%#=  %></li>-->
-    <li class="list-group-item">Carro(s):</li>
+    <li class="list-group-item"><strong>Carro(s):</strong></li>
     <ul>
       <% if @car_interests.size > 0 %>
         <% @car_interests.each do |car_interest| %>
@@ -14,5 +14,20 @@
         <li class="list-group-item">No hay carros registrados</li>
       <% end %>
     </ul>
+    <li class="list-group-item">
+      <strong>Estado:</strong>
+      <% if @buy_process.active? %>
+        <span> Activo</span>
+        <ul> <span>Marcar como:</span>
+          <%= link_to 'Vendido',  mark_as_successfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+          <span> | </span>
+          <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+        </ul>
+      <% elsif @buy_process.successfully_closed_at.present? %>
+        <span>Vendido el <%= format_date(@buy_process.successfully_closed_at) %></span>
+        <% else %>
+        <span>Archivado el <%= format_date(@buy_process.unsuccessfully_closed_at) %></span>
+      <% end %>
+    </li>
   </ul>
 </div>
