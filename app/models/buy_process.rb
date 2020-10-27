@@ -22,6 +22,10 @@ class BuyProcess < ApplicationRecord
   scope :without_notes, -> { select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id').having('count(notes.id) = 0') }
   scope :successfully_closed_processes, -> { where.not(successfully_closed_at: nil) }
   scope :unsuccessfully_closed_processes, -> { where.not(unsuccessfully_closed_at: nil) }
+  scope :successfully_closed_at_date_from, -> date {where('buy_processes.successfully_closed_at >= ?', date.to_date.beginning_of_day)}
+  scope :successfully_closed_at_date_to, -> date {where('buy_processes.successfully_closed_at <= ?', date.to_date.end_of_day)}
+  scope :unsuccessfully_closed_at_date_from, -> date {where('buy_processes.unsuccessfully_closed_at >= ?', date.to_date.beginning_of_day)}
+  scope :unsuccessfully_closed_at_date_to, -> date {where('buy_processes.unsuccessfully_closed_at <= ?', date.to_date.end_of_day)}
 
   # Class Methods
   # ========================

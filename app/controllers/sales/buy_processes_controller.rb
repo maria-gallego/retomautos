@@ -21,6 +21,7 @@ module Sales
                            .order('buy_processes.created_at DESC')
                            .paginate(page: params[:page])
       @without_notes_select_options = [['Sin comentarios', true]]
+
     end
 
 
@@ -40,7 +41,7 @@ module Sales
     def successfully_closed_index
       authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
 
-      @buy_processes = (BuyProcess)
+      @buy_processes = apply_scopes(BuyProcess)
                            .user_id_is(current_user.id)
                            .successfully_closed_processes
                            .includes(:client)
@@ -51,7 +52,7 @@ module Sales
     def unsuccessfully_closed_index
       authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
 
-      @buy_processes = (BuyProcess)
+      @buy_processes = apply_scopes(BuyProcess)
                            .user_id_is(current_user.id)
                            .unsuccessfully_closed_processes
                            .includes(:client)
@@ -62,13 +63,15 @@ module Sales
     def mark_as_successfully_closed
       @buy_process = BuyProcess.find(params[:id])
       authorize([:sales, @buy_process])
-      @buy_process.update(successfully_closed_at: Time.now.to_datetime)
+      @buy_process.update!(successfully_closed_at: Time.now.to_datetime)
+      redirect_to sales_buy_process_path(@buy_process)
     end
 
     def mark_as_unsuccessfully_closed
       @buy_process = BuyProcess.find(params[:id])
       authorize([:sales, @buy_process])
-      @buy_process.update(unsuccessfully_closed_at: Time.now.to_datetime)
+      @buy_process.update!(unsuccessfully_closed_at: Time.now.to_datetime)
+      redirect_to sales_buy_process_path(@buy_process)
     end
 
   end

@@ -1,7 +1,6 @@
-<div class="container pt-5">
-  <h1>Mis Procesos</h1>
-
-<!--   Filter form-->
+<div class="container py-5">
+  <h2>Procesos Archivados</h2>
+  <!--   Filter form-->
   <%= form_with(url: sales_buy_processes_path, method: :get, local: true) do |f| %>
     <div class = "font-weight-bold py-3">Búsqueda</div>
     <div class="row pt-1">
@@ -23,19 +22,13 @@
       </div>
     </div>
     <div class="row py-3 pb-5">
-      <div class="col-4 col-sm-3 form-group">
-        <%= f.label :without_notes, "Comentarios" %>
-        <%= f.select(:without_notes, @without_notes_select_options,
-                     { include_blank: "Todos", selected: params[:without_notes] }, class: 'form-control', ) %>
-      </div>
       <div class="col-4 col-sm-3 col-form-label">
-        <br>
         <%= f.submit 'Filtrar', class: 'btn btn-primary' %>
       </div>
     </div>
   <% end %>
-<!--  End Filter form-->
-
+  <!--  End Filter form-->
+  <!--  Successfully closed table-->
   <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
   <table class="table table-striped">
     <thead>
@@ -43,16 +36,28 @@
       <th scope="col">Proceso #</th>
       <th scope="col">Cliente</th>
       <th scope="col">Fuente</th>
-      <th scope="col"># Comentarios</th>
+      <th scope="col">Fecha de archivo</th>
     </tr>
     </thead>
     <tbody>
-      <%# render @buy_processes %>
-      <%# equivalent to the code below %>
-      <% @buy_processes.each do |buy_process| %>
-        <%= render buy_process %>
-      <% end %>
+    <% @buy_processes.each do |buy_process| %>
+      <tr>
+        <th scope="row">
+          <%= link_to buy_process.id, sales_buy_process_path(buy_process) %>
+          <br>
+          <small><%= format_date buy_process.client.created_at.to_date %></small>
+        </th>
+        <td>
+          <%= buy_process.client.name %>
+          <br>
+          <%= buy_process.client.email %>
+        </td>
+        <td><%= buy_process.source %></td>
+        <td><%= format_date(buy_process.unsuccessfully_closed_at) %></td>
+      </tr>
+    <% end %>
     </tbody>
   </table>
   <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  <!--End Successfully closed table-->
 </div>

@@ -46,6 +46,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :buy_processes, only: [:index]
+    resources :buy_processes, only: [:index] do
+      collection do
+        get :successfully_closed_index
+        get :unsuccessfully_closed_index
+      end
+    end
   end
 end
