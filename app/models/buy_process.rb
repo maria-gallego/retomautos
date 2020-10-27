@@ -15,8 +15,6 @@ class BuyProcess < ApplicationRecord
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
   scope :user_id_is, -> (user_id) { where(user_id: user_id) }
   scope :currently_open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
-  scope :client_name_contains, -> name {joins(:client).merge(Client.client_name_contains(name))}
-  scope :client_email_contains, -> email {joins(:client).merge(Client.client_email_contains(email))}
   scope :created_at_date_from, -> date {where('buy_processes.created_at >= ?', date.to_date.beginning_of_day)}
   scope :created_at_date_to, -> date {where('buy_processes.created_at <= ?', date.to_date.end_of_day)}
   scope :without_notes, -> { select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id').having('count(notes.id) = 0') }
@@ -26,6 +24,12 @@ class BuyProcess < ApplicationRecord
   scope :successfully_closed_at_date_to, -> date {where('buy_processes.successfully_closed_at <= ?', date.to_date.end_of_day)}
   scope :unsuccessfully_closed_at_date_from, -> date {where('buy_processes.unsuccessfully_closed_at >= ?', date.to_date.beginning_of_day)}
   scope :unsuccessfully_closed_at_date_to, -> date {where('buy_processes.unsuccessfully_closed_at <= ?', date.to_date.end_of_day)}
+
+  # Buy process is often left_outer_joined with other tables. When that happens, Rails interprets joins(:client)
+  # as a LEFT OUTER JOIN as well. That is wrong, so we need to explicitly define an inner join to clients
+  scope :inner_joins_client, -> { joins('INNER JOIN clients ON buy_processes.client_id = clients.id') }
+  scope :client_name_contains, -> name { inner_joins_client.merge(Client.client_name_contains(name))}
+  scope :client_email_contains, -> email { inner_joins_client.merge(Client.client_email_contains(email))}
 
   # Class Methods
   # ========================
@@ -91,5 +95,9 @@ class BuyProcess < ApplicationRecord
 
   def active?
     successfully_closed_at.blank? && unsuccessfully_closed_at.blank?
+  end
+
+  def successfully_closed?
+    successfully_closed_at.present?
   end
 end

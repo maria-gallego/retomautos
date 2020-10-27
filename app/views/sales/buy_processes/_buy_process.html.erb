@@ -3,7 +3,7 @@
   <th scope="row">
     <%= link_to buy_process.id, sales_buy_process_path(buy_process) %>
     <br>
-    <small><%= format_date buy_process.client.created_at.to_date %></small>
+    <small><%= format_date buy_process.created_at.to_date %></small>
   </th>
   <td>
     <%= buy_process.client.name %>
@@ -11,5 +11,5 @@
     <%= buy_process.client.email %>
   </td>
   <td><%= buy_process.source %></td>
-  <td><%= buy_process.notes_count %></td>
+  <td><%= buy_process.total_notes %></td>
 </tr>

@@ -26,11 +26,15 @@ module Sales
     end
 
     def mark_as_successfully_closed?
-      (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
+      salesman_allowed = @buy_process.notes.size > 0 && @current_user.has_role?('sales') && @buy_process.user == @current_user
+      admin_allowed = @current_user.has_role?('admin')
+      salesman_allowed || admin_allowed
     end
 
     def mark_as_unsuccessfully_closed?
-      (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
+      salesman_allowed = @buy_process.notes.size > 0 && @current_user.has_role?('sales') && @buy_process.user == @current_user
+      admin_allowed = @current_user.has_role?('admin')
+      salesman_allowed || admin_allowed
     end
   end
 end

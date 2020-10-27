@@ -20,8 +20,8 @@ class Client < ApplicationRecord
   #
   # Scope
   ## ========================
-  scope :client_name_contains, -> (name) {where("name ILIKE ?", "%#{name}%")}
-  scope :client_email_contains, -> (email) {where("email ILIKE ?", "%#{email}%")}
+  scope :client_name_contains, -> (name) {where("clients.name ILIKE ?", "%#{name}%")}
+  scope :client_email_contains, -> (email) {where("clients.email ILIKE ?", "%#{email}%")}
 
   ## Class Methods
   ## ========================

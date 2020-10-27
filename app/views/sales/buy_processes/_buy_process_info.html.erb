@@ -19,13 +19,20 @@
       <% if @buy_process.active? %>
         <span> Activo</span>
         <ul> <span>Marcar como:</span>
-          <%= link_to 'Vendido',  mark_as_successfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+          <% if policy([:sales, @buy_process]).mark_as_successfully_closed? %>
+            <%= link_to 'Vendido',  mark_as_successfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+          <% end %>
           <span> | </span>
-          <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+          <% if policy([:sales, @buy_process]).mark_as_unsuccessfully_closed? %>
+            <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_sales_buy_process_path(@buy_process), method: :put %>
+          <% end %>
+          <% if !policy([:sales, @buy_process]).mark_as_unsuccessfully_closed? && !policy([:sales, @buy_process]).mark_as_successfully_closed?%>
+            <span>Para marcar como vendido o archivado, el proceso debe tener al menos 1 nota.</span>
+          <% end %>
         </ul>
-      <% elsif @buy_process.successfully_closed_at.present? %>
+      <% elsif @buy_process.successfully_closed? %>
         <span>Vendido el <%= format_date(@buy_process.successfully_closed_at) %></span>
-        <% else %>
+      <% else %>
         <span>Archivado el <%= format_date(@buy_process.unsuccessfully_closed_at) %></span>
       <% end %>
     </li>

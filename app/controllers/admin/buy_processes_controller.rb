@@ -9,18 +9,28 @@ module Admin
     has_scope :created_at_date_to
     has_scope :user_id_is
     has_scope :without_notes, type: :boolean
+    has_scope :successfully_closed_at_date_from
+    has_scope :successfully_closed_at_date_to
+    has_scope :unsuccessfully_closed_at_date_from
+    has_scope :unsuccessfully_closed_at_date_to
 
     def index
 
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
 
+      # includes(:client).references(:clients) is needed when we are both joining and including an association
+      # in a query.
       @buy_processes = apply_scopes(BuyProcess)
-                           .all
-                           .includes(:client, :user)
                            .currently_open
-                           .select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id')
+                           .select('buy_processes.*, count(notes.id) AS total_notes')
+                           .inner_joins_client
+                           .includes(:client, :user).references(:clients)
+                           .left_outer_joins(:notes)
+                           .group('buy_processes.id')
                            .order('buy_processes.created_at DESC')
                            .paginate(page: params[:page], per_page: 30)
+
+
       @active_salespeople_select =  User.active_salespeople.pluck(:name, :id)
       @without_notes_select_options = [['Sin comentarios', true]]
     end
@@ -31,7 +41,6 @@ module Admin
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
 
       @buy_processes = apply_scopes(BuyProcess)
-                           .all
                            .successfully_closed_processes
                            .includes(:client)
                            .order('buy_processes.successfully_closed_at DESC')
@@ -44,7 +53,6 @@ module Admin
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
 
       @buy_processes = apply_scopes(BuyProcess)
-                           .all
                            .unsuccessfully_closed_processes
                            .includes(:client)
                            .order('buy_processes.unsuccessfully_closed_at DESC')

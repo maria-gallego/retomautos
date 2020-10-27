@@ -8,16 +8,25 @@ module Sales
     has_scope :created_at_date_from
     has_scope :created_at_date_to
     has_scope :without_notes, type: :boolean
+    has_scope :successfully_closed_at_date_from
+    has_scope :successfully_closed_at_date_to
+    has_scope :unsuccessfully_closed_at_date_from
+    has_scope :unsuccessfully_closed_at_date_to
 
 
     def index
       authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
 
+      # includes(:client).references(:clients) is needed when we are both joining and including an association
+      # in a query.
       @buy_processes = apply_scopes(BuyProcess)
-                           .user_id_is(current_user.id)
-                           .includes(:client)
                            .currently_open
-                           .select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id')
+                           .user_id_is(current_user.id)
+                           .select('buy_processes.*, count(notes.id) AS total_notes')
+                           .inner_joins_client
+                           .includes(:client).references(:clients)
+                           .left_outer_joins(:notes)
+                           .group('buy_processes.id')
                            .order('buy_processes.created_at DESC')
                            .paginate(page: params[:page])
       @without_notes_select_options = [['Sin comentarios', true]]
