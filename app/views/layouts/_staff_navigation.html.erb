@@ -6,16 +6,14 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if policy([:sales, :buy_process]).index? %>
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mis Procesos
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Procesos Activos', sales_buy_processes_path, class: 'dropdown-item'  %>
               <%= link_to 'Vendidos', successfully_closed_index_sales_buy_processes_path, class: 'dropdown-item'  %>
               <%= link_to 'Archivados', unsuccessfully_closed_index_sales_buy_processes_path, class: 'dropdown-item'  %>
@@ -24,10 +22,10 @@
         <% end %>
         <% if policy([:admin, :buy_process]).index? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Todos los Procesos
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Procesos Activos', admin_buy_processes_path, class: 'dropdown-item'  %>
               <%= link_to 'Vendidos', successfully_closed_index_admin_buy_processes_path, class: 'dropdown-item'  %>
               <%= link_to 'Archivados', unsuccessfully_closed_index_admin_buy_processes_path, class: 'dropdown-item'  %>
