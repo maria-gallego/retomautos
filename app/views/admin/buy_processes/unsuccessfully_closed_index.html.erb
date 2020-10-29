@@ -40,6 +40,7 @@
   <% end %>
   <!--  End Filter form-->
   <!--  Successfully closed table-->
+  <div class = 'pb-3'><%= link_to "Regresar a todos los Procesos", admin_buy_processes_path %></div>
   <%= will_paginate(@buy_processes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
   <table class="table table-striped">
     <thead>
