@@ -3,7 +3,7 @@ module Sales
 
     after_action :verify_authorized
 
-    def create
+    def create!
       note = Note.new(note_params.merge(user_id: current_user.id))
       authorize note,  policy_class: Sales::NotePolicy
       note.save!

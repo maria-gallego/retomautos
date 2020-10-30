@@ -3,6 +3,7 @@ class Car < ApplicationRecord
   # ========================
   validates :description, presence: true
   validates :year, presence: true
+  validates :registration, presence: true
 
   # Associations
   # ========================

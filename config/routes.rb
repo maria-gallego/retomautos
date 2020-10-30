@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
+  resources :cars, only: [:index, :new, :create]
 
   get '/blog_posts/bienvenido_al_mundo_de_bmw', to: 'blog_posts#bienvenido_al_mundo_de_bmw'
   get '/blog_posts/las_series_de_bmw', to: 'blog_posts#las_series_de_bmw'
