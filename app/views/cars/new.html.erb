@@ -1,24 +1,22 @@
-<div class="container">
+<div class="container py-5">
   <h2>Crear Carro</h2>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= form_with(model: @car, local: true) do |f| %>
-        <%= render 'layouts/error_messages', object: @car %>
+  <div class="col-md-4 pl-0">
+    <%= form_with(model: @car, local: true) do |f| %>
+      <div class="form-group">
         <%= f.label :description, 'Descripción del carro' %>
-        <%= f.text_field :description, class: 'form-control' %>
-
+        <%= f.text_field :description, placeholder: 'Bmw X3 Xdrive 30d Tp', class: 'form-control' %>
+      </div>
+      <div class="form-group">
         <%= f.label :year, 'Año' %>
-        <%= f.number_field :year, placeholder: '', class: 'form-control' %>
-
-
-        <%= f.label :registration, class: 'form-control' %>
+        <%= f.number_field :year, placeholder: '2017', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :registration, 'Placa' %>
         <%= f.text_field :registration, placeholder: 'XYZ000', class: 'form-control' %>
-
-
+      </div>
+      <div class="form-group">
         <%= f.submit "Crear", class: "btn btn-primary" %>
-      <% end %>
-
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

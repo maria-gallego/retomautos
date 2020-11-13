@@ -1,0 +1,51 @@
+<div class="container py-5">
+  <h2 class="pb-3">Carros Activos [<%= @cars.count %>]</h2>
+  <%= link_to 'Nuevo Carro', new_car_path, class: 'btn btn-primary mb-3'  %>
+
+  <!--   Filter form-->
+  <%= form_with(url: cars_path, method: :get, local: true) do |f| %>
+    <div class = "font-weight-bold py-3">Búsqueda</div>
+    <div class="row pt-1 pb-5">
+      <div class="col-sm-3">
+        <%= f.label :registration_contains, 'Placa' %>
+        <%= f.text_field(:registration_contains, value: params[:registration_contains], class: 'form-control' ) %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :year_from, 'Año entre'  %>
+        <%= f.select(:year_from, (1980..1.year.from_now.year), { selected: 1.year.ago.year }, { class: 'form-control' }) %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :year_to, 'y'  %>
+        <%= f.select(:year_to, (1980..1.year.from_now.year), { selected: 1.year.ago.year }, { class: 'form-control' }) %>
+      </div>
+      <div class="col-sm-3 col-form-label">
+        </br>
+        <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+  <!--  End Filter form-->
+
+  <%= will_paginate(@cars, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  <div class="row pb-5">
+    <% @cars.each do |car| %>
+        <div class="col-sm-6">
+          <div class="card bg-light mt-3">
+            <h5 class="card-header"> <%= car.description %></h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <p class="card-text">Año: <%= car.year %></p>
+                  <p class="card-text">Placa: <%= car.registration %></p>
+                </div>
+                <div class="col">
+                  <p class="card-text">Creado: <%= format_date(car.created_at) %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <%= will_paginate(@cars, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

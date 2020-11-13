@@ -8,6 +8,9 @@ module Admin
       @car = car
     end
 
+    def index?
+      @current_user.has_role?('sales') || @current_user.has_role?('admin')
+    end
     def new?
       @current_user.has_role?('admin')
     end

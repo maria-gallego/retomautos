@@ -9,6 +9,17 @@ class Car < ApplicationRecord
   # ========================
   has_many :car_interests
 
+  # Callback
+  # ========================
+  before_validation :normalize_registration
+
+  # Scope
+  # ========================
+  scope :registration_contains, ->(registration) { where("car.registration ILIKE ?", "%#{registration}%") }
+  scope :year_range, ->(year_from, year_to) { where("year_from = ? AND year_to = ?", year_from, year_to) }
+  scope :find_by_registration, ->(registration) { find_by(registration: registration.upcase.strip) }
+
+
   # Class Methods
   # ========================
   def self.create_or_update_by_tu_carro_id!(car_attributes)
@@ -20,5 +31,11 @@ class Car < ApplicationRecord
       car = Car.create!(**car_attributes)
     end
     car
+  end
+
+  private
+
+  def normalize_registration
+    self.registration = self.registration.upcase.strip unless self.registration.nil?
   end
 end

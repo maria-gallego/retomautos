@@ -32,6 +32,29 @@
             </div>
           </li>
         <% end %>
+        <% if policy([:client]) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Clientes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Nuevo Cliente', new_client_path, class: 'dropdown-item'  %>
+              <%= link_to 'Todos los Clientes', clients_path, class: 'dropdown-item'  %>
+            </div>
+          </li>
+        <% end %>
+        <% if policy([:admin, :car]).new? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Carros
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Crear Carro', new_car_path, class: 'dropdown-item'  %>
+              <%= link_to 'Carros Activos', cars_path, class: 'dropdown-item'  %>
+              <%= link_to 'Carros Vendidos', '#', class: 'dropdown-item'  %>
+            </div>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'Contraseña', edit_user_registration_path, class: 'nav-link'  %>
         </li>

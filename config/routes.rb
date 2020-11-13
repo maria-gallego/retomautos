@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
-  resources :cars, only: [:index, :new, :create]
+  resources :cars, only: [:index, :new, :create, :show]
+  resources :clients, only: [:index, :show, :new, :create]
 
   get '/blog_posts/bienvenido_al_mundo_de_bmw', to: 'blog_posts#bienvenido_al_mundo_de_bmw'
   get '/blog_posts/las_series_de_bmw', to: 'blog_posts#las_series_de_bmw'
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   namespace :sales do
-    resources :buy_processes, only: [:index, :show] do
+    resources :buy_processes, only: [:index, :show, :new, :create] do
       collection do
         get :successfully_closed_index
         get :unsuccessfully_closed_index
