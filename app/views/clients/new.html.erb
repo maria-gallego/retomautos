@@ -1,0 +1,25 @@
+<div class="container py-5">
+  <%= form_with(model: @client, local: true) do |f| %>
+    <%= render 'layouts/error_messages', object: @client %>
+    <div class="card">
+      <h5 class="card-header">Nuevo Cliente</h5>
+      <div class="card-body">
+        <div class="form-group">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone, 'Teléfono' %>
+          <%= f.phone_field :phone, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, 'Email' %>
+          <%= f.email_field :email, placeholder: 'ejemplo@ejemplo.com', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Crear", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

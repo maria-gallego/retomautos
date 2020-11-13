@@ -1,0 +1,53 @@
+<div class="container py-5">
+<h2>Clientes</h2>
+  <!--   Filter form-->
+  <%= form_with(url: clients_path, method: :get, local: true) do |f| %>
+    <div class="row pt-1">
+      <div class="col-sm-3">
+        <%= f.label :name, 'Nombre' %>
+        <%= f.text_field(:client_name_contains, value: params[:client_name_contains], class: 'form-control' ) %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :name, 'Email' %>
+        <%= f.text_field(:client_email_contains, value: params[:client_email_contains], class: 'form-control' ) %>
+      </div>
+      <div class="col-4 col-sm-3 col-form-label">
+        <br>
+        <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+  <!--  End Filter form-->
+  <%= link_to 'Nuevo Cliente', new_client_path, class: 'btn btn-primary mt-3' %>
+  <div class="py-3">
+  <%= will_paginate(@clients, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Número</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <th scope="row">
+          <%= link_to client.id, client_path(client) %>
+        </th>
+        <td>
+          <%= client.name %>
+        </td>
+        <td>
+          <%= client.email %>
+        </td>
+        <td><%= client.phone %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(@clients, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

@@ -17,6 +17,10 @@ module Sales
       (@current_user.has_role?('sales') && @buy_process.user == @current_user) || @current_user.has_role?('admin')
     end
 
+    def new?
+      @current_user.has_role?('sales') || @current_user.has_role?('admin')
+    end
+
     def successfully_closed_index?
       @current_user.has_role?('sales')
       end

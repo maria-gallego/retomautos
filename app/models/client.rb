@@ -36,6 +36,15 @@ class Client < ApplicationRecord
     client
   end
 
+  ## Instance Methods
+  ## ========================
+  def last_buy_process
+    buy_processes.last
+  end
+
+  def has_buy_processes?
+    buy_processes.present?
+  end
 
   private
 

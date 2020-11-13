@@ -36,15 +36,29 @@ module Sales
 
     def show
       @buy_process = BuyProcess.find(params[:id])
-      authorize([:sales, @buy_process])
-        # Is the same as:
-        # authorize @buy_process,  policy_class: Sales::BuyProcessPolicy
+      authorize @buy_process,  policy_class: Sales::BuyProcessPolicy
       @client = @buy_process.client
       @user = @buy_process.user
       @buy_process_inquiries = @buy_process.buy_process_inquiries
       @notes = @buy_process.notes
       @car_interests = @buy_process.car_interests.includes(:car, :car_interest_inquiries)
       @note = Note.new(buy_process: @buy_process)
+    end
+
+    def new
+      authorize BuyProcess,  policy_class: Sales::BuyProcessPolicy
+      @buy_process = BuyProcess.new
+    end
+
+    def create
+      authorize([:sales, @buy_process])
+      @buy_process = BuyProcess.new(buy_process_params. merge(user_id: current_user, client_id: client_id, source: 'Aplicación'))
+      if @buy_process.save!
+        flash[:success] = "Proceso creado"
+        redirect_to sale_buy_process_path
+      else
+        redirect_to new_buy_process_path
+      end
     end
 
     def successfully_closed_index
@@ -83,5 +97,12 @@ module Sales
       redirect_to sales_buy_process_path(@buy_process)
     end
 
+
+
+    private
+
+    def buy_process_params
+      params.require(:buy_process).permit(:user_id, :client_id, :source)
+    end
   end
 end
