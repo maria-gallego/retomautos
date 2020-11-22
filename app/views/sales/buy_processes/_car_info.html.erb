@@ -1,0 +1,49 @@
+<div class="card mt-3">
+  <!--Create car form-->
+  <div class="card-header font-weight-bold">
+    <div class="container px-0">
+      <% if policy(new_car_interest).create? %>
+        <%= form_with(model: new_car_interest, local: true) do |f| %>
+          <div class="form-row">
+            <div class="col-sm-2">Carro(s):</div>
+            <div class="col-sm-8">
+              <div class="field">
+                <%= f.select(:car_id, available_cars_select,
+                             { }, class: 'form-control', ) %>
+              </div>
+              <%= f.hidden_field :buy_process_id %>
+            </div>
+            <div class="col-sm-2">
+              <%= f.submit "Añadir", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="form-row">
+          <div class="col-sm-2">Carro(s)</div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<!-- End Create car form-->
+  <ul class="list-group list-group-flush">
+    <% if car_interests.size > 0 %>
+      <% car_interests.each do |car_interest| %>
+        <li class="list-group-item">
+          <%= "#{car_interest.car.description} | #{car_interest.car.year}" %>
+          <% if policy(car_interest).destroy? %>
+            <span> | </span>
+            <%= link_to("borrar", car_interest_path(car_interest), method: :delete) %>
+          <% end %>
+        </li>
+        <ul>
+          <% car_interest.car_interest_inquiries.each do |car_interest_inquiry| %>
+            <li class="list-group-item"><%= format_date(car_interest_inquiry.created_at) %>: <%= car_interest_inquiry.body %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% else %>
+      <li class="list-group-item">No hay carros registrados</li>
+    <% end %>
+  </ul>
+</div>

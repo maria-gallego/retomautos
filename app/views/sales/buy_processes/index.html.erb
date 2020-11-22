@@ -47,10 +47,8 @@
     </tr>
     </thead>
     <tbody>
-      <%# render @buy_processes %>
-      <%# equivalent to the code below %>
       <% @buy_processes.each do |buy_process| %>
-        <%= render buy_process %>
+        <%= render 'buy_process', buy_process: buy_process %>
       <% end %>
     </tbody>
   </table>

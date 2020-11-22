@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <h5>Editar Perfil del Cliente</h5>
+  <% if policy(@client).edit? %>
+    <%= form_with(model: @client, local: true) do |f| %>
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :name, "Nombre" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :email, "Email" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :phone, "Teléfono" %><br />
+        <%= f.phone_field :phone, autocomplete: "current-password", class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Editar", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

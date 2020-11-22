@@ -4,8 +4,11 @@
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
 <body>
-<h1>Pregunta de Cliente desde Tu Carro</h1>
+<h1>Pregunta de Cliente desde Tu Carro.</h1>
 <h5>El número que le quedó asignado al proceso es: <%= @buy_process.id %></h5>
+
+<p>Ir al proceso:</p>
+<%= link_to sale_buy_process_path(@buy_process.id) %>
 
 <p>
   Datos del cliente:

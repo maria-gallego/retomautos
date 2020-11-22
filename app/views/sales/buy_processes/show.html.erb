@@ -23,7 +23,11 @@
     <div class="col-sm-6">
       <%= render 'sales/buy_processes/notes' %>
     </div>
-
+    <div class="col-sm-6">
+      <%= render 'sales/buy_processes/car_info', car_interests: @car_interests, new_car_interest: @new_car_interest, available_cars_select: @available_cars_select %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-6">
       <%= render 'sales/buy_processes/inquiries', car_interests: @car_interests, buy_process_inquiries: @buy_process_inquiries %>
     </div>

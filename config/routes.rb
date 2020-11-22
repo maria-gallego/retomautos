@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
   resources :cars, only: [:index, :new, :create, :show]
-  resources :clients, only: [:index, :show, :new, :create]
+  resources :clients, only: [:index, :show, :new, :create, :edit, :update]
+  resources :car_interests, only: [:create, :destroy]
 
   get '/blog_posts/bienvenido_al_mundo_de_bmw', to: 'blog_posts#bienvenido_al_mundo_de_bmw'
   get '/blog_posts/las_series_de_bmw', to: 'blog_posts#las_series_de_bmw'
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   namespace :sales do
-    resources :buy_processes, only: [:index, :show, :new, :create] do
+    resources :buy_processes, only: [:index, :show, :create] do
       collection do
         get :successfully_closed_index
         get :unsuccessfully_closed_index

@@ -4,16 +4,6 @@
     <li class="list-group-item"><strong>Fecha de creación:</strong> <%= format_datetime(@buy_process.created_at) %></li>
     <li class="list-group-item"><strong>Iniciado desde:</strong> <%= @buy_process.source %></li>
 <!--    <li class="list-group-item">Estado: <%#=  %></li>-->
-    <li class="list-group-item"><strong>Carro(s):</strong></li>
-    <ul>
-      <% if @car_interests.size > 0 %>
-        <% @car_interests.each do |car_interest| %>
-          <li class="list-group-item"><%= "#{car_interest.car.description} | #{car_interest.car.year}" %></li>
-        <% end %>
-      <% else %>
-        <li class="list-group-item">No hay carros registrados</li>
-      <% end %>
-    </ul>
     <li class="list-group-item">
       <strong>Estado:</strong>
       <% if @buy_process.active? %>

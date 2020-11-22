@@ -1,14 +1,48 @@
 <div class="container py-5">
   <div class="card mt-3">
-    <div class="card-header font-weight-bold">Datos del Cliente </div>
+
+    <div class="card-header font-weight-bold">
+      <div class="row">
+        <div class="col-2">Perfil del Cliente</div>
+        <div class="col-3"> <%= link_to "Editar", edit_client_path(@client), class: 'btn btn-primary' %></div>
+      </div>
+    </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Nombre: <%= @client.name %></li>
       <li class="list-group-item">Email: <a href="mailto:<%= @client.email %>" target="_blank"><%= @client.email %></a></li>
       <li class="list-group-item">Teléfono: <a href="tel:<%= @client.phone %>"><%= @client.phone %></a></li>
-      <% if @client.has_buy_processes? %>
-        <li class="list-group-item">Vendedor asignado: <%= @buy_process.user.name %></li>
+      <ul class="list-group list-group-flush">
+      <% if @last_buy_process.present? %>
+        <ul class="list-group-item">Procesos:
+        <% @client.buy_processes.each do |buy_process| %>
+        <li class="list-group-item"> <%= link_to "Proceso #{buy_process.id}", sales_buy_process_path(buy_process) %>
+          </br>Vendedor asignado: <%= buy_process.user.name %>
+          </br>Estado:
+          <% if buy_process.successfully_closed? %>
+          <span>Vendido el <%= format_date(buy_process.successfully_closed_at) %></span>
+          <% elsif buy_process.unsuccessfully_closed?%>
+            <span>Archivado el <%= format_date(buy_process.unsuccessfully_closed_at) %></span>
+          <% else %>
+          <span>Activo</span>
+          <% end %>
+        </li>
+        <% end %>
+        </ul>
       <% end %>
-      <li class="list-group-item"><%= link_to 'Nuevo Proceso', new_sales_buy_process_path, class: 'btn btn-primary' %></li>
+      </ul>
+      <li class="list-group-item">
+        <% if @last_open_buy_process.present? %>
+          <% if policy([:sales, @last_open_buy_process]).show? %>
+            <%= link_to "Ver proceso activo", sales_buy_process_path(@last_open_buy_process), class: 'btn btn-primary'  %>
+          <% end %>
+        <% else %>
+          <% if policy([:sales, @buy_process_create_policy_instance]).create? %>
+            <%= button_to 'Crear Nuevo Proceso',
+                          sales_buy_processes_path,
+                          { params: { 'buy_process[client_id]' => @client.id }, class: 'btn btn-primary' } %>
+          <% end %>
+      <% end %>
+      </li>
     </ul>
   </div>
 </div>

@@ -100,4 +100,8 @@ class BuyProcess < ApplicationRecord
   def successfully_closed?
     successfully_closed_at.present?
   end
+
+  def unsuccessfully_closed?
+    unsuccessfully_closed_at.present?
+end
 end

@@ -9,11 +9,13 @@ module Sales
     end
 
     def create?
-      @current_user.has_role?('sales') && @note.buy_process.user == @current_user
+      buy_process = @note.buy_process
+      @current_user.has_role?('sales') && buy_process.user == @current_user && buy_process.active?
     end
 
     def destroy?
-      @current_user.has_role?('sales') && @note.buy_process.user == @current_user
+      buy_process = @note.buy_process
+      @current_user.has_role?('sales') && buy_process.user == @current_user && buy_process.active?
     end
 
   end

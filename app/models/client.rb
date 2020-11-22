@@ -42,8 +42,12 @@ class Client < ApplicationRecord
     buy_processes.last
   end
 
-  def has_buy_processes?
-    buy_processes.present?
+  def last_open_buy_process
+    open_buy_processes.last
+  end
+
+  def has_open_buy_process?
+    open_buy_processes.exists?
   end
 
   private
@@ -51,4 +55,9 @@ class Client < ApplicationRecord
   def normalize_email
     self.email = self.email.downcase.strip unless self.email.nil?
   end
+
+  def open_buy_processes
+    buy_processes.currently_open
+  end
+
 end

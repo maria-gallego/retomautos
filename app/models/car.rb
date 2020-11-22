@@ -19,6 +19,14 @@ class Car < ApplicationRecord
   scope :year_range, ->(year_from, year_to) { where("year_from = ? AND year_to = ?", year_from, year_to) }
   scope :find_by_registration, ->(registration) { find_by(registration: registration.upcase.strip) }
 
+  # TODO: when we figure out how to do available and unavailable cars
+  scope :available, -> { all }
+
+
+  def registration_and_description
+    "#{registration || 'N/A'} - #{description}"
+  end
+
 
   # Class Methods
   # ========================
@@ -32,6 +40,7 @@ class Car < ApplicationRecord
     end
     car
   end
+
 
   private
 

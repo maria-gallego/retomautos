@@ -14,7 +14,9 @@ class ClientsController < ApplicationController
   def show
     authorize nil, policy_class: ClientPolicy
     @client = Client.find(params[:id])
-    @buy_process = @client.last_buy_process
+    @last_buy_process = @client.last_buy_process
+    @last_open_buy_process = @client.last_open_buy_process
+    @buy_process_create_policy_instance = BuyProcess.new(client: @client, user: current_user)
   end
 
   def new
@@ -25,7 +27,10 @@ class ClientsController < ApplicationController
   def create
     authorize nil, policy_class: ClientPolicy
     existing_client = Client.find_by(email: client_params[:email])
-    redirect_to client_path(existing_client) and return if existing_client.present?
+    if existing_client.present?
+      existing_client.update(client_params)
+      redirect_to client_path(existing_client) and return
+    end
     @client = Client.new(client_params)
     if @client.save!
       redirect_to client_path(@client)
@@ -33,6 +38,18 @@ class ClientsController < ApplicationController
       flash[:danger] = 'No se pudo crear el cliente'
       render :new
     end
+  end
+
+  def edit
+    authorize nil, policy_class: ClientPolicy
+    @client = Client.find(params[:id])
+  end
+
+  def update
+    authorize nil, policy_class: ClientPolicy
+    @client = Client.find(params[:id])
+    @client.update!(client_params)
+    redirect_to client_path(@client)
   end
 
   private
