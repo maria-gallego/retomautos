@@ -33,6 +33,19 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    authorize nil, policy_class:Admin::CarPolicy
+    @car = Car.find(params[:id])
+  end
+
+  def update
+    authorize nil, policy_class:Admin::CarPolicy
+    @car = Car.find(params[:id])
+    @car.update!(car_params)
+    flash[:success] = 'Carro editado'
+    redirect_to cars_path
+  end
+
 
   private
 

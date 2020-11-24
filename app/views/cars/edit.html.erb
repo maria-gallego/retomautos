@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <h5>Editar Carro</h5>
+  <% if policy([:admin, @car]).edit? %>
+    <%= form_with(model: @car, local: true) do |f| %>
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :description, "Descripción" %><br />
+        <%= f.text_field :description, autofocus: true, autocomplete: "description", class: 'form-control' %>
+      </div>
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :year, "Año" %><br />
+        <%= f.number_field :year, autofocus: true, autocomplete: "year", class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col-6 pl-0">
+        <%= f.label :registration, "Placa" %><br />
+        <%= f.text_field :registration, autocomplete: "registration", class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

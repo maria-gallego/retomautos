@@ -40,6 +40,9 @@
                 </div>
                 <div class="col">
                   <p class="card-text">Creado: <%= format_date(car.created_at) %></p>
+                  <% if policy([:admin, car]).edit? %>
+                    <p class="card-text"><%= link_to("Editar", edit_car_path(car), class: 'btn btn-primary') %></p>
+                  <% end %>
                 </div>
               </div>
             </div>

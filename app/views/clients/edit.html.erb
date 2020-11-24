@@ -4,7 +4,7 @@
     <%= form_with(model: @client, local: true) do |f| %>
       <div class="field form-group col-6 pl-0">
         <%= f.label :name, "Nombre" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
       </div>
       <div class="field form-group col-6 pl-0">
         <%= f.label :email, "Email" %><br />
