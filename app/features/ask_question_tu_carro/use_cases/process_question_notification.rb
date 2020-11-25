@@ -40,10 +40,11 @@ module AskQuestionTuCarro
               email: inquiring_client.email
             )
 
-            car = Car.create_or_update_by_tu_carro_id!(
+            car = Car.create_or_update_by_registration!(
               tu_carro_id: remote_car.remote_id,
               description: remote_car.description,
-              year: remote_car.year
+              year: remote_car.year,
+              registration: remote_car.registration
             )
 
             buy_process = BuyProcess.find_open_or_create_for_client!(client, "Tu Carro")
