@@ -11,11 +11,28 @@ module Admin
       @current_user.has_role?('admin')
     end
 
+    def show?
+      @current_user.has_role?('admin')
+    end
+
+    def update?
+      @current_user.has_role?('admin') && @buy_process.active?
+    end
+
     def successfully_closed_index?
       @current_user.has_role?('admin')
     end
 
     def unsuccessfully_closed_index?
+      @current_user.has_role?('admin')
+    end
+
+    def mark_as_successfully_closed?
+       @current_user.has_role?('admin')
+
+    end
+
+    def mark_as_unsuccessfully_closed?
       @current_user.has_role?('admin')
     end
 

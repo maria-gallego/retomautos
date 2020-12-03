@@ -1,0 +1,26 @@
+<div class="card mt-3">
+  <div class="card-header font-weight-bold">Información del Proceso</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Fecha de creación:</strong> <%= format_datetime(@buy_process.created_at) %></li>
+    <li class="list-group-item"><strong>Iniciado desde:</strong> <%= @buy_process.source %></li>
+    <li class="list-group-item">
+      <strong>Estado:</strong>
+      <% if @buy_process.active? %>
+        <span> Activo</span>
+        <ul> <span>Marcar como:</span>
+          <% if policy([:admin, @buy_process]).mark_as_successfully_closed? %>
+            <%= link_to 'Vendido',  mark_as_successfully_closed_admin_buy_process_path(@buy_process), method: :put %>
+          <% end %>
+          <span> | </span>
+          <% if policy([:admin, @buy_process]).mark_as_unsuccessfully_closed? %>
+            <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_admin_buy_process_path(@buy_process), method: :put %>
+          <% end %>
+        </ul>
+      <% elsif @buy_process.successfully_closed? %>
+        <span>Vendido el <%= format_date(@buy_process.successfully_closed_at) %></span>
+      <% else %>
+        <span>Archivado el <%= format_date(@buy_process.unsuccessfully_closed_at) %></span>
+      <% end %>
+    </li>
+  </ul>
+</div>

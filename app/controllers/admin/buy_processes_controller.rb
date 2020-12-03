@@ -35,7 +35,29 @@ module Admin
       @without_notes_select_options = [['Sin comentarios', true]]
     end
 
-    #show: it is using sales show for now. If required create a show action here.
+    def show
+      @buy_process = BuyProcess.find(params[:id])
+      authorize @buy_process,  policy_class: Admin::BuyProcessPolicy
+      @client = @buy_process.client
+      @user = @buy_process.user
+      @buy_process_inquiries = @buy_process.buy_process_inquiries
+      @notes = @buy_process.notes
+      @car_interests = @buy_process.car_interests.includes(:car, :car_interest_inquiries)
+      @note = Note.new(buy_process: @buy_process)
+      @active_salespeople_select =  User.active_salespeople.pluck(:name, :id)
+      @new_car_interest = CarInterest.new(buy_process_id: @buy_process.id)
+      cars_in_buy_process = @car_interests.pluck(:car_id)
+      @available_cars_select = Car.available.where.not(id: cars_in_buy_process).order(description: :asc, registration: :asc).map{ |car| [car.registration_and_description, car.id] }
+    end
+
+    def update
+      @buy_process = BuyProcess.find(params[:id])
+      authorize @buy_process, policy_class:Admin::BuyProcessPolicy
+      @buy_process.update!(buy_process_params)
+      # @buy_process.update(user_id: 3, name: 'foo')
+      flash[:success] = 'Vendedor cambiado exitosamente'
+      redirect_to admin_buy_process_path(@buy_process)
+    end
 
     def successfully_closed_index
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
@@ -59,6 +81,26 @@ module Admin
                            .paginate(page: params[:page])
       @active_salespeople_select =  User.active_salespeople.pluck(:name, :id)
       @without_notes_select_options = [['Sin comentarios', true]]
+    end
+
+    def mark_as_successfully_closed
+      @buy_process = BuyProcess.find(params[:id])
+      authorize([:admin, @buy_process])
+      @buy_process.update!(successfully_closed_at: Time.now.to_datetime)
+      redirect_to admin_buy_process_path(@buy_process)
+    end
+
+    def mark_as_unsuccessfully_closed
+      @buy_process = BuyProcess.find(params[:id])
+      authorize([:admin, @buy_process])
+      @buy_process.update!(unsuccessfully_closed_at: Time.now.to_datetime)
+      redirect_to admin_buy_process_path(@buy_process)
+    end
+
+    private
+
+    def buy_process_params
+      params.require(:buy_process).permit(:user_id)
     end
 
   end
