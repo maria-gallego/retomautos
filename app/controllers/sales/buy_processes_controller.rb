@@ -50,7 +50,7 @@ module Sales
 
 
     def create
-      @buy_process = BuyProcess.new(buy_process_params.merge(user_id: current_user.id, source: 'Aplicación'))
+      @buy_process = BuyProcess.new(buy_process_params.merge(user_id: current_user.id, source: 'Vitrina'))
       authorize([:sales, @buy_process])
       @buy_process.save!
       redirect_to sales_buy_process_path(@buy_process)
@@ -91,8 +91,6 @@ module Sales
       @buy_process.update!(unsuccessfully_closed_at: Time.now.to_datetime)
       redirect_to sales_buy_process_path(@buy_process)
     end
-
-
 
     private
 

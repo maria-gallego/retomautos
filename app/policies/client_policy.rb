@@ -11,6 +11,10 @@ class ClientPolicy
     @current_user.has_role?('sales')|| @current_user.has_role?('admin')
   end
 
+  def find_client_for_new_process?
+    index?
+  end
+
   def show?
     @current_user.has_role?('sales') || @current_user.has_role?('admin')
   end

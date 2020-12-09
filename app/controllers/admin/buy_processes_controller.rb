@@ -50,6 +50,13 @@ module Admin
       @available_cars_select = Car.available.where.not(id: cars_in_buy_process).order(description: :asc, registration: :asc).map{ |car| [car.registration_and_description, car.id] }
     end
 
+    def create
+      @buy_process = BuyProcess.new(buy_process_params.merge(source: 'Vitrina'))
+      authorize([:admin, @buy_process])
+      @buy_process.save!
+      redirect_to admin_buy_process_path(@buy_process)
+    end
+
     def update
       @buy_process = BuyProcess.find(params[:id])
       authorize @buy_process, policy_class:Admin::BuyProcessPolicy
@@ -100,7 +107,7 @@ module Admin
     private
 
     def buy_process_params
-      params.require(:buy_process).permit(:user_id)
+      params.require(:buy_process).permit(:user_id, :client_id)
     end
 
   end

@@ -14,7 +14,7 @@ module Sales
     end
 
     def show?
-      @current_user.has_role?('sales')  || @current_user.has_role?('admin')
+      @current_user.has_role?('sales')
     end
 
     def create?

@@ -32,7 +32,18 @@
             </div>
           </li>
         <% end %>
-        <% if policy([:client]) %>
+        <% if policy([:client]).find_client_for_new_process? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Nuevo Proceso
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Crear proceso con cliente nuevo', new_client_path, class: 'dropdown-item'  %>
+              <%= link_to 'Crear proceso con cliente existente', find_client_for_new_process_clients_path, class: 'dropdown-item'  %>
+            </div>
+          </li>
+        <% end %>
+        <% if policy([:client]).create? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Clientes
@@ -43,15 +54,15 @@
             </div>
           </li>
         <% end %>
-        <% if policy([:admin, :car]).new? %>
+        <% if policy(:car).index? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Carros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Crear Carro', new_car_path, class: 'dropdown-item'  %>
-              <%= link_to 'Carros Activos', cars_path, class: 'dropdown-item'  %>
-              <%= link_to 'Carros Vendidos', '#', class: 'dropdown-item'  %>
+              <%= link_to 'Todos los Carros', cars_path, class: 'dropdown-item'  %>
+              <%#= link_to 'Carros Vendidos', '#', class: 'dropdown-item'  %>
             </div>
           </li>
         <% end %>

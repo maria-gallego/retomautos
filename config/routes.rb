@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
   resources :cars
-  resources :clients, only: [:index, :show, :new, :create, :edit, :update]
+  resources :clients, except: [:destroy] do
+    collection do
+      get :find_client_for_new_process
+    end
+  end
   resources :car_interests, only: [:create, :destroy]
 
   get '/blog_posts/bienvenido_al_mundo_de_bmw', to: 'blog_posts#bienvenido_al_mundo_de_bmw'

@@ -14,11 +14,14 @@
 
 .vitrina {
 
-  background-image: image-url("carros_sm.jpg");
+  background-image: image-url("blue_bmw_small.jpg");
   background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.20);
   color: $gray-100;
-
+  .container-form {
+    padding-top: 2rem;
+    padding-bottom: 21rem;
+  }
 
 
   h1 {
@@ -33,10 +36,10 @@
   @media (min-width: 992px) {
     background-image: image-url("carros.jpg");
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.10);
-  }
-  .container-form {
-    padding-top: 21rem;
-    padding-bottom: 3rem;
+    .container-form {
+      padding-top: 21rem;
+      padding-bottom: 3rem;
+    }
   }
  }
 

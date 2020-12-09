@@ -15,6 +15,11 @@ module Admin
       @current_user.has_role?('admin')
     end
 
+    def create?
+      client = @buy_process.client
+      @current_user.has_role?('admin') && !client.has_open_buy_process?
+    end
+
     def update?
       @current_user.has_role?('admin') && @buy_process.active?
     end

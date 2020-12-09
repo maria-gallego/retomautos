@@ -12,36 +12,65 @@
       <li class="list-group-item">Email: <a href="mailto:<%= @client.email %>" target="_blank"><%= @client.email %></a></li>
       <li class="list-group-item">Teléfono: <a href="tel:<%= @client.phone %>"><%= @client.phone %></a></li>
       <ul class="list-group list-group-flush">
-      <% if @last_buy_process.present? %>
-        <ul class="list-group-item">Procesos:
-        <% @client.buy_processes.each do |buy_process| %>
-        <li class="list-group-item"> <%= link_to "Proceso #{buy_process.id}", sales_buy_process_path(buy_process) %>
-          </br>Vendedor asignado: <%= buy_process.user.name %>
-          </br>Estado:
-          <% if buy_process.successfully_closed? %>
-          <span>Vendido el <%= format_date(buy_process.successfully_closed_at) %></span>
-          <% elsif buy_process.unsuccessfully_closed?%>
-            <span>Archivado el <%= format_date(buy_process.unsuccessfully_closed_at) %></span>
-          <% else %>
-          <span>Activo</span>
-          <% end %>
-        </li>
+        <% if @client_buy_processes.size > 0  %>
+          <ul class="list-group-item">Procesos:
+            <% @client_buy_processes.each do |buy_process| %>
+              <li class="list-group-item">
+                <% if policy([:admin, buy_process]).show? %>
+                  <%= link_to "Proceso #{buy_process.id}", sales_buy_process_path(buy_process) %>
+                <% elsif policy([:sales, buy_process]).show? %>
+                  <%= link_to "Proceso #{buy_process.id}", admin_buy_process_path(buy_process) %>
+                <% end %>
+                </br>Vendedor asignado: <%= buy_process.user&.name %>
+                </br>Estado:
+                <% if buy_process.successfully_closed? %>
+                  <span>Vendido el <%= format_date(buy_process.successfully_closed_at) %></span>
+                <% elsif buy_process.unsuccessfully_closed?%>
+                  <span>Archivado el <%= format_date(buy_process.unsuccessfully_closed_at) %></span>
+                <% else %>
+                  <span>Activo</span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         <% end %>
-        </ul>
-      <% end %>
       </ul>
       <li class="list-group-item">
         <% if @last_open_buy_process.present? %>
-          <% if policy([:sales, @last_open_buy_process]).show? %>
+
+          <% if policy([:admin, @last_open_buy_process]).show? %>
+            <%= link_to "Ver proceso activo", admin_buy_process_path(@last_open_buy_process), class: 'btn btn-primary'  %>
+          <% elsif policy([:sales, @last_open_buy_process]).show? %>
             <%= link_to "Ver proceso activo", sales_buy_process_path(@last_open_buy_process), class: 'btn btn-primary'  %>
           <% end %>
+
         <% else %>
-          <% if policy([:sales, @buy_process_create_policy_instance]).create? %>
+
+           <% if policy([:admin, @admin_new_buy_process]).create? %>
+            <%= form_with(model: @admin_new_buy_process, url: admin_buy_processes_path, local: true) do |f| %>
+              <div class="form-row">
+                <div class="col-sm-4">Crear nuevo proceso con vendedor:</div>
+                <div class="col-sm-4">
+                  <div class="field">
+                    <%= f.select(:user_id, @active_salespeople_select, { }, class: 'form-control') %>
+                  </div>
+                  <%= f.hidden_field :client_id %>
+                </div>
+                <div class="col-sm-2">
+                  <%= f.submit "Crear", class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
+            <hr>
+          <% end %>
+
+          <% if policy([:sales, @sales_new_buy_process]).create? %>
             <%= button_to 'Crear Nuevo Proceso',
                           sales_buy_processes_path,
-                          { params: { 'buy_process[client_id]' => @client.id }, class: 'btn btn-primary' } %>
+                          { params: { 'buy_process[client_id]' => @sales_new_buy_process.client_id }, class: 'btn btn-primary' } %>
           <% end %>
-      <% end %>
+        <% end %>
+
       </li>
     </ul>
   </div>
