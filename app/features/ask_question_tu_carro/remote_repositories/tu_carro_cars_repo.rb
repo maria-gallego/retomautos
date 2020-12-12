@@ -12,7 +12,8 @@ module AskQuestionTuCarro
         AskQuestionTuCarro::Entities::InquiryCar.new(
           remote_id: car_struct.id,
           description: car_struct.title,
-          year: car_struct.attributes.find{ |attribute| attribute.id == "VEHICLE_YEAR"}.value_name.to_i
+          year: car_struct.attributes.find{ |attribute| attribute.id == "VEHICLE_YEAR"}.value_name.to_i,
+          registration: car_struct.attributes.find{ |attribute| attribute.id == "LICENSE_PLATE"}.value_name
         )
       end
 

@@ -63,13 +63,13 @@ Rails.application.configure do
   # ActionMailer Config
   config.action_mailer.perform_caching = false
   config.action_mailer.smtp_settings = {
-      address: "smtp.sendgrid.net",
-      port: 587,
-      domain: Rails.application.credentials.domain_name,
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: Rails.application.credentials.sendgrid_account_username,
-      password: Rails.application.credentials.sendgrid_account_password
+    :address        => 'smtp.sendgrid.net',
+    :port           => 587,
+    :authentication => :plain,
+    :user_name      => 'apikey',
+    :password       => Rails.application.credentials.sendgrid_api_key,
+    :domain         => Rails.application.credentials.domain_name,
+    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => 'retomautos.com' }
   config.action_mailer.delivery_method = :smtp

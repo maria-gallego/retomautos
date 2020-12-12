@@ -14,9 +14,9 @@ module MercadolibreApi
       JSON.parse(sample_answer_question_json, object_class: OpenStruct)
     end
 
-    def get_car!(car_id)
+    def get_car!(_car_id)
       sample_car_json = File.read("app/lib/mercadolibre_api/response_samples/get_car.json")
-      JSON.parse(sample_car_json, object_class: OpenStruct)
+      JSON.parse(sample_car_json, object_class: OpenStruct).first.body
     end
 
     def refresh_and_persist_token!(token_repo: nil)

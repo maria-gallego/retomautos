@@ -33,7 +33,7 @@ module MercadolibreApi
       response
     end
 
-    # GET "/items/#{item_id}" Public mecadolibre endpoint.
+    # GET /items?ids=$ITEM_ID1,$ITEM_ID2&access_token=$ACCESS_TOKEN
     # @see ./response_samples/get_car.json
     # The Mercadolibre::Api gem parses the json and returns an OpenStruct
     # Some of the relevant attributes are
@@ -56,9 +56,9 @@ module MercadolibreApi
     #
     # @see https://github.com/lhconfort/mercadolibre#items-and-searches
     def get_car!(car_id)
-      response = base_client.get_item(car_id)
+      response = base_client.get_items([car_id])
       assert_successful_response!(response)
-      response
+      response.first.body
     end
 
     def refresh_and_persist_token!(token_repo: MercadolibreApiAccessToken)
