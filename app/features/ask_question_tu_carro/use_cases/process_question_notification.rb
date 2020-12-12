@@ -70,7 +70,7 @@ module AskQuestionTuCarro
           ).deliver_later
 
         # Respond to user in tu carro
-        response_text = tu_carro_automatic_response_text(client)
+        response_text = tu_carro_automatic_response_text(client, buy_process.user)
         remote_questions_repo.try_to_answer_question(remote_question_id, response_text)
       end
 
@@ -78,8 +78,8 @@ module AskQuestionTuCarro
 
       attr_reader :remote_questions_repo, :remote_cars_repo
 
-      def tu_carro_automatic_response_text(client)
-        "Hola #{client.name}! Gracias por contactarnos. Uno de nuestro asesores se va a comunicar contigo para responder tus preguntas. Puedes visitarnos en la Carrera 15 #103-24, o en la Calle 105A #14-41 en nuestro nuevos horarios de atención de lunes a viernes de 10 am a 7 pm, sábados de 10 am - 7 pm y domingos de 10 am - 5 pm. Visita nuestra página www.retomautos.com"
+      def tu_carro_automatic_response_text(client, salesperson)
+        "Hola #{client.name}! #{salesperson.name}  se va a comunicar contigo para responder tus preguntas. Puedes contactar a tu asesor al #{salesperson.phone} o #{salesperson.email}. Para más información visita nuestra página www.retomautos.com"
       end
 
       def created_more_than_24_hours_ago?(notified_question)
