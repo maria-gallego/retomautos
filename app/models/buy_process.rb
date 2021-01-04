@@ -14,13 +14,17 @@ class BuyProcess < ApplicationRecord
   scope :with_salesperson, -> { where.not(user_id: nil) }
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
   scope :user_id_is, -> (user_id) { where(user_id: user_id) }
+  # TODO: successfully_closed_at -> car_sale
   scope :currently_open, -> { where(successfully_closed_at: nil, unsuccessfully_closed_at: nil) }
   scope :created_at_date_from, -> date {where('buy_processes.created_at >= ?', date.to_date.beginning_of_day)}
   scope :created_at_date_to, -> date {where('buy_processes.created_at <= ?', date.to_date.end_of_day)}
   scope :without_notes, -> { select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id').having('count(notes.id) = 0') }
+  # TODO: successfully_closed_at -> car_sale
   scope :successfully_closed_processes, -> { where.not(successfully_closed_at: nil) }
   scope :unsuccessfully_closed_processes, -> { where.not(unsuccessfully_closed_at: nil) }
+  # TODO: successfully_closed_at -> car_sale
   scope :successfully_closed_at_date_from, -> date {where('buy_processes.successfully_closed_at >= ?', date.to_date.beginning_of_day)}
+  # TODO: successfully_closed_at -> car_sale
   scope :successfully_closed_at_date_to, -> date {where('buy_processes.successfully_closed_at <= ?', date.to_date.end_of_day)}
   scope :unsuccessfully_closed_at_date_from, -> date {where('buy_processes.unsuccessfully_closed_at >= ?', date.to_date.beginning_of_day)}
   scope :unsuccessfully_closed_at_date_to, -> date {where('buy_processes.unsuccessfully_closed_at <= ?', date.to_date.end_of_day)}
@@ -93,15 +97,22 @@ class BuyProcess < ApplicationRecord
     update!(user: assigned_salesperson) if self.user_id != assigned_salesperson.id
   end
 
+  # TODO: successfully_closed_at -> car_sale
   def active?
     successfully_closed_at.blank? && unsuccessfully_closed_at.blank?
   end
 
+  # TODO: successfully_closed_at -> car_sale
   def successfully_closed?
     successfully_closed_at.present?
   end
 
   def unsuccessfully_closed?
     unsuccessfully_closed_at.present?
-end
+  end
+
+  # TODO: successfully_closed_at -> car_sale
+  def successfully_closed_at
+
+  end
 end

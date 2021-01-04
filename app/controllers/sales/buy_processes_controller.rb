@@ -78,6 +78,7 @@ module Sales
                            .paginate(page: params[:page])
     end
 
+    # TODO: successfully_closed_at -> car_sale
     def mark_as_successfully_closed
       @buy_process = BuyProcess.find(params[:id])
       authorize([:sales, @buy_process])

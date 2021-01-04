@@ -69,6 +69,7 @@ module Admin
     def successfully_closed_index
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
 
+      # TODO: successfully_closed_at -> car_sale
       @buy_processes = apply_scopes(BuyProcess)
                            .successfully_closed_processes
                            .includes(:client)
@@ -90,6 +91,7 @@ module Admin
       @without_notes_select_options = [['Sin comentarios', true]]
     end
 
+    # TODO: successfully_closed_at -> car_sale
     def mark_as_successfully_closed
       @buy_process = BuyProcess.find(params[:id])
       authorize([:admin, @buy_process])
