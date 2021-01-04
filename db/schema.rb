@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2020_11_25_092851) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buy_process_id"], name: "index_car_interests_on_buy_process_id"
     t.index ["car_id"], name: "index_car_interests_on_car_id"
+    t.index ["car_intake_id"], name: "index_car_interests_on_car_intake_id"
+  end
+
+  create_table "car_sales", force: :cascade do |t|
+    t.bigint "buy_process_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buy_process_id"], name: "index_car_sales_on_buy_process_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -144,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_092851) do
   add_foreign_key "car_interest_inquiries", "car_interests"
   add_foreign_key "car_interests", "buy_processes"
   add_foreign_key "car_interests", "cars"
+  add_foreign_key "car_sales", "buy_processes"
   add_foreign_key "notes", "buy_processes"
   add_foreign_key "notes", "users"
   add_foreign_key "role_grants", "roles"
