@@ -40,12 +40,13 @@ module AskQuestionTuCarro
               email: inquiring_client.email
             )
 
-            car = Car.create_or_update_by_registration!(
-              tu_carro_id: remote_car.remote_id,
-              description: remote_car.description,
-              year: remote_car.year,
-              registration: remote_car.registration
+            car_intake = CarIntakeWithCar.create!(
+              car_intake_tu_carro_id: remote_car.remote_id,
+              car_description: remote_car.description,
+              car_year: remote_car.year,
+              car_registration: remote_car.registration
             )
+            car = car_intake.car
 
             buy_process = BuyProcess.find_open_or_create_for_client!(client, "Tu Carro")
             buy_process.assign_sales_person_if_non_existent!
