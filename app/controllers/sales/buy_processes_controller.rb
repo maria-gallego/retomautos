@@ -45,7 +45,7 @@ module Sales
       @note = Note.new(buy_process: @buy_process)
       @new_car_interest = CarInterest.new(buy_process_id: @buy_process.id)
       cars_in_buy_process = @car_interests.pluck(:car_id)
-      @available_cars_select = Car.available.where.not(id: cars_in_buy_process).order(description: :asc, registration: :asc).map{ |car| [car.registration_and_description, car.id] }
+      @available_cars_select = Car.where.not(id: cars_in_buy_process).order(description: :asc, registration: :asc).map{ |car| [car.registration_and_description, car.id] }
     end
 
 

@@ -7,22 +7,6 @@ class CarPolicy
     @car = car
   end
 
-  def index?
-    @current_user.has_role?('sales') || @current_user.has_role?('admin')
-  end
-
-  def new?
-    @current_user.has_role?('admin')
-  end
-
-  def create?
-    @current_user.has_role?('admin')
-  end
-
-  def destroy?
-    @current_user.has_role?('admin')
-  end
-
   def edit?
     @current_user.has_role?('admin')
   end

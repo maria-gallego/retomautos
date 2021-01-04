@@ -54,18 +54,18 @@
             </div>
           </li>
         <% end %>
-        <% if policy(:car).index? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Carros
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Crear Carro', new_car_path, class: 'dropdown-item'  %>
-              <%= link_to 'Todos los Carros', cars_path, class: 'dropdown-item'  %>
-              <%#= link_to 'Carros Vendidos', '#', class: 'dropdown-item'  %>
-            </div>
-          </li>
-        <% end %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Carros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Crear Carro', new_car_intake_path, class: 'dropdown-item' if policy(:car_intake).new?  %>
+            <%= link_to 'Carros Activos', car_intakes_path, class: 'dropdown-item' if policy(:car_intake).index?  %>
+            <%#= link_to 'Carros Vendidos', '#', class: 'dropdown-item'  %>
+          </div>
+        </li>
+
         <li class="nav-item">
           <%= link_to 'Contraseña', edit_user_registration_path, class: 'nav-link'  %>
         </li>

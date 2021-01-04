@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
-  resources :cars
+  resources :cars, only: [:edit, :update]
+  resources :car_intakes, only: [:new, :create, :index]
   resources :clients, except: [:destroy] do
     collection do
       get :find_client_for_new_process
