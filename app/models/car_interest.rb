@@ -3,6 +3,7 @@ class CarInterest < ApplicationRecord
   # ========================
   belongs_to :buy_process
   belongs_to :car
+  belongs_to :car_intake
   validates :buy_process_id, uniqueness: { scope: :car_id }
 
   # Associations
