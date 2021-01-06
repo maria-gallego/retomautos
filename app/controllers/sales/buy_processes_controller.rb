@@ -41,11 +41,14 @@ module Sales
       @user = @buy_process.user
       @buy_process_inquiries = @buy_process.buy_process_inquiries
       @notes = @buy_process.notes
-      @car_interests = @buy_process.car_interests.includes(:car, :car_interest_inquiries)
+      @car_interests = @buy_process.car_interests.includes(car_intake: [:car], car_interest_inquiries: [])
       @note = Note.new(buy_process: @buy_process)
       @new_car_interest = CarInterest.new(buy_process_id: @buy_process.id)
-      cars_in_buy_process = @car_interests.pluck(:car_id)
-      @available_cars_select = Car.where.not(id: cars_in_buy_process).order(description: :asc, registration: :asc).map{ |car| [car.registration_and_description, car.id] }
+      @available_car_intakes_select = CarIntake.available_for_buy_process(@buy_process)
+                                          .joins(:car)
+                                          .order("cars.description ASC, cars.registration ASC")
+                                          .includes(:car)
+                                          .map{ |car_intake| [car_intake.car.registration_and_description, car_intake.id] }
     end
 
 

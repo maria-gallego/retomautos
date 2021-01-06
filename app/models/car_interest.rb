@@ -18,4 +18,15 @@ class CarInterest < ApplicationRecord
 
     create!(buy_process: buy_process, car_intake: car_intake)
   end
+
+  # Callbacks
+  # ========================
+  before_validation :copy_car_from_car_intake
+
+  private
+
+  # TODO: delete this callback once car_id has been deleted form the table
+  def copy_car_from_car_intake
+    self.car_id = self.car_intake.car_id
+  end
 end

@@ -8,7 +8,7 @@
             <div class="col-sm-2">Carro(s):</div>
             <div class="col-sm-8">
               <div class="field">
-                <%= f.select(:car_id, available_cars_select,
+                <%= f.select(:car_intake_id, available_car_intakes_select,
                              { }, class: 'form-control', ) %>
               </div>
               <%= f.hidden_field :buy_process_id %>
@@ -30,7 +30,7 @@
     <% if car_interests.size > 0 %>
       <% car_interests.each do |car_interest| %>
         <li class="list-group-item">
-          <%= "#{car_interest.car.description} | #{car_interest.car.year}" %>
+          <%= "#{car_interest.car_intake.car_description} | #{car_interest.car_intake.car_year}" %>
           <% if policy(car_interest).destroy? %>
             <span> | </span>
             <%= link_to("borrar", car_interest_path(car_interest), method: :delete) %>

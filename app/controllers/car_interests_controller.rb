@@ -1,7 +1,6 @@
 class CarInterestsController < ApplicationController
 
   after_action :verify_authorized
-
   def create
     car_interest = CarInterest.new(car_interest_params)
     authorize car_interest,  policy_class: CarInterestPolicy
@@ -21,6 +20,6 @@ class CarInterestsController < ApplicationController
   private
 
   def car_interest_params
-    params.require(:car_interest).permit(:car_id, :buy_process_id)
+    params.require(:car_interest).permit(:car_intake_id, :buy_process_id)
   end
 end
