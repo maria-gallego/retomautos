@@ -32,7 +32,7 @@ module AskQuestionTuCarro
         inquiring_client = notified_question.remote_client
         remote_car = remote_cars_repo.find_by_id!(notified_question.remote_car_id)
 
-        client, buy_process, car, car_interest_inquiry =
+        client, buy_process, car_intake, car, car_interest_inquiry =
           ActiveRecord::Base.transaction do
             client = Client.create_or_update_by_email!(
               name: inquiring_client.name,
@@ -51,14 +51,14 @@ module AskQuestionTuCarro
             buy_process = BuyProcess.find_open_or_create_for_client!(client, "Tu Carro")
             buy_process.assign_sales_person_if_non_existent!
 
-            car_interest = CarInterest.find_or_create_for!(buy_process: buy_process, car: car)
+            car_interest = CarInterest.find_or_create_for!(buy_process: buy_process, car_intake: car_intake)
             car_interest_inquiry = CarInterestInquiry.create!(
               car_interest: car_interest,
               body: notified_question.body,
               tu_carro_question_id: remote_question_id
             )
 
-            [client, buy_process, car, car_interest_inquiry]
+            [client, buy_process, car_intake, car, car_interest_inquiry]
           end
 
         # Send email to sales person
@@ -67,6 +67,7 @@ module AskQuestionTuCarro
           client: client,
           buy_process: buy_process,
           car_interest_inquiry: car_interest_inquiry,
+          car_intake: car_intake,
           car: car
           ).deliver_later
 
