@@ -3,11 +3,11 @@ class BuyProcess < ApplicationRecord
   # ========================
   belongs_to :user, optional: true
   belongs_to :client
-  has_many :buy_process_inquiries
-  has_many :car_interests
-  has_many :notes
+  has_many :buy_process_inquiries, dependent: :destroy
+  has_many :car_interests, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_many :car_interest_inquiries, through: :car_interests
-  has_many :cars, through: :car_interests
+  has_many :car_intakes, through: :car_interests
   # If a single buy process results in multiple cars being sold, our current recommendation is to
   # create multiple buy processes
   has_one :car_sale
