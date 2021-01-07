@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_034437) do
+ActiveRecord::Schema.define(version: 2021_01_07_073344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,10 @@ ActiveRecord::Schema.define(version: 2021_01_04_034437) do
 
   create_table "car_intakes", force: :cascade do |t|
     t.bigint "car_id", null: false
-    t.bigint "car_sale_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "tu_carro_id"
     t.index ["car_id"], name: "index_car_intakes_on_car_id"
-    t.index ["car_sale_id"], name: "index_car_intakes_on_car_sale_id"
   end
 
   create_table "car_interest_inquiries", force: :cascade do |t|
@@ -71,7 +69,9 @@ ActiveRecord::Schema.define(version: 2021_01_04_034437) do
     t.bigint "buy_process_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "car_intake_id", null: false
     t.index ["buy_process_id"], name: "index_car_sales_on_buy_process_id"
+    t.index ["car_intake_id"], name: "index_car_sales_on_car_intake_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -160,13 +160,13 @@ ActiveRecord::Schema.define(version: 2021_01_04_034437) do
   add_foreign_key "buy_process_inquiries", "buy_processes"
   add_foreign_key "buy_processes", "clients"
   add_foreign_key "buy_processes", "users"
-  add_foreign_key "car_intakes", "car_sales"
   add_foreign_key "car_intakes", "cars"
   add_foreign_key "car_interest_inquiries", "car_interests"
   add_foreign_key "car_interests", "buy_processes"
   add_foreign_key "car_interests", "car_intakes"
   add_foreign_key "car_interests", "cars"
   add_foreign_key "car_sales", "buy_processes"
+  add_foreign_key "car_sales", "car_intakes"
   add_foreign_key "notes", "buy_processes"
   add_foreign_key "notes", "users"
   add_foreign_key "role_grants", "roles"

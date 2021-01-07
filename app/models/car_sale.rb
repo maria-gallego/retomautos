@@ -1,4 +1,4 @@
 class CarSale < ApplicationRecord
   belongs_to :buy_process
-  has_one :car_intake
+  belongs_to :car_intake
 end
