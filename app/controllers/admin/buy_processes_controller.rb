@@ -71,12 +71,10 @@ module Admin
 
     def successfully_closed_index
       authorize BuyProcess,  policy_class: Admin::BuyProcessPolicy
-
-      # TODO: successfully_closed_at -> car_sale
       @buy_processes = apply_scopes(BuyProcess)
                            .successfully_closed_processes
                            .includes(:client)
-                           .order('buy_processes.successfully_closed_at DESC')
+                           .order('car_sales.created_at DESC')
                            .paginate(page: params[:page])
       @active_salespeople_select =  User.active_salespeople.pluck(:name, :id)
       @without_notes_select_options = [['Sin comentarios', true]]

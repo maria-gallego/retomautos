@@ -66,7 +66,7 @@ module Sales
                            .user_id_is(current_user.id)
                            .successfully_closed_processes
                            .includes(:client)
-                           .order('buy_processes.created_at DESC')
+                           .order('car_sales.created_at DESC')
                            .paginate(page: params[:page])
     end
 
