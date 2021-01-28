@@ -6,7 +6,11 @@ class CarInterestsController < ApplicationController
     authorize car_interest,  policy_class: CarInterestPolicy
     car_interest.save!
     buy_process = car_interest.buy_process
+    if current_user.has_role?('admin')
+      redirect_to admin_buy_process_path(buy_process)
+    else current_user.has_role?('sales')
     redirect_to sales_buy_process_path(buy_process)
+    end
   end
 
   def destroy
@@ -14,7 +18,11 @@ class CarInterestsController < ApplicationController
     authorize car_interest,  policy_class: CarInterestPolicy
     buy_process = car_interest.buy_process
     car_interest.destroy!
-    redirect_to sales_buy_process_path(buy_process)
+    if current_user.has_role?('admin')
+      redirect_to admin_buy_process_path(buy_process)
+    else current_user.has_role?('sales')
+      redirect_to sales_buy_process_path(buy_process)
+    end
   end
 
   private
