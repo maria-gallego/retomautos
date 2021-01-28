@@ -6,4 +6,8 @@ class CarSale < ApplicationRecord
   # ========================
   scope :sold_at_date_from, -> date {where('car_sales.created_at >= ?', date.to_date.beginning_of_day)}
   scope :sold_at_date_to, -> date {where('car_sales.created_at <= ?', date.to_date.end_of_day)}
+
+  def car
+    car_intake.car
+  end
 end

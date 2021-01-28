@@ -49,6 +49,16 @@ module Sales
                                           .order("cars.description ASC, cars.registration ASC")
                                           .includes(:car)
                                           .map{ |car_intake| [car_intake.car.registration_and_description, car_intake.id] }
+
+      # If the dummy CarSale is created with a buy_process instance instead of an id,
+      # it gets associated in memory to the buy process and @buy_process.car_sale
+      # starts returning the dummy car sale
+      @car_sale_for_policy = CarSale.new(buy_process_id: @buy_process.id)
+
+      if @buy_process.successfully_closed?
+        @sold_car_sale = @buy_process.car_sale
+        @sold_car = @sold_car_sale.car
+      end
     end
 
 

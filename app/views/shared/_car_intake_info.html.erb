@@ -5,7 +5,7 @@
       <% if policy(new_car_interest).create? %>
         <%= form_with(model: new_car_interest, local: true) do |f| %>
           <div class="form-row">
-            <div class="col-sm-2">Carro(s):</div>
+            <div class="col-sm-2">Carro(s)</div>
             <div class="col-sm-8">
               <div class="field">
                 <%= f.select(:car_intake_id, available_car_intakes_select,
@@ -20,7 +20,7 @@
         <% end %>
       <% else %>
         <div class="form-row">
-          <div class="col-sm-2">Carro(s)</div>
+          <div class="col-sm-4">Carro(s) de interés</div>
         </div>
       <% end %>
     </div>

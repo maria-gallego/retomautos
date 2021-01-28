@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'car_sales/new'
+  get 'car_sales/create'
+  get 'car_sales/index'
   devise_for :users, skip: [:registrations]
 
   as :user do
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
   resources :blog_posts, only: [:index]
   resources :cars, only: [:edit, :update]
   resources :car_intakes, only: [:new, :create, :index]
+  resources :car_sales, only: [:new, :create, :index]
   resources :clients, except: [:destroy] do
     collection do
       get :find_client_for_new_process

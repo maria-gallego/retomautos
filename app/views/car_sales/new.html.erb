@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <h2>Marcar como Vendido</h2>
+  <p>Seleccionar el carro que se vendió: </p>
+  <div class="col pl-0">
+    <% if policy(@car_sale).new? %>
+      <%= form_with(model: @car_sale, local: true) do |f| %>
+        <div class="form-row">
+          <div class="col-sm-6">
+            <div class="field">
+              <%= f.select(:car_intake_id, @available_car_interests_select,
+                           { }, class: 'form-control', ) %>
+            </div>
+            <%= f.hidden_field :buy_process_id %>
+          </div>
+          <div class="col-sm-2">
+            <%= f.submit "Marcar como vendido", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

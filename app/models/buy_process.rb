@@ -97,11 +97,13 @@ class BuyProcess < ApplicationRecord
   end
 
   def active?
-    car_sale.blank? && unsuccessfully_closed_at.blank?
+    !successfully_closed? && !unsuccessfully_closed?
   end
 
   def successfully_closed?
-    car_sale.present?
+    # car_sale may be associated with the buy process in memory (not persisted)
+    # if this happens, the buy process should not be considered successfully_closed
+    CarSale.exists?(buy_process_id: self.id)
   end
 
   def unsuccessfully_closed?

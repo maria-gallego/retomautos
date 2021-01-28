@@ -8,8 +8,8 @@
       <% if @buy_process.active? %>
         <span> Activo</span>
         <ul> <span>Marcar como:</span>
-          <% if policy([:admin, @buy_process]).mark_as_successfully_closed? %>
-            <%= link_to 'Vendido',  mark_as_successfully_closed_admin_buy_process_path(@buy_process), method: :put %>
+          <% if policy(@car_sale_for_policy).new? %>
+            <%= link_to 'Vendido', new_car_sale_path(buy_process_id: @buy_process.id)  %>
           <% end %>
           <span> | </span>
           <% if policy([:admin, @buy_process]).mark_as_unsuccessfully_closed? %>
@@ -17,7 +17,8 @@
           <% end %>
         </ul>
       <% elsif @buy_process.successfully_closed? %>
-        <span>Vendido el <%= format_date(@buy_process.successfully_closed_at) %></span>
+        <ul><span>Vendido el <%= format_date(@buy_process.successfully_closed_at) %></span></ul>
+        <ul><span>Carro: <%= @sold_car.registration_and_description %> | <%= @sold_car.year %></span></ul>
       <% else %>
         <span>Archivado el <%= format_date(@buy_process.unsuccessfully_closed_at) %></span>
       <% end %>
