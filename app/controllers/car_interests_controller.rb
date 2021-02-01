@@ -9,7 +9,7 @@ class CarInterestsController < ApplicationController
     if current_user.has_role?('admin')
       redirect_to admin_buy_process_path(buy_process)
     else current_user.has_role?('sales')
-    redirect_to sales_buy_process_path(buy_process)
+      redirect_to sales_buy_process_path(buy_process)
     end
   end
 

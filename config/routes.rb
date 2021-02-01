@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'car_sales/new'
-  get 'car_sales/create'
-  get 'car_sales/index'
   devise_for :users, skip: [:registrations]
 
   as :user do
