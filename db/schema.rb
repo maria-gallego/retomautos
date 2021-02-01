@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_104123) do
+ActiveRecord::Schema.define(version: 2021_02_01_104535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_104123) do
   end
 
   create_table "buy_processes", force: :cascade do |t|
-    t.datetime "successfully_closed_at"
     t.datetime "unsuccessfully_closed_at"
     t.string "source"
     t.bigint "user_id"
