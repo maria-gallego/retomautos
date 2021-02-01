@@ -16,9 +16,9 @@
           <ul class="list-group-item">Procesos:
             <% @client_buy_processes.each do |buy_process| %>
               <li class="list-group-item">
-                <% if policy([:admin, buy_process]).show? %>
+                <% if policy([:sales, buy_process]).show? %>
                   <%= link_to "Proceso #{buy_process.id}", sales_buy_process_path(buy_process) %>
-                <% elsif policy([:sales, buy_process]).show? %>
+                <% elsif policy([:admin, buy_process]).show? %>
                   <%= link_to "Proceso #{buy_process.id}", admin_buy_process_path(buy_process) %>
                 <% end %>
                 </br>Vendedor asignado: <%= buy_process.user&.name %>
