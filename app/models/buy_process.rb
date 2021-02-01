@@ -110,7 +110,7 @@ class BuyProcess < ApplicationRecord
     unsuccessfully_closed_at.present?
   end
 
-  #def successfully_closed_at
-  #  car_sale.created_at
-  #end
+  def successfully_closed_at
+    car_sale.created_at
+  end
 end
