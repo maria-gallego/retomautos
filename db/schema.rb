@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_103336) do
+ActiveRecord::Schema.define(version: 2021_02_01_103655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_103336) do
     t.bigint "buy_process_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "car_intake_id"
+    t.bigint "car_intake_id", null: false
     t.index ["buy_process_id"], name: "index_car_interests_on_buy_process_id"
     t.index ["car_intake_id"], name: "index_car_interests_on_car_intake_id"
   end
