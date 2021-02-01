@@ -32,11 +32,6 @@ module Admin
       @current_user.has_role?('admin')
     end
 
-    def mark_as_successfully_closed?
-       @current_user.has_role?('admin')
-
-    end
-
     def mark_as_unsuccessfully_closed?
       @current_user.has_role?('admin')
     end

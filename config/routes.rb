@@ -47,7 +47,6 @@ Rails.application.routes.draw do
         get :unsuccessfully_closed_index
       end
       member do
-        put :mark_as_successfully_closed
         put :mark_as_unsuccessfully_closed
       end
     end
@@ -61,7 +60,6 @@ Rails.application.routes.draw do
         get :unsuccessfully_closed_index
       end
       member do
-        put :mark_as_successfully_closed
         put :mark_as_unsuccessfully_closed
       end
     end
