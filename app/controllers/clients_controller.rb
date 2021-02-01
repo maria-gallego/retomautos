@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
     @last_open_buy_process = @client.last_open_buy_process
     @active_salespeople_select =  User.active_salespeople.pluck(:name, :id)
     @admin_new_buy_process = BuyProcess.new(client: @client)
-    @sales_new_buy_process = BuyProcess.new(client: @client)
+    @sales_new_buy_process = BuyProcess.new(client: @client, user: current_user)
   end
 
   def new
