@@ -4,7 +4,7 @@ class CarInterest < ApplicationRecord
   belongs_to :buy_process
   belongs_to :car_intake
   has_many :car_interest_inquiries, dependent: :destroy
-  validates :buy_process_id, uniqueness: { scope: :car_id }
+  validates :buy_process_id, uniqueness: { scope: :car_intake_id }
 
   # Associations
   # ========================

@@ -15,7 +15,7 @@
           <% if policy([:sales, @buy_process]).mark_as_unsuccessfully_closed? %>
             <%= link_to 'Archivado',  mark_as_unsuccessfully_closed_sales_buy_process_path(@buy_process), method: :put %>
           <% end %>
-          <% if !policy([:sales, @buy_process]).mark_as_unsuccessfully_closed? && !policy([:sales, @buy_process]).mark_as_successfully_closed?%>
+          <% if !policy([:sales, @buy_process]).mark_as_unsuccessfully_closed? %>
             <span>Para marcar como vendido o archivado, el proceso debe tener al menos 1 nota.</span>
           <% end %>
         </ul>
