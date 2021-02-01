@@ -19,7 +19,6 @@ class CarSalePolicy
     return false unless buy_process.active?
     return true if @current_user.has_role?('admin')
 
-    @current_user.has_role?('sales') && buy_process.user == @current_user
+     @current_user.has_role?('sales') && buy_process.user == @current_user && buy_process.notes.size > 0
   end
-
 end

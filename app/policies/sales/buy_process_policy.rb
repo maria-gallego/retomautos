@@ -33,5 +33,6 @@ module Sales
     def mark_as_unsuccessfully_closed?
       @buy_process.notes.size > 0 && @current_user.has_role?('sales') && @buy_process.user == @current_user
     end
+
   end
 end
