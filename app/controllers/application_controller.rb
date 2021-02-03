@@ -40,31 +40,31 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-583850874-bmw-i3-suite-94ah-170hp-_JM#position=5&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
         ),
         CarInformation.new(
-            make: 'Porsche',
-            model: '911 Carrera',
-            year: '2006',
-            additional_information: '4s Mt Cabriolet Convertible',
-            image_url: 'fotos_tu_carro/dec_porsche.jpg',
+            make: 'BMW',
+            model: 'M4',
+            year: '2019',
+            additional_information: 'Premium',
+            image_url: 'fotos_tu_carro/bmw_m4_jan.jpg',
             #showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-583229581-porsche-911-carrera-4s-mt-cabriolet-convertible-_JM#position=6&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-576725716-bmw-m4-premium-_JM#position=2&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'Serie 4 420i',
-            year: '2018',
-            additional_information: 'Cabriolet Convertible',
-            image_url: 'fotos_tu_carro/dec_bmw_420.jpg',
+            make: 'Mercedes Benz',
+            model: 'Clase A | A 45',
+            year: '2015',
+            additional_information: 'AMG 4 Matic',
+            image_url: 'fotos_tu_carro/jan_mercedes_a45.jpg',
             #showcase_video_url: 'https://youtu.be/7I0BjKG_cCw',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-587083281-bmw-serie-4-420i-cabriolet-convertible-_JM#position=9&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-586172002-mercedes-benz-clase-a-a-45-amg-4-matic-_JM#position=4&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
             model: 'Clase A A 45',
-            year: '2015',
+            year: '2016',
             additional_information: 'AMG 4 Matic',
-            image_url: 'fotos_tu_carro/dec_mercedes_a45.jpg',
+            image_url: 'fotos_tu_carro/jan_mercedes_2016.jpg',
             #showcase_video_url: 'https://youtu.be/v82WhZDuTcM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-586172002-mercedes-benz-clase-a-a-45-amg-4-matic-_JM#position=10&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-593334864-mercedes-benz-clase-a-a-45-amg-4matic-_JM#position=3&type=item&tracking_id=f76ee3b9-039b-4d85-9d36-a8a1b91cdbb9'
         ),
     ]
 
@@ -80,12 +80,12 @@ class ApplicationController < ActionController::Base
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
-            model: 'GLA 200',
-            year: '2018',
-            additional_information: 'Urban',
-            image_url: 'fotos_tu_carro/dec_mercedes_gla.jpg',
+            model: 'SLK 200',
+            year: '2016',
+            additional_information: 'Carbon Edition',
+            image_url: 'fotos_tu_carro/jan_mercedes_slk.jpg',
             #showcase_video_url: 'https://youtu.be/cirpdZirAmU',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-590155899-mercedes-benz-gla-200-urban-_JM#position=14&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-603568987-mercedes-benz-slk-200-carbon-edition-_JM#position=14&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -97,24 +97,24 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-576725716-bmw-m4-premiun-_JM#position=15&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
         ),
         CarInformation.new(
-            make: 'Chevrolet',
-            model: 'Cruze',
-            year: '2012',
-            additional_information: '1.8 Mt Nickel',
-            image_url: 'fotos_tu_carro/dec_chevrolet.jpg',
+            make: 'Mini',
+            model: 'Cooper',
+            year: '2016',
+            additional_information: '1.5 Salt Tp',
+            image_url: 'fotos_tu_carro/jan_mini_salt.jpg',
             #showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-597454165-chevrolet-cruze-18-mt-nickel-_JM#position=18&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-602541885-mini-cooper-15-salt-tp-_JM#position=18&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
     ]
     @slide3_cars = [
         CarInformation.new(
-            make: 'Mini Cooper',
-            model: 'S Countryman',
-            year: '2016',
-            additional_information: '1.6 Tp',
-            image_url: 'fotos_tu_carro/dec_minicooper.jpg',
+            make: 'BMW',
+            model: 'X5 Xdrive 40i',
+            year: '2020',
+            additional_information: '7 Pasajeros',
+            image_url: 'fotos_tu_carro/jan_bmw_x5.jpg',
             #showcase_video_url: 'https://youtu.be/3SX8oy82mYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-597453915-mini-cooper-s-countryman-16-tp-_JM#position=19&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-602181656-bmw-x5-xdrive-40i-7-pasajeros-suspencion-neumatica-_JM#position=20&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
         CarInformation.new(
             make: 'Mazda',
@@ -135,25 +135,25 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-595980193-bmw-serie-3-320d-sport-tp-_JM#position=23&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'X4',
-            year: '2018',
-            additional_information: 'Xdrive 20d',
-            image_url: 'fotos_tu_carro/dec_bmwx4.jpg',
+            make: 'Nissan',
+            model: 'Note',
+            year: '2014',
+            additional_information: 'Sense 1.6 Tp',
+            image_url: 'fotos_tu_carro/jan_nissan.jpg',
             #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-595354549-bmw-x4-xdrive-20d-_JM#position=24&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-595423057-nissan-note-sense-16-tp-_JM#position=27&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
     ]
 
     @slide4_cars = [
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'Clase C C 180',
-            year: '2016',
-            additional_information: 'Tp',
-            image_url: 'fotos_tu_carro/dec_mercedes_c180.jpg',
+            make: 'Mini',
+            model: 'Cooper',
+            year: '2019',
+            additional_information: '1.5 Tp John Cooper Works',
+            image_url: 'fotos_tu_carro/jan_mini_johncooper.jpg',
             #showcase_video_url: 'https://youtu.be/et57692P4NE',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-593680571-mercedes-benz-clase-c-180-tp-_JM#position=25&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-602791564-mini-cooper-15-tp-paquete-jonh-cooper-works-_JM#position=16&type=item&tracking_id=f76ee3b9-039b-4d85-9d36-a8a1b91cdbb9'
         ),
         CarInformation.new(
             make: 'Ford',
@@ -165,22 +165,22 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-596802056-ford-fiesta-se-hb-16-tp-_JM#position=31&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
         ),
         CarInformation.new(
-            make: 'Mazda',
-            model: '3 Grand Touring',
-            year: '2019',
-            additional_information: '2.0 Lx Tp',
-            image_url: 'fotos_tu_carro/dec_maxda3_grandtouring.jpg',
+            make: 'Mercedes Benz',
+            model: 'Clase C | C 180',
+            year: '2016',
+            additional_information: 'Tp',
+            image_url: 'fotos_tu_carro/jan_mercedes_c180.jpg',
             #showcase_video_url: 'https://youtu.be/beoCQ5K1ays',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-591762886-mazda-mazda-3-grand-touring-20-lx-tp-_JM#position=32&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-599546388-mercedes-benz-clase-c-180-tp-_JM#position=35&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'M 240i Cabrio',
-            year: '2018',
-            additional_information: 'Tp Convertible',
-            image_url: 'fotos_tu_carro/dec_bmw_cabrio.jpg',
+            make: 'Nissan',
+            model: 'Sentra',
+            year: '2015',
+            additional_information: 'Sens Automático',
+            image_url: 'fotos_tu_carro/jan_nissan_sentra.jpg',
             #showcase_video_url: 'https://youtu.be/zN40lU_rI_U',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-595978801-bmw-m240i-cabrio-tp-convertible-_JM#position=42&type=item&tracking_id=135c9396-9a49-4fa1-af20-43c891133a9d'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-604974266-nissan-sentra-sens-automatico-_JM#position=39&type=item&tracking_id=a91f772e-a2b9-40fd-b778-79c0f4c61e59'
         ),
     ]
 
