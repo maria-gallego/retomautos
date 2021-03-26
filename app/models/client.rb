@@ -4,7 +4,6 @@ class Client < ApplicationRecord
   validates :name, presence: true
   validates :email,
             format: { with: Devise.email_regexp, message: "email inválido" },
-            presence: true,
             uniqueness: true
 
   # Associations
@@ -25,10 +24,14 @@ class Client < ApplicationRecord
 
   ## Class Methods
   ## ========================
-  def self.create_or_update_by_email!(client_attributes)
+  def self.create_or_update_by_email_or_phone!(client_attributes)
     email = client_attributes.fetch(:email)
-    client = Client.find_by(email: email)
-    if client.present?
+    phone = client_attributes.fetch(:phone)
+    client_with_email = Client.find_by(email: email)
+    client_with_phone = Client.find_by(phone: phone)
+    if client_with_email.present?
+      client.update!(**client_attributes)
+    elsif client_with_phone.present?
       client.update!(**client_attributes)
     else
       client = Client.create!(**client_attributes)
