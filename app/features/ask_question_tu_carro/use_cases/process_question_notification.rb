@@ -34,7 +34,7 @@ module AskQuestionTuCarro
 
         client, buy_process, car_intake, car, car_interest_inquiry =
           ActiveRecord::Base.transaction do
-            client = Client.create_or_update_by_email!(
+            client = Client.create_or_update_by_email_or_phone!(
               name: inquiring_client.name,
               phone: inquiring_client.phone,
               email: inquiring_client.email

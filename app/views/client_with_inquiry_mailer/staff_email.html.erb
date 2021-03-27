@@ -7,8 +7,7 @@
 <h1>Pregunta de Cliente</h1>
 <h5>Un cliente hizo una pregunta desde la sección de <%= @buy_process.source %> de la página web. Por favor contactarlo.</h5>
 
-<p>Ir al proceso:</p>
-<%= link_to sale_buy_process_path(@buy_process.id) %>
+<%= link_to "Ir al proceso", sales_buy_process_url(@buy_process.id) %>
 
 <h5>El número que le quedó asignado al proceso es: <%= @buy_process.id %></h5>
 

@@ -34,17 +34,12 @@ class ClientsController < ApplicationController
   end
 
   def create
-    existing_client = Client.find_by(email: client_params[:email])
-    authorize existing_client, policy_class: ClientPolicy
-    if existing_client.present?
-      existing_client.update!(client_params)
-      redirect_to client_path(existing_client) and return
-    end
     @client = Client.new(client_params)
+    authorize @client, policy_class: ClientPolicy
     if @client.save
       redirect_to client_path(@client)
     else
-      flash[:danger] = 'No se pudo crear el cliente'
+      @existing_client = Client.find_by_email_or_phone(search_phone: client_params[:phone], search_email: client_params[:email])
       render :new
     end
   end
