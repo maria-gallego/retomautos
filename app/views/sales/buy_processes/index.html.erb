@@ -1,14 +1,13 @@
 <div class="container pt-5">
-  <div class="col-3">
-    <h1>Mis Procesos</h1>
+  <div class="pb-3">
+    <h1>Mis Procesos Activos</h1>
   </div>
   <div class="row">
     <% if policy([:client]).find_client_for_new_process? %>
-      <div class="col-3 mt-1">
-        <%= link_to 'Crear Proceso con cliente nuevo', new_client_path, class: 'btn btn-primary my-0' %>
-      </div>
-      <div class="col-3 mt-1">
-        <%= link_to 'Crear Proceso con cliente existente', clients_path, class: 'btn btn-primary my-0' %>
+      <div class="col mt-1">
+        <%= link_to 'Crear Proceso con cliente nuevo', new_client_path %>
+        <span> | </span>
+        <%= link_to 'Crear Proceso con cliente existente', clients_path %>
       </div>
     <% end %>
   </div>

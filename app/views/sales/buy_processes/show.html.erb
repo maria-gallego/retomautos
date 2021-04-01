@@ -1,14 +1,37 @@
 <div class="container py-5">
-  <h2>Proceso # <%= @buy_process.id %></h2>
+  <div class="col pb-3">
+    <% if policy([:admin, @buy_process]).index? %>
+      <div class="row">
+        <%= link_to "Regresar a Todos los Procesos", admin_buy_processes_path %>
+      </div>
+    <% end %>
+    <% if policy([:sales, @buy_process]).index? %>
+      <div class="row">
+        <%= link_to "Regresar a Mis Procesos", sales_buy_processes_path %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-6 pb-3">
+      <h2>Proceso # <%= @buy_process.id %></h2>
+    </div>
+  </div>
+  <div class="row pb-3">
+    <div class="col-6 text-left">
+      <% if @previous_buy_process.present? %>
+        <h4><%= link_to '<< Anterior Proceso', sales_buy_process_path(@previous_buy_process) %></h4>
+      <% end %>
+    </div>
+    <div class="col-6 text-right">
+      <% if @next_buy_process.present? %>
+        <h4><%= link_to 'Siguiente Proceso >>', sales_buy_process_path(@next_buy_process) %></h4>
+      <% end %>
+    </div>
+  </div>
+
   <% if current_user.has_role?('admin') %>
     <h4>Vendedor asignado: <%= @user.name %></h4>
-  <% end %>
-
-  <% if policy([:admin, @buy_process]).index? %>
-    <div><%= link_to "Regresar a Todos los Procesos", admin_buy_processes_path %></div>
-  <% end %>
-  <% if policy([:sales, @buy_process]).index? %>
-    <div><%= link_to "Regresar a Mis Procesos", sales_buy_processes_path %></div>
   <% end %>
 
   <div class="row">

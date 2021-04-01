@@ -17,22 +17,22 @@ class BuyProcess < ApplicationRecord
   scope :with_salesperson, -> { where.not(user_id: nil) }
   scope :client_id_is, -> (client_id) { where(client_id: client_id) }
   scope :user_id_is, -> (user_id) { where(user_id: user_id) }
-  scope :currently_open, -> { left_outer_joins(:car_sale).where(car_sales: {id: nil}, unsuccessfully_closed_at: nil) }
-  scope :created_at_date_from, -> date {where('buy_processes.created_at >= ?', date.to_date.beginning_of_day)}
-  scope :created_at_date_to, -> date {where('buy_processes.created_at <= ?', date.to_date.end_of_day)}
+  scope :currently_open, -> { left_outer_joins(:car_sale).where(car_sales: { id: nil }, unsuccessfully_closed_at: nil) }
+  scope :created_at_date_from, -> date { where('buy_processes.created_at >= ?', date.to_date.beginning_of_day) }
+  scope :created_at_date_to, -> date { where('buy_processes.created_at <= ?', date.to_date.end_of_day) }
   scope :without_notes, -> { select('buy_processes.*,  count(notes.id) as notes_count').left_outer_joins(:notes).group('buy_processes.id').having('count(notes.id) = 0') }
   scope :successfully_closed_processes, -> { joins(:car_sale) }
   scope :unsuccessfully_closed_processes, -> { where.not(unsuccessfully_closed_at: nil) }
   scope :successfully_closed_at_date_from, -> date { joins(:car_sale).merge(CarSale.sold_at_date_from(date)) }
   scope :successfully_closed_at_date_to, -> date { joins(:car_sale).merge(CarSale.sold_at_date_to(date)) }
-  scope :unsuccessfully_closed_at_date_from, -> date {where('buy_processes.unsuccessfully_closed_at >= ?', date.to_date.beginning_of_day)}
-  scope :unsuccessfully_closed_at_date_to, -> date {where('buy_processes.unsuccessfully_closed_at <= ?', date.to_date.end_of_day)}
+  scope :unsuccessfully_closed_at_date_from, -> date { where('buy_processes.unsuccessfully_closed_at >= ?', date.to_date.beginning_of_day) }
+  scope :unsuccessfully_closed_at_date_to, -> date { where('buy_processes.unsuccessfully_closed_at <= ?', date.to_date.end_of_day) }
 
   # Buy process is often left_outer_joined with other tables. When that happens, Rails interprets joins(:client)
   # as a LEFT OUTER JOIN as well. That is wrong, so we need to explicitly define an inner join to clients
   scope :inner_joins_client, -> { joins('INNER JOIN clients ON buy_processes.client_id = clients.id') }
-  scope :client_name_contains, -> name { inner_joins_client.merge(Client.client_name_contains(name))}
-  scope :client_email_contains, -> email { inner_joins_client.merge(Client.client_email_contains(email))}
+  scope :client_name_contains, -> name { inner_joins_client.merge(Client.client_name_contains(name)) }
+  scope :client_email_contains, -> email { inner_joins_client.merge(Client.client_email_contains(email)) }
 
   # Class Methods
   # ========================
@@ -61,6 +61,7 @@ class BuyProcess < ApplicationRecord
     id_of_next_salesperson = active_salespeople_cycle[position_of_current_salesperson + 1]
     User.find(id_of_next_salesperson)
   end
+
   private_class_method :next_salesperson
 
   def self.determine_salesperson(client)
@@ -79,8 +80,53 @@ class BuyProcess < ApplicationRecord
     create!(source: source, client: client)
   end
 
+  def self.next_active_process_with_same_salesperson(current_buy_process)
+    return nil if !current_buy_process.active?
+    active_processes_for_current_user = BuyProcess.currently_open
+                                                  .user_id_is(current_buy_process.user_id)
+                                                  .order(created_at: :asc).pluck(:id)
+    position_of_current_buy_process = active_processes_for_current_user.index(current_buy_process.id)
+    position_of_next_buy_process = position_of_current_buy_process + 1
+    next_buy_process_id = active_processes_for_current_user[position_of_next_buy_process]
+    return nil if next_buy_process_id.nil?
 
+    BuyProcess.find(next_buy_process_id)
+  end
 
+  def self.previous_active_process_with_same_salesperson(current_buy_process)
+    return nil if !current_buy_process.active?
+    active_processes_for_current_user = BuyProcess.currently_open
+                                                  .user_id_is(current_buy_process.user_id)
+                                                  .order(created_at: :asc).pluck(:id)
+    position_of_current_buy_process = active_processes_for_current_user.index(current_buy_process.id)
+    position_of_next_buy_process = position_of_current_buy_process - 1
+    previous_buy_process_id = active_processes_for_current_user[position_of_next_buy_process]
+    return nil if position_of_current_buy_process == 0
+
+    BuyProcess.find(previous_buy_process_id)
+  end
+
+  def self.next_active_process(current_buy_process)
+    return nil if !current_buy_process.active?
+    active_processes = BuyProcess.currently_open.order(created_at: :asc).pluck(:id)
+    position_of_current_buy_process = active_processes.index(current_buy_process.id)
+    position_of_next_buy_process = position_of_current_buy_process + 1
+    next_buy_process_id = active_processes[position_of_next_buy_process]
+    return nil if next_buy_process_id.nil?
+
+    BuyProcess.find(next_buy_process_id)
+  end
+
+  def self.previous_active_process(current_buy_process)
+    return nil if !current_buy_process.active?
+    active_processes = BuyProcess.currently_open.order(created_at: :asc).pluck(:id)
+    position_of_current_buy_process = active_processes.index(current_buy_process.id)
+    position_of_next_buy_process = position_of_current_buy_process - 1
+    previous_buy_process_id = active_processes[position_of_next_buy_process]
+    return nil if position_of_current_buy_process == 0
+
+    BuyProcess.find(previous_buy_process_id)
+  end
 
   # Instance methods
   # ========================

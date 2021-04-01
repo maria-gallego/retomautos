@@ -1,26 +1,41 @@
 <div class="container py-5">
-  <h2>Proceso # <%= @buy_process.id %></h2>
+  <div class="pb-3">
+    <h2>Proceso # <%= @buy_process.id %></h2>
+  </div>
 
-<% if policy([:admin, @buy_process]).update? %>
-  <%= form_with(model: @buy_process, url: admin_buy_process_path(@buy_process), method: :patch, local: true) do |f| %>
-    <div class="form-row">
-      <h4>Vendedor asignado:</h4>
-      <div class="col-sm-3">
-        <div class="field">
-          <%= f.select(:user_id, @active_salespeople_select, { }, class: 'form-control') %>
+  <div class="pb-3">
+    <%= link_to "Regresar a Todos los Procesos", admin_buy_processes_path %>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-6 text-left">
+      <% if @previous_buy_process.present? %>
+        <h4><%= link_to '<< Anterior Proceso', admin_buy_process_path(@previous_buy_process) %></h4>
+      <% end %>
+    </div>
+    <div class="col-6 text-right">
+      <% if @next_buy_process.present? %>
+        <h4><%= link_to 'Siguiente Proceso >>', admin_buy_process_path(@next_buy_process) %></h4>
+      <% end %>
+    </div>
+  </div>
+  <% if policy([:admin, @buy_process]).update? %>
+    <%= form_with(model: @buy_process, url: admin_buy_process_path(@buy_process), method: :patch, local: true) do |f| %>
+      <div class="form-row">
+        <h4>Vendedor asignado:</h4>
+        <div class="col-sm-3">
+          <div class="field">
+            <%= f.select(:user_id, @active_salespeople_select, { }, class: 'form-control') %>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <%= f.submit "Cambiar", class: "btn btn-primary" %>
         </div>
       </div>
-      <div class="col-sm-2">
-        <%= f.submit "Cambiar", class: "btn btn-primary" %>
-      </div>
-    </div>
+    <% end %>
+    <% else %>
+      <h4>Vendedor asignado: <%= @buy_process.user.name %></h4>
   <% end %>
-  <% else %>
-    <h4>Vendedor asignado: <%= @buy_process.user.name %></h4>
-<% end %>
-
-
-  <div><%= link_to "Regresar a Todos los Procesos", admin_buy_processes_path %></div>
 
 
   <div class="row">

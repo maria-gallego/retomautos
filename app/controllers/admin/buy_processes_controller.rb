@@ -51,6 +51,9 @@ module Admin
                                           .order("cars.description ASC, cars.registration ASC")
                                           .includes(:car)
                                           .map{ |car_intake| [car_intake.car.registration_and_description, car_intake.id] }
+      @next_buy_process = BuyProcess.next_active_process(@buy_process)
+      @previous_buy_process = BuyProcess.previous_active_process(@buy_process)
+
 
       # If the dummy CarSale is created with a buy_process instance instead of an id,
       # it gets associated in memory to the buy process and @buy_process.car_sale
