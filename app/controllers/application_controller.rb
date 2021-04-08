@@ -41,12 +41,12 @@ class ApplicationController < ActionController::Base
         ),
         CarInformation.new(
             make: 'BMW',
-            model: 'Serie 4 420i',
-            year: '2017',
-            additional_information: 'Gran Coupe Paquete M',
-            image_url: 'fotos_tu_carro/bmw420_apr.jpg',
+            model: 'Serie 5 520i',
+            year: '2012',
+            additional_information: '2.0 F10',
+            image_url: 'fotos_tu_carro/bmw_serie5_apr.jpg',
             #showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-613498861-bmw-serie-4-420i-gran-coupe-paquete-m-_JM#position=3&type=item&tracking_id=113a5eaa-4e30-46e7-8523-76d914bb32bb'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614463562-bmw-520i-tp-_JM#position=4&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
@@ -59,24 +59,24 @@ class ApplicationController < ActionController::Base
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
-            model: 'Glc 300',
-            year: '2020',
-            additional_information: 'E | Híbrido',
-            image_url: 'fotos_tu_carro/mercedesglc_apr.jpg',
+            model: 'GLC',
+            year: '2017',
+            additional_information: '2.0 4matic',
+            image_url: 'fotos_tu_carro/mercedes_glc20_apr.jpg',
             #showcase_video_url: 'https://youtu.be/v82WhZDuTcM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-613315940-mercedes-benz-glc-300-e-_JM#position=6&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614464766-mercedes-benz-glc-250-_JM#position=2&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
     ]
 
     @slide2_cars = [
         CarInformation.new(
-            make: 'Ford',
-            model: 'Explorer',
-            year: '2016',
-            additional_information: '3.5 Limited',
-            image_url: 'fotos_tu_carro/explorer_apr.jpg',
+            make: 'Mercedes Benz',
+            model: 'GLE',
+            year: '2017',
+            additional_information: '250d 4matic',
+            image_url: 'fotos_tu_carro/mercedes_gle2017_apr.jpg',
             #showcase_video_url: 'https://youtu.be/UWwPdaiXWq4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612641698-ford-explorer-35-limited-4x4-_JM#position=7&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612638058-mercedes-benz-clase-gle-250d-4matic-_JM#position=8&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
         CarInformation.new(
             make: 'Ford',
@@ -97,13 +97,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-612308812-mercedes-benz-clase-c-c200-_JM#position=10&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Mazda',
-            model: 'CX-5',
-            year: '2016',
-            additional_information: '2.0 Prime',
-            image_url: 'fotos_tu_carro/mazda_cx5_apr.jpg',
+            make: 'Mini',
+            model: 'Cooper 1.6',
+            year: '2011',
+            additional_information: 'R56 John Cooper Works',
+            image_url: 'fotos_tu_carro/mini_jcw_apr.jpg',
             #showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612293400-mazda-cx-5-2016-20-prime-_JM#position=11&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614465107-mini-jcw-cooper-s-mt-_JM#position=3&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
     ]
     @slide3_cars = [
@@ -117,13 +117,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-611673264-mini-cooper-s-countryman-chili-_JM#position=13&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Audi',
-            model: 'Q7',
-            year: '2014',
-            additional_information: 'V6 3.0 Tfsi Quattro',
-            image_url: 'fotos_tu_carro/audiq7_apr.jpg',
+            make: 'Ford',
+            model: 'Explorer',
+            year: '2018',
+            additional_information: '2.3 Limited 4x4',
+            image_url: 'fotos_tu_carro/fordexplorer_apr.jpg',
             #showcase_video_url: 'https://youtu.be/R4QJBnH-VYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612584222-audi-q7-v6-30-tfsi-quattro-luxury-7-pasajeros-_JM#position=16&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612582860-ford-explorer-23-limited-4x4-_JM#position=24&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
         CarInformation.new(
             make: 'Mazda',
@@ -165,13 +165,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-612307346-mercedes-benz-clase-e-e200-_JM#position=17&type=item&tracking_id=ab27f2d0-3d50-4900-ae9f-a3103df21299'
         ),
         CarInformation.new(
-            make: 'Land Rover',
-            model: 'Evoque 2.0',
-            year: '2015',
-            additional_information: 'Pure Si4',
-            image_url: 'fotos_tu_carro/landrover_apr.jpg',
+            make: 'Audi',
+            model: 'A3',
+            year: '2017',
+            additional_information: '1.8 Ambition Stronic',
+            image_url: 'fotos_tu_carro/audia3_apr.jpg',
             #showcase_video_url: 'https://youtu.be/beoCQ5K1ays',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-610771532-land-rover-range-rover-evoque-_JM#position=32&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-615004875-audi-a3-18t-ambition-stronic-_JM#position=33&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
         CarInformation.new(
             make: 'Mini',
