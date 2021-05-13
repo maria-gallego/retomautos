@@ -58,13 +58,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-613319786-mercedes-benz-clase-a-_JM#position=5&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'GLC',
-            year: '2017',
-            additional_information: '2.0 4matic',
-            image_url: 'fotos_tu_carro/mercedes_glc20_apr.jpg',
+            make: 'Ford',
+            model: 'Fusion',
+            year: '2016',
+            additional_information: '2.0 Titanium',
+            image_url: 'fotos_tu_carro/ford_may.jpg',
             #showcase_video_url: 'https://youtu.be/v82WhZDuTcM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614464766-mercedes-benz-glc-250-_JM#position=2&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-616101798-ford-fusion-2016-20-titanium-_JM#position=8&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
     ]
 
@@ -97,13 +97,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-612308812-mercedes-benz-clase-c-c200-_JM#position=10&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Mini',
-            model: 'Cooper 1.6',
-            year: '2011',
-            additional_information: 'R56 John Cooper Works',
-            image_url: 'fotos_tu_carro/mini_jcw_apr.jpg',
+            make: 'Volkswagen',
+            model: 'Golf',
+            year: '2018',
+            additional_information: '1.4 Tsi Trendline',
+            image_url: 'fotos_tu_carro/vw_golf_may.jpg',
             #showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614465107-mini-jcw-cooper-s-mt-_JM#position=3&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-622581225-volkswagen-golf-_JM#position=9&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
     ]
     @slide3_cars = [
@@ -117,31 +117,31 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-611673264-mini-cooper-s-countryman-chili-_JM#position=13&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Ford',
-            model: 'Explorer',
+            make: 'Mercedes Benz',
+            model: 'GLA',
             year: '2018',
-            additional_information: '2.3 Limited 4x4',
-            image_url: 'fotos_tu_carro/fordexplorer_apr.jpg',
+            additional_information: '1.6 Urban',
+            image_url: 'fotos_tu_carro/mercedes_gla_may.jpg',
             #showcase_video_url: 'https://youtu.be/R4QJBnH-VYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612582860-ford-explorer-23-limited-4x4-_JM#position=24&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-621120834-mercedes-gla-200-full-equipo-_JM#position=1&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
         CarInformation.new(
-            make: 'Mazda',
-            model: '2',
-            year: '2020',
-            additional_information: '1.5 Grand Touring Lx Sedan',
-            image_url: 'fotos_tu_carro/mazda2_apr.jpg',
+            make: 'Ford',
+            model: 'Escape',
+            year: '2018',
+            additional_information: '2.0 Titanium',
+            image_url: 'fotos_tu_carro/ford_escape_may.jpg',
             #showcase_video_url: 'https://youtu.be/3FF7d1cXlu4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-610047519-mazda-2-grand-touring-lx-_JM#position=23&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-621184282-ford-escape-2018-20-titanium-_JM#position=4&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'M240i',
-            year: '2017',
-            additional_information: '340 Hp 3.0 Tp',
-            image_url: 'fotos_tu_carro/bmw240_arp.jpg',
+            make: 'Audi',
+            model: 'Q7 3.0',
+            year: '2018',
+            additional_information: 'Tdi Quattro Progressive',
+            image_url: 'fotos_tu_carro/audi_q7_may.jpg',
             #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-606765065-bmw-m240i-340-hp-30-tp-_JM#position=24&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-619397298-audi-q7-2018-30-tdi-quattro-progressive-_JM#position=5&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
     ]
 
@@ -156,13 +156,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-610069318-mercedes-benz-clase-e-e200-_JM#position=29&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'Clase E 200',
-            year: '2020',
-            additional_information: 'Avantgarde',
-            image_url: 'fotos_tu_carro/mercedes_aavantgarde_apr.jpg',
+            make: 'BMW',
+            model: 'X3 3.0',
+            year: '2017',
+            additional_information: 'F25 Xdrive30d',
+            image_url: 'fotos_tu_carro/bmw_x3_may.jpg',
             #showcase_video_url: 'https://youtu.be/HxkPxiIxgso',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-612307346-mercedes-benz-clase-e-e200-_JM#position=17&type=item&tracking_id=ab27f2d0-3d50-4900-ae9f-a3103df21299'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-619157888-bmw-x3-_JM#position=6&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
         CarInformation.new(
             make: 'Audi',
@@ -174,13 +174,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-615004875-audi-a3-18t-ambition-stronic-_JM#position=33&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
         ),
         CarInformation.new(
-            make: 'Mini',
-            model: 'Cooper',
-            year: '2015',
-            additional_information: '1.5 F55 Salt',
-            image_url: 'fotos_tu_carro/mini_apr.jpg',
+            make: 'Mercedes-Benz',
+            model: 'Clase C',
+            year: '2019',
+            additional_information: 'C 1.6 Avantgarde',
+            image_url: 'fotos_tu_carro/mercedes_clasec_may.jpg',
             #showcase_video_url: 'https://youtu.be/zN40lU_rI_U',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-608856291-mini-cooper-salt-15t-mt-_JM#position=34&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-619153628-mercedes-benz-clase-c-_JM#position=7&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
     ]
 
