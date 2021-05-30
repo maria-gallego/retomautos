@@ -44,7 +44,7 @@ class ClientWithInquiry
           client: client,
           buy_process: buy_process,
           buy_process_inquiry: buy_process_inquiry,
-      ).deliver_now
+      ).deliver_later
 
       return true
     else

@@ -14,8 +14,8 @@ class FindCarRequestsController < ApplicationController
     @find_car_request = FindCarRequest.new(secure_params)
     @find_car_request.salesperson = User.get_random_salesperson
     if @find_car_request.valid?
-      FindCarRequestMailer.staff_email(@find_car_request).deliver_now
-      FindCarRequestMailer.customer_email(@find_car_request).deliver_now
+      FindCarRequestMailer.staff_email(@find_car_request).deliver_later
+      FindCarRequestMailer.customer_email(@find_car_request).deliver_later
       flash[:success] = "#{@find_car_request.name} tu solicitud ha sido enviada."
       redirect_to root_path
     else
