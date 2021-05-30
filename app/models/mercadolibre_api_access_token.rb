@@ -19,5 +19,9 @@ class MercadolibreApiAccessToken < ApplicationRecord
     create!(access_token: access_token, refresh_token: refresh_token, expires_at: expires_at)
   end
 
+  def self.destroy_expired_tokens
+    all.where('expires_at <= ?', Time.now ).delete_all
+  end
+
   class AllTokensExpired < StandardError; end
 end
