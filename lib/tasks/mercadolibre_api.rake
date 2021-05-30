@@ -6,4 +6,10 @@ namespace :mercadolibre_api do
     MercadolibreApi::RefreshTokenJob.perform_later
     Rails.logger.info "Scheduled MercadolibreApi::RefreshTokenJob"
   end
+
+  task :delete_expired_tokens => :environment do
+    Rails.logger.info "Scheduling DeleteExpiredTokensJob"
+    DeleteExpiredTokensJob.perform_later
+    Rails.logger.info "Scheduled DeleteExpiredTokensJob"
+  end
 end
