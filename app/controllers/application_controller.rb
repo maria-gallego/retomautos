@@ -40,13 +40,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-613136185-ford-mustang-gt-50-_JM#position=1&type=item&tracking_id=113a5eaa-4e30-46e7-8523-76d914bb32bb'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'Serie 5 520i',
-            year: '2012',
-            additional_information: '2.0 F10',
-            image_url: 'fotos_tu_carro/bmw_serie5_apr.jpg',
+            make: 'Mini',
+            model: 'Cooper',
+            year: '2010',
+            additional_information: '1.6 R56 S Coupe 175 hp',
+            image_url: 'fotos_tu_carro/mini_may.jpg',
             #showcase_video_url: 'https://youtu.be/K2oMA1MPTX8',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-614463562-bmw-520i-tp-_JM#position=4&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-628686432-mini-cooper-s-paquete-jcw-_JM#position=1&search_layout=grid&type=item&tracking_id=ff3625e8-f323-4102-ba2b-b0ec82d106be'
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
@@ -97,13 +97,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-612308812-mercedes-benz-clase-c-c200-_JM#position=10&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Volkswagen',
-            model: 'Golf',
-            year: '2018',
-            additional_information: '1.4 Tsi Trendline',
-            image_url: 'fotos_tu_carro/vw_golf_may.jpg',
+            make: 'BMW',
+            model: 'Serie 4',
+            year: '2014',
+            additional_information: '420i F32 Coupe Sportline',
+            image_url: 'fotos_tu_carro/bmw_mayo.jpg',
             #showcase_video_url: 'https://youtu.be/7Kw0SXlk64Y',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-622581225-volkswagen-golf-_JM#position=9&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-627559936-bmw-serie-4-_JM#position=2&search_layout=grid&type=item&tracking_id=ff3625e8-f323-4102-ba2b-b0ec82d106be'
         ),
     ]
     @slide3_cars = [
@@ -117,31 +117,31 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-611673264-mini-cooper-s-countryman-chili-_JM#position=13&type=item&tracking_id=eab9705a-4579-41cb-a2b6-d7a5a2587946'
         ),
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'GLA',
-            year: '2018',
-            additional_information: '1.6 Urban',
-            image_url: 'fotos_tu_carro/mercedes_gla_may.jpg',
+            make: 'Volvo',
+            model: 'V 40',
+            year: '2019',
+            additional_information: '1.5 T3 Drive-e Sport',
+            image_url: 'fotos_tu_carro/volvo_mayo.jpg',
             #showcase_video_url: 'https://youtu.be/R4QJBnH-VYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-621120834-mercedes-gla-200-full-equipo-_JM#position=1&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-623356717-volvo-v40-_JM#position=5&search_layout=grid&type=item&tracking_id=9a151a77-1d5e-4af3-8489-5f672df0472f'
         ),
         CarInformation.new(
-            make: 'Ford',
-            model: 'Escape',
-            year: '2018',
-            additional_information: '2.0 Titanium',
-            image_url: 'fotos_tu_carro/ford_escape_may.jpg',
+            make: 'Land Rover',
+            model: 'Freelander',
+            year: '2013',
+            additional_information: '2.0 Hse Si4',
+            image_url: 'fotos_tu_carro/landrover_may.jpg',
             #showcase_video_url: 'https://youtu.be/3FF7d1cXlu4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-621184282-ford-escape-2018-20-titanium-_JM#position=4&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-618831823-land-rover-freelander-2013-20-hse-si4-_JM#position=9&search_layout=grid&type=item&tracking_id=4850c59b-03a2-498f-8020-099834902379'
         ),
         CarInformation.new(
-            make: 'Audi',
-            model: 'Q7 3.0',
-            year: '2018',
-            additional_information: 'Tdi Quattro Progressive',
-            image_url: 'fotos_tu_carro/audi_q7_may.jpg',
+            make: 'Nissan',
+            model: 'Qashqai',
+            year: '2015',
+            additional_information: '+ 2',
+            image_url: 'fotos_tu_carro/nissan_qashqai_mayo.jpg',
             #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-619397298-audi-q7-2018-30-tdi-quattro-progressive-_JM#position=5&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-623914730-nissan-qashqai-2-_JM#position=4&search_layout=grid&type=item&tracking_id=f3c3e1d5-4e43-473c-b192-451ff6751615'
         ),
     ]
 
@@ -165,13 +165,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-619157888-bmw-x3-_JM#position=6&search_layout=grid&type=item&tracking_id=c5805fbb-6290-41e8-bb67-0650b65d1c57'
         ),
         CarInformation.new(
-            make: 'Audi',
-            model: 'A3',
-            year: '2017',
-            additional_information: '1.8 Ambition Stronic',
-            image_url: 'fotos_tu_carro/audia3_apr.jpg',
+            make: 'BMW',
+            model: 'I3',
+            year: '2020',
+            additional_information: '',
+            image_url: 'fotos_tu_carro/bmw_i3_mayo.jpg',
             #showcase_video_url: 'https://youtu.be/beoCQ5K1ays',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-615004875-audi-a3-18t-ambition-stronic-_JM#position=33&type=item&tracking_id=60f17f98-f91f-4745-8d23-64e968c293b8'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-615927715-bmw-i3-_JM#position=39&search_layout=grid&type=item&tracking_id=e8cbfb45-f41f-4458-9530-e4f1e16f3638'
         ),
         CarInformation.new(
             make: 'Mercedes-Benz',
