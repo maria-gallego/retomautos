@@ -10,7 +10,7 @@ class MercadolibreApiAccessToken < ApplicationRecord
 
   def self.get_latest_unexpired_access_and_refresh_tokens!
     latest_token = order(expires_at: :desc).first
-    raise AllTokensExpired unless latest_token.expires_at > Time.now
+    raise AllTokensExpired if latest_token.nil? || latest_token.expires_at < Time.now
 
     [latest_token.access_token, latest_token.refresh_token]
   end
