@@ -31,13 +31,13 @@ class ApplicationController < ActionController::Base
   def  set_car_slides
     @slide1_cars = [
         CarInformation.new(
-            make: 'BMW',
-            model: 'M4 3.0',
-            year: '2018',
-            additional_information: 'F82 Coupe Performance',
-            image_url: 'fotos_tu_carro/july_m4.jpg',
+            make: 'Porsche',
+            model: 'Cayenne',
+            year: '2014',
+            additional_information: '3.0 Comfort Dieselau',
+            image_url: 'fotos_tu_carro/aug_porsche.jpg',
             #showcase_video_url: 'https://youtu.be/EKyFdyOHw9w',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-636612704-bmw-m4-30-m4-f82-coupe-performance-_JM#position=15&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-656050497-porsche-cayenne-2014-30-comfort-diesel-_JM#position=9&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
         CarInformation.new(
             make: 'Mercedes Benz',
@@ -49,13 +49,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-637647549-mercedes-benz-_JM#position=13&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
         ),
         CarInformation.new(
-            make: 'Volkswagen',
-            model: 'Tiguan',
+            make: 'Nissan',
+            model: 'Kicks',
             year: '2018',
-            additional_information: 'Allspace Trendline 2.0 Tsi 4motion',
-            image_url: 'fotos_tu_carro/july_tiguan.jpg',
+            additional_information: '1.6 Sense',
+            image_url: 'fotos_tu_carro/aug_nissan.jpg',
             #showcase_video_url: 'https://youtu.be/7I0BjKG_cCw',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-635210392-volkswagen-tiguan-_JM#position=17&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-652660070-nissan-kicks-2018-16-sense-_JM#position=13&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -70,31 +70,31 @@ class ApplicationController < ActionController::Base
 
     @slide2_cars = [
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'GLA',
-            year: '2015',
-            additional_information: '1.6',
-            image_url: 'fotos_tu_carro/july_mercedes_gla.jpg',
+            make: 'BMW',
+            model: 'Serie 3',
+            year: '2012',
+            additional_information: '2.5 325i E93 Cabriolet',
+            image_url: 'fotos_tu_carro/aug_bmw2012.jpg',
             #showcase_video_url: 'https://youtu.be/UWwPdaiXWq4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-639992419-mercedes-benz-gla-200-full-equipo-_JM#position=16&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-658666878-bmw-serie-325-cabriolet-convertible-_JM#position=23&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
+        ),
+        CarInformation.new(
+            make: 'Mazda',
+            model: '3',
+            year: '2021',
+            additional_information: '2.0 Grand Touring Lx',
+            image_url: 'fotos_tu_carro/aug_mazda3.jpg',
+            #showcase_video_url: 'https://youtu.be/cirpdZirAmU',
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-657553299-mazda-3-_JM#position=28&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
         CarInformation.new(
             make: 'BMW',
-            model: 'X3',
-            year: '2015',
-            additional_information: 'F25 Xdrive 28i',
-            image_url: 'fotos_tu_carro/july_bmw_x3.jpg',
-            #showcase_video_url: 'https://youtu.be/cirpdZirAmU',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-630265451-bmw-x3-_JM#position=21&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
-        ),
-        CarInformation.new(
-            make: 'Audi',
-            model: 'Q7',
+            model: 'Serie 2',
             year: '2018',
-            additional_information: '3.0 Tdi Quattro Progressive',
-            image_url: 'fotos_tu_carro/july_q7.jpg',
+            additional_information: '1.5 218i F45 Active Tourer',
+            image_url: 'fotos_tu_carro/aug_bmw_serie2.jpg',
             #showcase_video_url: 'https://youtu.be/Ld3XNYb62r4',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-619397298-audi-q7-2018-30-tdi-quattro-progressive-_JM#position=26&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-656229127-bmw-serie-2-218i-f45-active-tourer-2018-_JM#position=29&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
         CarInformation.new(
             make: 'Nissan',
@@ -117,13 +117,13 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-641975182-mini-countryman-2020-20-f60-cooper-s-chili-all4-_JM#position=33&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
         ),
         CarInformation.new(
-            make: 'Volkswagen',
-            model: 'Jetta',
-            year: '2019',
-            additional_information: '1.4 Tsi Highline',
-            image_url: 'fotos_tu_carro/july_jetta.jpg',
+            make: 'Mercedes Benz',
+            model: 'Clase E',
+            year: '2016',
+            additional_information: '2.0 Cgi 184 hp',
+            image_url: 'fotos_tu_carro/aug_mercedes_2016.jpg',
             #showcase_video_url: 'https://youtu.be/R4QJBnH-VYQ',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-641976000-volkswagen-jetta-14-tsi-2019-_JM#position=32&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-655301004-mercedes-benz-e200-advangarde-_JM#position=31&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
         CarInformation.new(
             make: 'BMW',
@@ -135,34 +135,34 @@ class ApplicationController < ActionController::Base
             tu_carro_url:'https://articulo.tucarro.com.co/MCO-633981087-bmw-serie-4-420i-gran-coupe-_JM#position=20&search_layout=grid&type=item&tracking_id=03f9c5bc-66e3-4db9-8c1d-57c29f2edd81'
         ),
         CarInformation.new(
-            make: 'Ford',
-            model: 'Fusion',
-            year: '2019',
-            additional_information: '2.0 Titanium Plus',
-            image_url: 'fotos_tu_carro/july_ford.jpg',
+            make: 'Volkswagen',
+            model: 'Jetta',
+            year: '2015',
+            additional_information: '2.5 Highline',
+            image_url: 'fotos_tu_carro/aug_jetta.jpg',
             #showcase_video_url: 'https://youtu.be/esagFIIoVNM',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-617684374-ford-fusion-_JM#position=6&search_layout=grid&type=item&tracking_id=b49dbb28-55f1-430e-b350-f877aa1c5de0'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-651885268-volkswagen-new-jetta-highline-tp-_JM#position=34&search_layout=grid&type=item&tracking_id=31b5dffc-265b-4645-b0c9-a2c4c50d4fcd'
         ),
     ]
 
     @slide4_cars = [
         CarInformation.new(
-            make: 'Mercedes Benz',
-            model: 'GLA',
-            year: '2018',
-            additional_information: '1.6 Urban',
-            image_url: 'fotos_tu_carro/july_mercedesgla.jpg',
+            make: 'Ford',
+            model: 'Edge',
+            year: '2017',
+            additional_information: '3.5 Sel',
+            image_url: 'fotos_tu_carro/aug_ford.jpg',
             #showcase_video_url: 'https://youtu.be/et57692P4NE',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-623966921-mercedes-gla-200-full-equipo-_JM#position=5&search_layout=grid&type=item&tracking_id=b49dbb28-55f1-430e-b350-f877aa1c5de0'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-657556006-ford-edge-_JM#position=3&search_layout=grid&type=item&tracking_id=9c983b69-c1ad-41db-9541-d0d0e5280b8b'
         ),
         CarInformation.new(
-            make: 'BMW',
-            model: 'X5',
-            year: '2021',
-            additional_information: 'Xdrive 40i',
-            image_url: 'fotos_tu_carro/july_bmw_x3_2021.jpg',
+            make: 'Jeep',
+            model: 'Compass',
+            year: '2014',
+            additional_information: '2.4 Limited',
+            image_url: 'fotos_tu_carro/aug_jeep.jpg',
             #showcase_video_url: 'https://youtu.be/HxkPxiIxgso',
-            tu_carro_url:'https://articulo.tucarro.com.co/MCO-643538439-bmw-x5-xdrive-40i-_JM#position=2&search_layout=grid&type=item&tracking_id=47502ad9-d04e-4d7f-9ac3-afcf14d188fb'
+            tu_carro_url:'https://articulo.tucarro.com.co/MCO-656935050-jeep-compass-_JM#position=5&search_layout=grid&type=item&tracking_id=9c983b69-c1ad-41db-9541-d0d0e5280b8b'
         ),
         CarInformation.new(
             make: 'BMW',
