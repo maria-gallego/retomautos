@@ -9,6 +9,8 @@ class MercadolibreApiAccessToken < ApplicationRecord
   validates :access_token, :refresh_token, :expires_at, presence: true
 
   def self.get_latest_unexpired_access_and_refresh_tokens!
+    # FIXME: change code and tests to return the access_token that expires the latest and the refresh_token
+    #   that was created the latest (they may not be in the same row of the DB)
     latest_token = order(expires_at: :desc).first
     raise AllTokensExpired if latest_token.nil? || latest_token.expires_at < Time.now
 
