@@ -7,8 +7,8 @@
 <h1>Pregunta de Cliente desde Tu Carro.</h1>
 <h5>El número que le quedó asignado al proceso es: <%= @buy_process.id %></h5>
 
-<p>Ir al proceso:</p>
-<%= link_to sales_buy_process_url(@buy_process.id) %>
+
+<%= link_to "Ir al proceso", sales_buy_process_url(@buy_process.id) %>
 
 <p>
   Datos del cliente:

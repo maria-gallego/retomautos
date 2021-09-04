@@ -81,7 +81,7 @@ module AskQuestionTuCarro
       attr_reader :remote_questions_repo, :remote_cars_repo
 
       def tu_carro_automatic_response_text(client, salesperson)
-        "Hola #{client.name}! #{salesperson.name}  se va a comunicar contigo para responder tus preguntas. Puedes contactar a tu asesor al #{salesperson.phone} o #{salesperson.email}. Para más información visita nuestra página www.retomautos.com"
+        "Hola #{client.name}! #{salesperson.name}  se va a comunicar contigo para responder tus preguntas. Puedes contactar a tu asesor en el email #{salesperson.email}. Para más información visita nuestra página www.retomautos.com"
       end
 
       def created_more_than_24_hours_ago?(notified_question)

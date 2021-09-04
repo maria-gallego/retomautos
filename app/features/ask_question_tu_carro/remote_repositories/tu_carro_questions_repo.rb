@@ -13,7 +13,7 @@ module AskQuestionTuCarro
         client_struct = notified_question_struct.from
         inquirring_client = AskQuestionTuCarro::Entities::InquiringClient.new(
           remote_id: client_struct.id,
-          name: "#{client_struct.first_name.strip} #{client_struct.last_name.strip}",
+          name: "#{client_struct.first_name&.strip} #{client_struct.last_name&.strip}".strip,
           phone: client_struct.dig(:phone, :number),
           email: client_struct.email
         )
