@@ -1,7 +1,7 @@
 # Get Mercadolibre / Tu Carro access token
-1. Ingrese como administrador a mercadolibre
+1. Ingrese como administrador a mercadolibre utilizando la cuenta de retomautos
 2. Copie y pegue la siguiente URL en su explorador
-   `http://auth.mercadolibre.com.co/authorization?response_type=code&client_id=6183539405320299&redirect_uri=https://www.retomautos.com/`
+   `http://auth.mercadolibre.com.co/authorization?response_type=code&client_id=7122430585939472&redirect_uri=https://www.retomautos.com/`
 3. Acepte los permisos
 4. Será redirigido a retomautos.
 5. Tome note del texto despues de `code=` en la url. Llamaremos esto
@@ -16,8 +16,8 @@
 -H 'content-type: application/x-www-form-urlencoded' \
 'https://api.mercadolibre.com/oauth/token' \
 -d 'grant_type=authorization_code' \
--d 'client_id=6183539405320299' \
--d 'client_secret=Cza9ilXdL3TJ3RvuoWNK5gpQDGqBK2m8' \
+-d 'client_id=7122430585939472' \
+-d 'client_secret=pe5oBbcFZdlYb8549Vm5zzhnl1o6ArBT' \
 -d 'code=$SERVER_GENERATED_AUTHORIZATION_CODE' \
 -d 'redirect_uri=https://www.retomautos.com/'
 ```
