@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
+  root to: 'visitors#close'
+  get '*path', to: 'visitors#close'
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
-  root to: 'visitors#home'
-  get '/financiacion', to: 'visitors#financing'
-  get '/sobre-nosotros', to: 'visitors#about_us'
-  get '/encontramos-tu-carro', to: 'find_car_requests#new'
-  get '/pagos', to: 'visitors#payments'
-  get '/gracias', to: 'visitors#after_form_view'
-  get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
+
+  # get '/financiacion', to: 'visitors#financing'
+  # get '/sobre-nosotros', to: 'visitors#about_us'
+  # get '/encontramos-tu-carro', to: 'find_car_requests#new'
+  # get '/pagos', to: 'visitors#payments'
+  # get '/gracias', to: 'visitors#after_form_view'
+  # get '/tratamiento-datos-personales', to: 'visitors#personal_data_policy'
   resources :find_car_requests, only: [:new, :create]
   resources :blog_posts, only: [:index]
   resources :cars, only: [:edit, :update]
